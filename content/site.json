@@ -303,6 +303,13 @@
         "note": "Rain date Aug 8"
       },
       {
+        "tag": "",
+        "venue": "Charlie O's Hometown Bar & Grill",
+        "date": "2026-08-01",
+        "time": "7:30–10:30 PM",
+        "loc": "23 E. Market St, Red Hook"
+      },
+      {
         "date": "2026-08-12",
         "time": "6–8 PM",
         "venue": "Old Rhinebeck Aerodrome",
@@ -364,13 +371,6 @@
         "town": "Red Hook",
         "tag": "",
         "note": ""
-      },
-      {
-        "tag": "",
-        "venue": "Charlie O's Hometown Bar & Grill",
-        "date": "2026-08-01",
-        "time": "7:30–10:30 PM",
-        "loc": "23 E. Market St, Red Hook"
       }
     ],
     "offseason": "Thanks for a great season — see you again soon!"
