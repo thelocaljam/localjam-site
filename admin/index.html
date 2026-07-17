@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#17211B" />
+  <title>The Local Jam — Band Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--night:#17211B;--amber:#E39A2E;--paper:#F7F1E4;--river:#3E6E72}
+    html,body{margin:0;height:100%;background:#17211B;font-family:"Inter",system-ui,sans-serif}
+    /* ---- Branded portal (custom auth screen in front of Decap) ---- */
+    #portal{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;
+      color:#fff;overflow:hidden;
+      background:radial-gradient(120% 80% at 78% 6%,rgba(227,154,46,.28),transparent 55%),
+                 radial-gradient(90% 70% at 10% 20%,rgba(62,110,114,.32),transparent 60%),
+                 linear-gradient(180deg,#17211B 0%,#22322A 60%,#101710 100%)}
+    #portal.hide{display:none}
+    #portal::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;background-size:160px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+    .card{position:relative;z-index:1;width:100%;max-width:440px;text-align:center}
+    .eyebrow{font-family:"Inter";font-weight:600;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--amber);margin:0 0 18px}
+    .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--amber);margin-right:8px;vertical-align:middle;
+      animation:beat 1.7s ease-in-out infinite}
+    @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+    .logo{font-family:"Anton",sans-serif;text-transform:uppercase;line-height:.86;letter-spacing:.01em;
+      font-size:clamp(52px,14vw,88px);color:#fff;margin:0}
+    .logo b{color:var(--amber);font-weight:400}
+    .sub{color:rgba(255,255,255,.8);font-size:16px;margin:20px auto 26px;max-width:34ch;line-height:1.5}
+    #enter{font:inherit;font-weight:700;font-size:16px;background:var(--amber);color:var(--night);border:0;border-radius:100px;
+      padding:15px 30px;cursor:pointer;box-shadow:0 10px 30px -10px rgba(227,154,46,.7);transition:transform .2s,background .2s}
+    #enter:hover{background:#fff;transform:translateY(-2px)}
+    .hint{margin-top:22px;font-size:13px;color:rgba(255,255,255,.55)}
+    .back{position:fixed;top:20px;left:22px;z-index:11;color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;font-weight:500}
+    .back:hover{color:var(--amber)}
+    @media (prefers-reduced-motion:reduce){.dot{animation:none}}
+  </style>
+</head>
+<body>
+  <!-- Custom branded portal shown BEFORE Decap loads -->
+  <a class="back" href="/">&larr; Back to site</a>
+  <div id="portal">
+    <div class="card">
+      <p class="eyebrow"><span class="dot"></span>The Local Jam · Band Portal</p>
+      <h1 class="logo">The<br>Local<br><b>Jam</b></h1>
+      <p class="sub">Log in to update shows, photos, music, and everything on the site.</p>
+      <button id="enter">Log in to edit &rarr;</button>
+      <p class="hint">Invite-only. Ask the site owner if you need access.</p>
+    </div>
+  </div>
+
+  <!-- Decap CMS. v3.8.3+ required for Login with Google / Microsoft. -->
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"></script>
+  <script>
+    (function(){
+      var enter = document.getElementById('enter');
+      var portal = document.getElementById('portal');
+      enter.addEventListener('click', function(){
+        portal.classList.add('hide');     // reveal Decap
+        window.CMS.init();                // loads config.yml → DecapBridge login → editor
+      });
+    })();
+  </script>
+</body>
+</html>
