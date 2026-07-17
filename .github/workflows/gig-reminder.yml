@@ -1,0 +1,30 @@
+name: Gig reminder emails
+
+on:
+  schedule:
+    - cron: "0 14 * * *"     # runs daily ~9–10am US Eastern (GitHub cron is in UTC)
+  workflow_dispatch: {}        # adds a "Run workflow" button so you can test it anytime
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    env:
+      TZ: America/New_York
+
+      # ─────────────  EDIT THESE  ─────────────
+      REMIND_DAYS_BEFORE: "2"                              # send this many days before a gig (1 or 2)
+      BREVO_LIST_ID: "2"           # Brevo → Contacts → your list → the ID number
+      SENDER_EMAIL: "admin@thelocaljam.com"    # must be a VERIFIED sender in Brevo
+      SENDER_NAME: "The Local Jam"
+      SITE_URL: "https://localjam-site.nameless-band-7e82.workers.dev"
+      HEADER_IMAGE_URL: "https://img.mailinblue.com/11690044/images/content_library/original/6a5a5bb8775fa460f34df161.png"
+      # ────────────────────────────────────────
+
+      BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}          # set in repo Settings → Secrets and variables → Actions
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Send gig reminders
+        run: node .github/scripts/gig-reminder.js
