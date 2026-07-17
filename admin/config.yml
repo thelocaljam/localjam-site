@@ -9,20 +9,38 @@
 #
 # =============================================================================
 
-# ---- REPLACE THIS BLOCK with the one from DecapBridge -----------------------
+# Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME      # e.g. thelocaljam/website
+  repo: thelocaljam/localjam-site
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/YOUR-SITE-ID
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/124018db-6998-441e-b27a-7b7135a2c39d/pkce
+  auth_token_endpoint: /sites/124018db-6998-441e-b27a-7b7135a2c39d/token
   gateway_url: https://gateway.decapbridge.com
+
+  # See who did what (optional)
   commit_messages:
-    create: 'Add {{collection}} “{{slug}}” — {{author-name}}'
-    update: 'Update {{collection}} “{{slug}}” — {{author-name}}'
-    delete: 'Delete {{collection}} “{{slug}}” — {{author-name}}'
-    uploadMedia: 'Upload “{{path}}” — {{author-name}}'
-    deleteMedia: 'Delete “{{path}}” — {{author-name}}'
-# -----------------------------------------------------------------------------
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+# Enable PKCE fields (optional, recommended)
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+# Better Decap + Bridge logo (optional)
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# Add site links in Decap CMS (optional)
+site_url: https://localjam-site.nameless-band-7e82.workers.dev
 
 # Where uploaded photos / audio are stored in the repo, and how the site links them.
 media_folder: "images/uploads"
@@ -32,8 +50,8 @@ public_folder: "/images/uploads"
 logo_url: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20560%20150%27%3E%3Crect%20width%3D%27560%27%20height%3D%27150%27%20rx%3D%2718%27%20fill%3D%27%2317211B%27/%3E%3Ccircle%20cx%3D%2744%27%20cy%3D%2775%27%20r%3D%278%27%20fill%3D%27%23E39A2E%27/%3E%3Ctext%20x%3D%2768%27%20y%3D%2792%27%20font-family%3D%27Arial%20Black%2CArial%2Csans-serif%27%20font-weight%3D%27900%27%20font-size%3D%2742%27%20letter-spacing%3D%271.5%27%20fill%3D%27%23F7F1E4%27%3ETHE%20LOCAL%20JAM%3C/text%3E%3C/svg%3E"
 
 # A friendly link back to the live site from the CMS top bar.
-site_url: https://YOUR-SITE.pages.dev
-display_url: https://YOUR-SITE.pages.dev
+site_url: https://localjam-site.nameless-band-7e82.workers.dev
+display_url: https://localjam-site.nameless-band-7e82.workers.dev
 
 collections:
   - name: "content"
