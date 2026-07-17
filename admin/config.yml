@@ -53,229 +53,233 @@ logo_url: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%2
 display_url: https://localjam-site.nameless-band-7e82.workers.dev
 
 collections:
-  - name: "content"
-    label: "Website"
-    description: "Everything on the site lives here. Edit a section, then click Publish."
-    editor:
-      preview: false
-    files:
-      - name: "site"
-        label: "The Local Jam — all content"
-        file: "content/site.json"
-        format: "json"
-        fields:
-          - { label: "Band name (logo text)", name: "brand", widget: "string" }
+- name: "content"
+  label: "Website"
+  description: "Everything on the site lives here. Edit a section, then click Publish."
+  editor:
+    preview: false
+  files:
+  - name: "site"
+    label: "The Local Jam — all content"
+    file: "content/site.json"
+    format: "json"
+    fields:
+    - {label: "Band name (logo text)", name: "brand", widget: "string", required: false}
 
           # ---------------- HERO ----------------
-          - label: "Hero (top of page)"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { label: "Eyebrow line", name: "eyebrow", widget: "string" }
-              - { label: "Big title", name: "title", widget: "text", hint: "Use a new line for a line break." }
-              - { label: "Intro sentence", name: "sub", widget: "text" }
-              - label: "Background photos (they crossfade)"
-                name: "images"
-                widget: "list"
-                required: false
-                field: { label: "Photo", name: "image", widget: "image" }
-              - label: "Mobile background photos (upright / portrait)"
-                name: "imagesMobile"
-                widget: "list"
-                required: false
-                field: { label: "Photo", name: "image", widget: "image" }
-                hint: "Optional. Upload tall/vertical shots here for phones. If left empty, the desktop photos above are used on phones too."
-              - { label: "Cinematic effect on the hero", name: "filmEffect", widget: "boolean", default: true, required: false, hint: "Adds faint static scanlines and a soft vignette for a cinematic look. Turn off for a clean photo." }
+    - label: "Hero (top of page)"
+      name: "hero"
+      widget: "object"
+      fields:
+      - {label: "Eyebrow line", name: "eyebrow", widget: "string", required: false}
+      - {label: "Big title", name: "title", widget: "text", hint: "Use a new line for a line break.", required: false}
+      - {label: "Intro sentence", name: "sub", widget: "text", required: false}
+      - label: "Background photos (they crossfade)"
+        name: "images"
+        widget: "list"
+        required: false
+        field: {label: "Photo", name: "image", widget: "image", required: false}
+      - label: "Mobile background photos (upright / portrait)"
+        name: "imagesMobile"
+        widget: "list"
+        required: false
+        field: {label: "Photo", name: "image", widget: "image", required: false}
+        hint: "Optional. Upload tall/vertical shots here for phones. If left empty, the desktop photos above are used on phones too."
+      - {label: "Cinematic effect on the hero", name: "filmEffect", widget: "boolean", default: true, required: false, hint: "Adds faint static scanlines and a soft vignette for a cinematic look. Turn off for a clean photo."}
 
           # ---------------- MENU LABELS ----------------
-          - label: "Menu labels"
-            name: "nav"
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Shows", name: "shows", widget: "string" }
-              - { label: "Videos", name: "music", widget: "string" }
-              - { label: "Photos", name: "photos", widget: "string" }
-              - { label: "Band", name: "band", widget: "string" }
-              - { label: "Songs", name: "songs", widget: "string" }
-              - { label: "Book button", name: "book", widget: "string" }
-              - { label: "Tip button", name: "tip", widget: "string" }
+    - label: "Menu labels"
+      name: "nav"
+      widget: "object"
+      collapsed: true
+      fields:
+      - {label: "Shows", name: "shows", widget: "string", required: false}
+      - {label: "Videos", name: "music", widget: "string", required: false}
+      - {label: "Photos", name: "photos", widget: "string", required: false}
+      - {label: "Band", name: "band", widget: "string", required: false}
+      - {label: "Songs", name: "songs", widget: "string", required: false}
+      - {label: "Book button", name: "book", widget: "string", required: false}
+      - {label: "Tip button", name: "tip", widget: "string", required: false}
 
           # ---------------- ABOUT ----------------
-          - label: "About"
-            name: "about"
-            widget: "object"
-            fields:
-              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Headline", name: "headline", widget: "string" }
-              - { label: "Lead sentence", name: "lead", widget: "text" }
-              - { label: "Paragraph", name: "body", widget: "text" }
-              - { label: "Photo (beside the text)", name: "image", widget: "image", required: false }
+    - label: "About"
+      name: "about"
+      widget: "object"
+      fields:
+      - {label: "Eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Headline", name: "headline", widget: "string", required: false}
+      - {label: "Lead sentence", name: "lead", widget: "text", required: false}
+      - {label: "Paragraph", name: "body", widget: "text", required: false}
+      - {label: "Photo (beside the text)", name: "image", widget: "image", required: false}
 
           # ---------------- SHOWS ----------------
-          - label: "Shows"
-            name: "shows"
-            widget: "object"
-            fields:
-              - { label: "Section eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Section heading", name: "heading", widget: "string" }
-              - { label: "Off-season message", name: "offseason", widget: "string", required: false, hint: "Shown automatically when there are no upcoming gigs (e.g. \"Thanks for a great season \u2014 see you again soon!\"). Visitors can still view past shows and book you." }
-              - label: "Show list"
-                name: "list"
-                widget: "list"
-                summary: "{{fields.date}} — {{fields.venue}}"
-                fields:
-                  - { label: "Venue / event", name: "venue", widget: "string" }
-                  - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
-                  - { label: "Time", name: "time", widget: "string", hint: "e.g. 6–8 PM" }
-                  - { label: "Location (street + town)", name: "loc", widget: "string" }
-                  - { label: "Town (for homepage)", name: "town", widget: "string", required: false }
-                  - label: "Type"
-                    name: "tag"
-                    widget: "select"
-                    default: ""
-                    options:
-                      - { label: "Public show", value: "" }
-                      - { label: "Private event", value: "private" }
-                      - { label: "Has a rain date", value: "rain" }
-                  - { label: "Note (optional)", name: "note", widget: "string", required: false, hint: "e.g. Rain date Jul 9" }
+    - label: "Shows"
+      name: "shows"
+      widget: "object"
+      fields:
+      - {label: "Section eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Section heading", name: "heading", widget: "string", required: false}
+      - {label: "Off-season message", name: "offseason", widget: "string", required: false, hint: "Shown automatically when there are no upcoming gigs (e.g. \"Thanks for a great season — see you again soon!\"). Visitors can still view past shows and book you."}
+      - label: "Show list"
+        name: "list"
+        widget: "list"
+        summary: "{{fields.date}} — {{fields.venue}}"
+        fields:
+        - {label: "Venue / event", name: "venue", widget: "string", required: false}
+        - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, picker_utc: true}
+        - {label: "Time", name: "time", widget: "string", hint: "e.g. 6–8 PM", required: false}
+        - {label: "Location (street + town)", name: "loc", widget: "string", required: false}
+        - {label: "Town (for homepage)", name: "town", widget: "string", required: false}
+        - label: "Type"
+          name: "tag"
+          widget: "select"
+          required: false
+          default: ""
+          options:
+          - {label: "Public show", value: ""}
+          - {label: "Private event", value: "private"}
+          - {label: "Has a rain date", value: "rain"}
+        - {label: "Note (optional)", name: "note", widget: "string", required: false, hint: "e.g. Rain date Jul 9"}
 
           # ---------------- VIDEOS ----------------
-          - label: "Videos"
-            name: "music"
-            widget: "object"
-            fields:
-              - { label: "Section eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Section heading", name: "heading", widget: "string" }
-              - { label: "Section intro", name: "sub", widget: "text" }
-              - label: "Videos"
-                name: "videos"
-                widget: "list"
-                required: false
-                summary: "{{fields.title}}"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Caption", name: "sub", widget: "string", required: false }
-                  - { label: "YouTube link", name: "youtube", widget: "string", required: false, hint: "Just paste the full YouTube link (e.g. https://youtu.be/abc123 or the watch?v= URL). A bare video ID works too." }
+        required: false
+    - label: "Videos"
+      name: "music"
+      widget: "object"
+      fields:
+      - {label: "Section eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Section heading", name: "heading", widget: "string", required: false}
+      - {label: "Section intro", name: "sub", widget: "text", required: false}
+      - label: "Videos"
+        name: "videos"
+        widget: "list"
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+        - {label: "Title", name: "title", widget: "string", required: false}
+        - {label: "Caption", name: "sub", widget: "string", required: false}
+        - {label: "YouTube link", name: "youtube", widget: "string", required: false, hint: "Just paste the full YouTube link (e.g. https://youtu.be/abc123 or the watch?v= URL). A bare video ID works too."}
 
           # ---------------- AUDIO ----------------
-          - label: "Audio"
-            name: "audio"
-            widget: "object"
-            fields:
-              - { label: "Section eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Section heading", name: "heading", widget: "string" }
-              - { label: "Section intro", name: "sub", widget: "text" }
-              - label: "Tracks"
-                name: "tracks"
-                widget: "list"
-                required: false
-                summary: "{{fields.title}}"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Artist", name: "artist", widget: "string", required: false }
-                  - { label: "Audio file (MP3)", name: "src", widget: "file", required: false, hint: "Keep clips short to keep the site fast." }
+    - label: "Audio"
+      name: "audio"
+      widget: "object"
+      fields:
+      - {label: "Section eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Section heading", name: "heading", widget: "string", required: false}
+      - {label: "Section intro", name: "sub", widget: "text", required: false}
+      - label: "Tracks"
+        name: "tracks"
+        widget: "list"
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+        - {label: "Title", name: "title", widget: "string", required: false}
+        - {label: "Artist", name: "artist", widget: "string", required: false}
+        - {label: "Audio file (MP3)", name: "src", widget: "file", required: false, hint: "Keep clips short to keep the site fast."}
 
           # ---------------- GALLERY ----------------
-          - label: "Photo gallery"
-            name: "gallery"
-            widget: "object"
-            fields:
-              - { label: "Section eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Section heading", name: "heading", widget: "string" }
-              - label: "Photos (hidden on the site until you add at least one)"
-                name: "images"
-                widget: "list"
-                required: false
-                field: { label: "Photo", name: "image", widget: "image" }
+    - label: "Photo gallery"
+      name: "gallery"
+      widget: "object"
+      fields:
+      - {label: "Section eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Section heading", name: "heading", widget: "string", required: false}
+      - label: "Photos (hidden on the site until you add at least one)"
+        name: "images"
+        widget: "list"
+        required: false
+        field: {label: "Photo", name: "image", widget: "image", required: false}
 
           # ---------------- REVIEWS ----------------
-          - label: "Reviews / endorsements"
-            name: "testimonials"
-            widget: "object"
-            fields:
-              - { label: "Section eyebrow", name: "eyebrow", widget: "string", required: false }
-              - { label: "Section heading", name: "heading", widget: "string" }
-              - label: "Quotes (drag to reorder; hidden on the site if empty)"
-                name: "list"
-                widget: "list"
-                required: false
-                summary: "{{fields.name}} — {{fields.quote}}"
-                fields:
-                  - { label: "Quote", name: "quote", widget: "text" }
-                  - { label: "Name", name: "name", widget: "string" }
-                  - { label: "Detail (event / town)", name: "detail", widget: "string", required: false }
+    - label: "Reviews / endorsements"
+      name: "testimonials"
+      widget: "object"
+      fields:
+      - {label: "Section eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Section heading", name: "heading", widget: "string", required: false}
+      - label: "Quotes (drag to reorder; hidden on the site if empty)"
+        name: "list"
+        widget: "list"
+        required: false
+        summary: "{{fields.name}} — {{fields.quote}}"
+        fields:
+        - {label: "Quote", name: "quote", widget: "text", required: false}
+        - {label: "Name", name: "name", widget: "string", required: false}
+        - {label: "Detail (event / town)", name: "detail", widget: "string", required: false}
 
           # ---------------- BAND ----------------
-          - label: "Band & guests"
-            name: "band"
-            widget: "object"
-            fields:
-              - { label: "Section eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Section heading", name: "heading", widget: "string" }
-              - { label: "Section intro", name: "sub", widget: "text" }
-              - label: "Members"
-                name: "members"
-                widget: "list"
-                summary: "{{fields.role}} — {{fields.name}}"
-                fields:
-                  - { label: "Name", name: "name", widget: "string", required: false }
-                  - { label: "Role / instrument", name: "role", widget: "string" }
-                  - { label: "Photo", name: "photo", widget: "image", required: false }
-                  - { label: "Special guest?", name: "guest", widget: "boolean", default: false }
+    - label: "Band & guests"
+      name: "band"
+      widget: "object"
+      fields:
+      - {label: "Section eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Section heading", name: "heading", widget: "string", required: false}
+      - {label: "Section intro", name: "sub", widget: "text", required: false}
+      - label: "Members"
+        name: "members"
+        widget: "list"
+        summary: "{{fields.role}} — {{fields.name}}"
+        fields:
+        - {label: "Name", name: "name", widget: "string", required: false}
+        - {label: "Role / instrument", name: "role", widget: "string", required: false}
+        - {label: "Photo", name: "photo", widget: "image", required: false}
+        - {label: "Special guest?", name: "guest", widget: "boolean", default: false, required: false}
 
           # ---------------- SONGBOOK ----------------
-          - label: "Songbook"
-            name: "songs"
-            widget: "object"
-            fields:
-              - { label: "Section eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Section heading", name: "heading", widget: "string" }
-              - { label: "Section intro", name: "sub", widget: "string" }
-              - label: "Artists (added in any order — the site sorts them A–Z automatically)"
-                name: "artists"
-                widget: "list"
-                field: { label: "Artist", name: "artist", widget: "string" }
+        required: false
+    - label: "Songbook"
+      name: "songs"
+      widget: "object"
+      fields:
+      - {label: "Section eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Section heading", name: "heading", widget: "string", required: false}
+      - {label: "Section intro", name: "sub", widget: "string", required: false}
+      - label: "Artists (added in any order — the site sorts them A–Z automatically)"
+        name: "artists"
+        widget: "list"
+        field: {label: "Artist", name: "artist", widget: "string", required: false}
+        required: false
 
           # ---------------- BOOKING ----------------
-          - label: "Booking"
-            name: "book"
-            widget: "object"
-            fields:
-              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Pitch", name: "body", widget: "text" }
-              - label: "Event-types ticker (scrolls before booking)"
-                name: "eventTypes"
-                widget: "list"
-                required: false
-                field: { label: "Event type", name: "type", widget: "string" }
+    - label: "Booking"
+      name: "book"
+      widget: "object"
+      fields:
+      - {label: "Eyebrow", name: "eyebrow", widget: "string", required: false}
+      - {label: "Heading", name: "heading", widget: "string", required: false}
+      - {label: "Pitch", name: "body", widget: "text", required: false}
+      - label: "Event-types ticker (scrolls before booking)"
+        name: "eventTypes"
+        widget: "list"
+        required: false
+        field: {label: "Event type", name: "type", widget: "string", required: false}
 
           # ---------------- CONTACT & TIPS ----------------
-          - label: "Contact & tips"
-            name: "contact"
-            widget: "object"
-            fields:
-              - { label: "Phone", name: "phone", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
-              - { label: "Facebook link", name: "facebook", widget: "string", required: false }
-              - { label: "Instagram link", name: "instagram", widget: "string", required: false }
-              - { label: "YouTube link", name: "youtube", widget: "string", required: false }
-              - { label: "Venmo username or link", name: "venmo", widget: "string", required: false, hint: "Tip buttons appear automatically once this is filled in." }
-              - { label: "Brevo form action URL (for the email signup)", name: "brevo", widget: "string", required: false, hint: "In Brevo: create a subscription form, open its Share & embed / HTML code, and copy the URL inside <form action=\"...\"> (usually a sibforms.com link). Both signup boxes collect emails once this is filled in." }
-              - { label: "Formspree endpoint (for the booking form)", name: "formspree", widget: "string", required: false, hint: "Create a free form at formspree.io and paste its endpoint (e.g. https://formspree.io/f/abc123). If left blank, the booking form opens the visitor's email app to you instead." }
+    - label: "Contact & tips"
+      name: "contact"
+      widget: "object"
+      fields:
+      - {label: "Phone", name: "phone", widget: "string", required: false}
+      - {label: "Email", name: "email", widget: "string", required: false}
+      - {label: "Facebook link", name: "facebook", widget: "string", required: false}
+      - {label: "Instagram link", name: "instagram", widget: "string", required: false}
+      - {label: "YouTube link", name: "youtube", widget: "string", required: false}
+      - {label: "Venmo username or link", name: "venmo", widget: "string", required: false, hint: "Tip buttons appear automatically once this is filled in."}
+      - {label: "Brevo form action URL (for the email signup)", name: "brevo", widget: "string", required: false, hint: "In Brevo: create a subscription form, open its Share & embed / HTML code, and copy the URL inside <form action=\"...\"> (usually a sibforms.com link). Both signup boxes collect emails once this is filled in."}
+      - {label: "Formspree endpoint (for the booking form)", name: "formspree", widget: "string", required: false, hint: "Create a free form at formspree.io and paste its endpoint (e.g. https://formspree.io/f/abc123). If left blank, the booking form opens the visitor's email app to you instead."}
 
           # ---------------- FOOTER ----------------
-          - label: "Footer"
-            name: "footer"
-            widget: "object"
-            fields:
-              - { label: "Location line", name: "tagline", widget: "string" }
-              - { label: "Designer credit (shows as \"Site designed by …\")", name: "credit", widget: "string", required: false }
+    - label: "Footer"
+      name: "footer"
+      widget: "object"
+      fields:
+      - {label: "Location line", name: "tagline", widget: "string", required: false}
+      - {label: "Designer credit (shows as \"Site designed by …\")", name: "credit", widget: "string", required: false}
 
-          - label: "Mailing list"
-            name: "mailing"
-            widget: "object"
-            fields:
-              - { label: "Heading", name: "heading", widget: "string" }
-              - { label: "Subtext", name: "sub", widget: "text" }
+    - label: "Mailing list"
+      name: "mailing"
+      widget: "object"
+      fields:
+      - {label: "Heading", name: "heading", widget: "string", required: false}
+      - {label: "Subtext", name: "sub", widget: "text", required: false}
