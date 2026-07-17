@@ -8,6 +8,9 @@ const LIST         = parseInt(process.env.BREVO_LIST_ID || '0', 10);
 const SENDER_EMAIL = process.env.SENDER_EMAIL;
 const SENDER_NAME  = process.env.SENDER_NAME || 'The Local Jam';
 const SITE         = (process.env.SITE_URL || '').replace(/\/+$/, '');
+const FB = 'https://www.facebook.com/profile.php?id=100095570163921';
+const IG = 'https://www.instagram.com/thelocaljamband/';
+const YT = 'https://www.youtube.com/@thelocaljam';
 const HEADER_IMG   = process.env.HEADER_IMAGE_URL || '';
 const DAYS         = parseInt(process.env.REMIND_DAYS_BEFORE || '2', 10);
 
@@ -61,6 +64,7 @@ ${HEADER_IMG ? `<tr><td style="padding:0;line-height:0;"><a href="${SITE}"><img 
 <tr><td style="padding:26px 36px;background:#17211B;font-family:Arial,Helvetica,sans-serif;text-align:center;">
   <div style="font-size:18px;font-weight:800;color:#fff;letter-spacing:1px;">THE LOCAL JAM</div>
   <div style="font-size:13px;color:rgba(255,255,255,.65);margin-top:6px;">A Hudson Valley cover band &middot; Since 2017</div>
+  <div style="margin-top:14px;"><a href="${SITE}" style="color:#E39A2E;font-size:13px;text-decoration:none;">Website</a>&nbsp;&middot;&nbsp;<a href="${FB}" style="color:#E39A2E;font-size:13px;text-decoration:none;">Facebook</a>&nbsp;&middot;&nbsp;<a href="${IG}" style="color:#E39A2E;font-size:13px;text-decoration:none;">Instagram</a>&nbsp;&middot;&nbsp;<a href="${YT}" style="color:#E39A2E;font-size:13px;text-decoration:none;">YouTube</a></div>
   <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:16px;"><a href="{{ unsubscribe }}" style="color:rgba(255,255,255,.6);">Unsubscribe</a></div>
 </td></tr>
 </table></td></tr></table></body></html>`;
