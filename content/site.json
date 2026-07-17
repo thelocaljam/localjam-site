@@ -167,16 +167,16 @@
         "guest": false
       },
       {
-        "name": "",
-        "role": "Special Guest",
-        "photo": "",
-        "guest": true
-      },
-      {
         "guest": true,
         "photo": "/images/uploads/lee_kirsten-3-2.jpg",
         "name": "Kirsten",
         "role": "Bass & Vocals"
+      },
+      {
+        "name": "Bobby",
+        "role": "Bass & Vocals",
+        "photo": "/images/uploads/macdougall_bobby.jpg",
+        "guest": true
       }
     ]
   },
