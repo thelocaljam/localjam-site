@@ -374,33 +374,52 @@
     "tracks": [
       {
         "title": "California Dreamin'",
-        "artist": "The Mamas & the Papas",
+        "artist": "",
         "src": "/images/uploads/california-dreaming.mp3"
       },
       {
-        "title": "Dreams",
-        "artist": "Fleetwood Mac",
-        "src": ""
+        "src": "/images/uploads/when-will-i-be-loved.mp3",
+        "title": "When Will I be Loved"
       },
       {
-        "title": "Free Fallin'",
-        "artist": "Tom Petty",
-        "src": ""
+        "src": "/images/uploads/its-too-late.mp3",
+        "title": "It's Too Late"
       },
       {
-        "title": "Take It Easy",
-        "artist": "The Eagles",
-        "src": ""
+        "src": "/images/uploads/brandy.mp3",
+        "title": "Brandy"
       },
       {
-        "title": "Sultans of Swing",
-        "artist": "Dire Straits",
-        "src": ""
+        "src": "/images/uploads/your-mama-dont-dance.mp3",
+        "title": "Your Mama Don't Dance"
       },
       {
-        "title": "Africa",
-        "artist": "Toto",
-        "src": ""
+        "src": "/images/uploads/youre-no-good.mp3",
+        "title": "You're No Good"
+      },
+      {
+        "src": "/images/uploads/back-on-the-chain-gang.mp3",
+        "title": "Back on the Chain Gang"
+      },
+      {
+        "src": "/images/uploads/one-of-these-nights.mp3",
+        "title": "One of These Nights"
+      },
+      {
+        "src": "/images/uploads/rolling-in-the-deep.mp3",
+        "title": "Rolling in the Deep"
+      },
+      {
+        "src": "/images/uploads/crazy-little-thing-called-love.mp3",
+        "title": "Carzy Little Thing Called Love"
+      },
+      {
+        "src": "/images/uploads/the-weight.mp3",
+        "title": "The Weight"
+      },
+      {
+        "src": "/images/uploads/harvest-moon.mp3",
+        "title": "Harvest Moon"
       }
     ]
   },
