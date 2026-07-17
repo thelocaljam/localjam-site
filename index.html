@@ -1,0 +1,1192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Local Jam — A Hudson Valley Band</title>
+<meta name="description" content="The Local Jam is a Hudson Valley cover band playing pubs, breweries, orchards and lawn concerts across the region. See the schedule and book us." />
+<!-- The Local Jam website. All content lives in the data block below.
+     Easiest way to edit: open editor.html, make changes, click "Download website". -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#17211B; --night-2:#22322A; --paper:#F7F1E4; --paper-2:#EDE5D3; --card:#FFFFFF;
+    --ink:#232A20; --ink-soft:#5E6353; --amber:#E39A2E; --amber-deep:#B67E1E;
+    --river:#3E6E72; --apple:#C1462F; --line:#DBD1BC; --line-dk:#2E3A2E;
+    --maxw:1120px; --r:16px; --shadow:0 18px 50px -24px rgba(23,33,27,.5);
+    --display:"Bricolage Grotesque",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--river);margin:0 0 14px}
+  .eyebrow.on-night{color:var(--amber)}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.01em}
+  .section{padding:96px 0}
+  .section-head{max-width:680px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(34px,6vw,66px);letter-spacing:-.02em}
+  .head-grow{transform:scale(.9);transform-origin:left center}
+  .head-grow.in{animation:headkick .72s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes headkick{0%{transform:scale(.9)}58%{transform:scale(1.045)}100%{transform:scale(1)}}
+
+  /* ---------- PULSE / BEAT / EQUALIZER ---------- */
+  @keyframes beat{0%,100%{transform:scale(1)}45%{transform:scale(1.13)}}
+  @keyframes ring{0%{box-shadow:0 0 0 0 rgba(193,70,47,.5)}70%{box-shadow:0 0 0 7px rgba(193,70,47,0)}100%{box-shadow:0 0 0 0 rgba(193,70,47,0)}}
+  @keyframes eqbar{0%,100%{height:22%}50%{height:100%}}
+  .nc-top{display:flex;align-items:center;gap:7px}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--apple);flex:none;animation:beat 1.05s ease-in-out infinite,ring 1.6s ease-out infinite}
+  .badge{animation:beat 1.25s ease-in-out infinite}
+  .beat-heart{display:inline-block;animation:beat 1s ease-in-out infinite}
+  .eq{display:inline-flex;align-items:flex-end;gap:3px;height:17px}
+  .eq i{width:3px;height:35%;background:var(--amber);border-radius:2px;animation:eqbar .85s ease-in-out infinite}
+  .eq i:nth-child(2){animation-delay:.12s}.eq i:nth-child(3){animation-delay:.28s}.eq i:nth-child(4){animation-delay:.42s}
+  .eyebrow-eq{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+  .eyebrow-eq .eyebrow{margin:0}
+  @media (prefers-reduced-motion:reduce){
+    .head-grow{transform:none}.head-grow.in{animation:none}
+    .live-dot,.badge,.beat-heart,.eq i{animation:none}.eq i{height:60%}
+  }
+  .section-head p{color:var(--ink-soft);font-size:18px;margin:16px 0 0}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;transition:background .35s,box-shadow .35s,padding .35s}
+  header.nav.scrolled{background:rgba(247,241,228,.88);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 24px}
+  .brand{font-family:var(--display);font-weight:800;letter-spacing:.02em;font-size:18px;color:#fff;text-decoration:none;line-height:1;display:flex;align-items:center;gap:10px}
+  .scrolled .brand{color:var(--ink)}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);flex:none}
+  nav.links{display:flex;gap:26px;align-items:center}
+  nav.links a{text-decoration:none;font-size:14px;font-weight:500;color:rgba(255,255,255,.85)}
+  .scrolled nav.links a{color:var(--ink-soft)}
+  nav.links a:hover{color:var(--amber)}
+  .pill{padding:9px 16px;border-radius:100px;font-weight:600}
+  nav.links a.book{background:var(--amber);color:var(--night)}
+  nav.links a.book:hover{background:#fff;color:var(--night)}
+  nav.links a.tip{border:1px solid rgba(255,255,255,.4);color:#fff}
+  .scrolled nav.links a.tip{border-color:var(--line);color:var(--ink)}
+  nav.links a.tip:hover{border-color:var(--amber);color:var(--amber)}
+  .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:100px;padding:8px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+  .scrolled .menu-btn{color:var(--ink);border-color:var(--line)}
+  .mobile-menu{position:fixed;top:0;left:0;right:0;z-index:49;background:var(--night);padding:78px 24px 26px;
+    display:flex;flex-direction:column;gap:4px;transform:translateY(-105%);transition:transform .38s cubic-bezier(.4,0,.2,1);box-shadow:var(--shadow)}
+  .mobile-menu.open{transform:translateY(0)}
+  .mobile-menu a{color:#fff;text-decoration:none;font-family:var(--display);font-weight:700;font-size:22px;padding:12px 0;border-bottom:1px solid var(--line-dk)}
+  .mobile-menu a.cta{color:var(--amber)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;color:#fff;
+    background:radial-gradient(120% 80% at 78% 6%,rgba(227,154,46,.30),transparent 55%),
+               radial-gradient(90% 70% at 10% 20%,rgba(62,110,114,.35),transparent 60%),
+               linear-gradient(180deg,var(--night) 0%,var(--night-2) 60%,#101710 100%)}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease;will-change:opacity,transform}
+  .hero-bg .slide.active{opacity:1}
+  .hero-bg .slide.kb{animation:kenburns 20s ease-out forwards}
+  @keyframes kenburns{from{transform:scale(1.05)}to{transform:scale(1.16)}}
+  .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .8s ease;
+    background:linear-gradient(95deg,rgba(23,33,27,.95) 0%,rgba(23,33,27,.82) 28%,rgba(23,33,27,.48) 56%,rgba(23,33,27,.10) 100%),
+               linear-gradient(0deg,rgba(16,22,15,.72) 0%,transparent 34%)}
+  .hero.has-bg .hero-scrim{opacity:1}
+  .hero-spot{position:absolute;inset:-25%;z-index:1;pointer-events:none;will-change:transform}
+  .spot-warm{background:radial-gradient(36% 40% at 34% 38%,rgba(227,154,46,.16),transparent 62%);animation:spotA 26s ease-in-out infinite alternate}
+  .spot-cool{background:radial-gradient(34% 40% at 68% 60%,rgba(62,110,114,.13),transparent 62%);animation:spotB 34s ease-in-out infinite alternate}
+  @keyframes spotA{0%{transform:translate(-5%,-4%) scale(1)}100%{transform:translate(7%,6%) scale(1.14)}}
+  @keyframes spotB{0%{transform:translate(6%,4%) scale(1.08)}100%{transform:translate(-6%,-5%) scale(1)}}
+  @media (prefers-reduced-motion:reduce){.hero-spot,.music::before,.book::before{animation:none}}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(70% 55% at 8% 50%,rgba(227,154,46,.10),transparent 60%);pointer-events:none}
+  .hero-inner{position:relative;z-index:2;padding:120px 0 56px;width:100%}
+  .hero h1{font-size:clamp(56px,13.5vw,172px);font-weight:800;letter-spacing:-.03em;line-height:.9;margin:6px 0 0;text-wrap:balance}
+  .hero .sub{margin:22px 0 0;max-width:520px;font-size:18px;color:rgba(255,255,255,.82)}
+
+  .next-card{margin-top:34px;display:inline-flex;align-items:stretch;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;backdrop-filter:blur(6px);
+    max-width:540px;text-decoration:none;color:#fff;transition:transform .3s,border-color .3s,background .3s}
+  .next-card:hover{transform:translateY(-3px);border-color:var(--amber);background:rgba(255,255,255,.09)}
+  .next-card .when{background:var(--amber);color:var(--night);padding:18px 20px;display:flex;flex-direction:column;justify-content:center;min-width:104px;font-family:var(--mono)}
+  .next-card .when .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+  .next-card .when .big{font-family:var(--display);font-weight:800;font-size:26px;line-height:1;margin-top:4px}
+  .next-card .what{padding:16px 22px;display:flex;flex-direction:column;justify-content:center}
+  .next-card .what .v{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.1}
+  .next-card .what .m{font-size:13.5px;color:rgba(255,255,255,.72);margin-top:5px}
+  .next-card .what .go{font-size:12px;color:var(--amber);margin-top:9px;font-weight:600}
+
+  /* ---------- PHOTO GALLERY ---------- */
+  .gallery{background:var(--paper-2);overflow:hidden}
+  .prows{display:flex;flex-direction:column;gap:16px;margin-top:6px}
+  .prow{display:flex;gap:16px;width:max-content;will-change:transform}
+  .prow img{height:230px;width:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px;flex:none;border:1px solid var(--line);cursor:zoom-in;transition:transform .3s,box-shadow .3s}
+  .prow img:hover{transform:translateY(-5px) scale(1.02);box-shadow:var(--shadow)}
+  .prow.static{flex-wrap:wrap;width:auto;justify-content:center}
+  .prow.static{transform:none!important}
+  .lightbox{position:fixed;inset:0;z-index:80;background:rgba(14,20,14,.93);display:none;align-items:center;justify-content:center;padding:24px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:10px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
+  .lb-close{position:absolute;top:18px;right:20px}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:28px}
+  .lb-prev{left:18px}.lb-next{right:18px}
+  .lb-close,.lb-nav{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
+  .lb-close{width:44px;height:44px;font-size:20px}
+  .lb-close:hover,.lb-nav:hover{background:var(--amber);color:var(--night)}
+
+  /* ---------- SCROLLING TICKERS (towns / event types) ---------- */
+  .ticker{overflow:hidden;padding:15px 0}
+  .ticker--dark{background:var(--night)}
+  .ticker--light{background:linear-gradient(180deg,var(--paper),var(--paper-2));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ticker-track{display:flex;width:max-content;white-space:nowrap;font-family:var(--mono);
+    font-size:clamp(13px,1.7vw,17px);letter-spacing:.16em;text-transform:uppercase;font-weight:500;animation:tickerscroll 46s linear infinite}
+  .ticker--light .ticker-track{color:var(--ink)}
+  .ticker--dark .ticker-track{color:var(--paper)}
+  .ticker-track.rev{animation-direction:reverse;animation-duration:54s}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker-item{display:inline-flex;align-items:center}
+  .ticker-sep{color:var(--amber);margin:0 1.15em}
+  @keyframes tickerscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap;width:auto}}
+
+  /* ---------- BOOK TOAST ---------- */
+  .book-toast{position:fixed;right:22px;bottom:22px;z-index:60;max-width:340px;display:flex;align-items:center;gap:14px;
+    background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:16px 18px;
+    box-shadow:0 20px 50px -18px rgba(23,33,27,.5);transform:translateY(160%);opacity:0;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s;pointer-events:none}
+  .book-toast.show{transform:translateY(0);opacity:1;pointer-events:auto}
+  .book-toast .bt-text{display:flex;flex-direction:column;line-height:1.25}
+  .book-toast .bt-text strong{font-family:var(--display);font-size:16px}
+  .book-toast .bt-text span{font-size:13px;color:var(--ink-soft)}
+  .book-toast .bt-btn{flex:none;background:var(--amber);color:var(--night);text-decoration:none;font-weight:700;padding:10px 14px;border-radius:100px;font-size:13.5px;white-space:nowrap;transition:background .2s,color .2s}
+  .book-toast .bt-btn:hover{background:var(--night);color:#fff}
+  .book-toast .bt-close{position:absolute;top:-9px;right:-9px;width:26px;height:26px;border-radius:50%;background:var(--night);color:#fff;border:0;font-size:12px;cursor:pointer;line-height:1}
+  @media (max-width:560px){.book-toast{left:14px;right:14px;bottom:14px;max-width:none}}
+  @media (prefers-reduced-motion:reduce){.book-toast{transition:opacity .3s}}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:radial-gradient(45% 55% at 8% 4%,rgba(62,110,114,.06),transparent 60%),var(--paper)}
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
+  .about h2{font-size:clamp(32px,5vw,58px);max-width:14ch}
+  .about .lead{font-size:20px;color:var(--ink);line-height:1.5}
+  .about p{color:var(--ink-soft);font-size:16.5px}
+  .about-photo{margin-top:28px;border-radius:16px;width:100%;aspect-ratio:16/11;object-fit:cover;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .stat-row{display:flex;gap:36px;margin-top:36px;flex-wrap:wrap}
+  .stat .n{font-family:var(--display);font-weight:800;font-size:40px;color:var(--ink);line-height:1}
+  .stat .l{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--river);margin-top:8px}
+
+  /* ---------- SHOWS ---------- */
+  .shows{background:radial-gradient(55% 45% at 92% 0%,rgba(227,154,46,.10),transparent 60%),var(--paper-2)}
+  .shows-bar{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+  .toggle{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:100px;padding:4px}
+  .toggle button{font:inherit;font-size:13px;font-weight:600;cursor:pointer;border:0;background:none;padding:8px 16px;border-radius:100px;color:var(--ink-soft)}
+  .toggle button[aria-pressed="true"]{background:var(--night);color:#fff}
+  .show{display:grid;grid-template-columns:96px 1fr auto;gap:24px;align-items:center;padding:22px;border-radius:14px;border:1px solid transparent;transition:background .25s,border-color .25s}
+  .show + .show{border-top:1px solid var(--line)}
+  .show:hover{background:#fff}
+  .show .date{font-family:var(--mono);text-align:center;line-height:1}
+  .show .date .mo{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--river)}
+  .show .date .dy{font-family:var(--display);font-weight:800;font-size:34px;color:var(--ink)}
+  .show .info .v{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15}
+  .show .info .loc{font-size:14.5px;color:var(--ink-soft);margin-top:4px}
+  .show .meta{text-align:right;font-family:var(--mono);font-size:13px;color:var(--ink-soft);white-space:nowrap}
+  .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-left:8px;vertical-align:middle}
+  .tag.private{background:rgba(62,110,114,.14);color:var(--river)}
+  .tag.rain{background:rgba(35,42,32,.08);color:var(--ink-soft)}
+  .show.is-next{background:#fff;border-color:var(--amber);box-shadow:var(--shadow)}
+  .show.is-next .badge{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--night);background:var(--amber);padding:3px 9px;border-radius:100px;margin-bottom:7px}
+  .show.is-past{opacity:.42}
+  .show.is-past .date .dy{color:var(--ink-soft)}
+  .hidden{display:none !important}
+
+  /* ---------- MUSIC (dark) ---------- */
+  .music{background:var(--night);color:#fff;position:relative;overflow:hidden}
+  .music::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(34% 40% at 25% 30%,rgba(227,154,46,.14),transparent 62%);animation:spotA 30s ease-in-out infinite alternate}
+  .music>.wrap{position:relative;z-index:1}
+  .music .section-head h2{color:#fff}
+  .music .section-head p{color:rgba(255,255,255,.7)}
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .video .frame{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--night-2);border:1px solid var(--line-dk)}
+  .video .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-family:var(--mono);font-size:13px;text-align:center;padding:20px}
+  .video .cap{margin-top:14px;font-family:var(--display);font-weight:600;font-size:17px}
+  .video .cap small{display:block;font-family:var(--mono);font-size:12px;color:var(--amber);font-weight:400;margin-top:5px;letter-spacing:.03em}
+
+  /* ---------- AUDIO ---------- */
+  .audio{background:var(--paper)}
+  .tracks{display:grid;gap:14px;max-width:760px}
+  .track-row{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;padding:16px 20px;transition:box-shadow .25s,transform .25s}
+  .track-row:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+  .track-row .no{font-family:var(--mono);font-size:13px;color:var(--river)}
+  .track-row .ti{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.1}
+  .track-row .ar{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+  .track-row audio{width:100%;margin-top:12px;height:38px}
+  .track-row .ph{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);margin-top:8px}
+
+  /* ---------- BAND ---------- */
+  .band{background:radial-gradient(50% 60% at 4% 8%,rgba(62,110,114,.09),transparent 62%),var(--paper-2)}
+  .members{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .member .pic{aspect-ratio:4/5;border-radius:14px;overflow:hidden;position:relative;
+    background:linear-gradient(160deg,var(--night-2),var(--night));display:flex;align-items:center;justify-content:center;transition:transform .3s,box-shadow .3s}
+  .member:hover .pic{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .member .pic img{width:100%;height:100%;object-fit:cover}
+  .member .pic .mono{font-family:var(--display);font-weight:800;font-size:46px;color:rgba(255,255,255,.85)}
+  .member .guest{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--amber);color:var(--night);padding:3px 9px;border-radius:100px}
+  .member .nm{font-family:var(--display);font-weight:700;font-size:18px;margin-top:14px}
+  .member .rl{font-family:var(--mono);font-size:12.5px;color:var(--river);letter-spacing:.03em;margin-top:3px}
+
+  /* ---------- SETLIST ---------- */
+  .setlist{background:var(--paper)}
+  .artists{columns:4;column-gap:40px}
+  .artists .a{break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--ink);display:flex;align-items:baseline;gap:10px}
+  .artists .a::before{content:"\266A";color:var(--amber);font-size:12px}
+
+  /* ---------- BOOK ---------- */
+  .book{background:var(--night);color:#fff;position:relative;overflow:hidden}
+  .book::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 52% at 82% 6%,rgba(227,154,46,.22),transparent 55%);animation:spotB 30s ease-in-out infinite alternate}
+  .book>.wrap{position:relative;z-index:1}
+  .book-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+  .book h2{font-size:clamp(32px,5vw,56px);color:#fff;max-width:14ch}
+  .book p{color:rgba(255,255,255,.78);font-size:18px;margin:18px 0 0;max-width:46ch}
+  .tipbox{margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px 20px}
+  .tipbox .t{font-family:var(--display);font-weight:700;font-size:17px}
+  .tipbox .s{font-size:13.5px;color:rgba(255,255,255,.7);margin-top:2px}
+  .tip-btn{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:var(--night);text-decoration:none;
+    font-weight:700;padding:12px 20px;border-radius:100px;white-space:nowrap;transition:transform .2s,background .2s}
+  .tip-btn:hover{background:#fff;transform:translateY(-2px)}
+  .contact-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:34px}
+  .contact-card .row{display:flex;flex-direction:column;gap:4px;padding:18px 0}
+  .contact-card .row + .row{border-top:1px solid var(--line-dk)}
+  .contact-card .k{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+  .contact-card .v{font-family:var(--display);font-weight:700;font-size:23px;text-decoration:none;color:#fff;word-break:break-word}
+  .contact-card .v:hover{color:var(--amber)}
+  .open-line{margin-top:8px;font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.6);border:1px dashed var(--line-dk);border-radius:12px;padding:14px 16px}
+
+  /* ---------- FOOTER ---------- */
+  footer.foot{background:#0E140C;color:rgba(255,255,255,.65);padding:48px 0}
+  .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  .foot .brand2{font-family:var(--display);font-weight:800;font-size:20px;color:#fff;letter-spacing:.02em}
+  .foot .right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot .socials{display:flex;gap:14px}
+  .foot .socials a{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-dk);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .25s,border-color .25s}
+  .foot .socials a:hover{background:var(--amber);border-color:var(--amber);color:var(--night)}
+  .foot .tip-link{color:var(--amber);text-decoration:none;font-weight:600;font-size:14px}
+  .foot small{font-family:var(--mono);font-size:12px}
+
+  /* ---------- reveal + hero entrance ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .hero-inner > *{opacity:0;transform:translateY(16px)}
+  body.ready .hero-inner > *{opacity:1;transform:none;transition:opacity .8s ease,transform .8s ease}
+  body.ready .hero-inner > *:nth-child(1){transition-delay:.05s}
+  body.ready .hero-inner > *:nth-child(2){transition-delay:.14s}
+  body.ready .hero-inner > *:nth-child(3){transition-delay:.24s}
+  body.ready .hero-inner > *:nth-child(4){transition-delay:.34s}
+  body.ready .hero-inner > *:nth-child(5){transition-delay:.46s}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .hero-inner > *{opacity:1;transform:none}
+    .hero-bg .slide.kb{animation:none}
+  }
+  a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;gap:36px}
+    .video-grid{grid-template-columns:1fr}
+    .members{grid-template-columns:repeat(2,1fr)}
+    .artists{columns:2}
+    .prow img{height:200px}
+    .book-grid{grid-template-columns:1fr;gap:34px}
+    nav.links{display:none}
+    .menu-btn{display:inline-flex}
+    .section-head{margin-bottom:38px}
+    .contact-card{padding:28px}
+  }
+  @media (max-width:700px){
+    .hero.has-bg .hero-scrim{background:linear-gradient(0deg,rgba(16,22,15,.92) 0%,rgba(23,33,27,.6) 46%,rgba(23,33,27,.5) 100%)}
+  }
+  @media (max-width:560px){
+    .section{padding:68px 0}
+    .wrap{padding-inline:22px}
+    .section-head{margin-bottom:32px}
+    .section-head p{font-size:16px}
+    .hero-inner{padding:110px 0 52px}
+    .hero h1{font-size:clamp(46px,17vw,82px)}
+    .hero .sub{font-size:16.5px;margin-top:18px}
+    .next-card{width:100%;max-width:none;margin-top:28px}
+    .next-card .when{min-width:88px;padding:16px}
+    .next-card .what{padding:14px 18px}
+    .prow img{height:150px}
+    .prows{gap:12px}
+    .show{grid-template-columns:56px 1fr;gap:14px;padding:18px 14px}
+    .show .meta{grid-column:2;text-align:left;margin-top:3px}
+    .show .info .v{font-size:18px}
+    .show .date .dy{font-size:26px}
+    .members{grid-template-columns:1fr 1fr;gap:16px}
+    .artists{columns:1}
+    .stat-row{gap:20px 30px;margin-top:28px}
+    .stat .n{font-size:34px}
+    .about-photo{margin-top:22px}
+    .track-row{grid-template-columns:auto 1fr;gap:14px;padding:16px}
+    .book h2{font-size:clamp(30px,8vw,44px)}
+    .book p{font-size:16.5px}
+    .book-grid{gap:26px}
+    .tipbox{padding:16px}
+    .tipbox .tip-btn{width:100%;justify-content:center}
+    .contact-card{padding:24px}
+    .contact-card .v{font-size:20px}
+    .mobile-menu{padding:74px 22px 26px}
+    .mobile-menu a{font-size:20px}
+    .foot-grid{flex-direction:column;align-items:flex-start;gap:18px}
+    .ticker-track{font-size:13px;letter-spacing:.12em}
+  }
+  @media (max-width:380px){
+    .wrap{padding-inline:18px}
+    .hero h1{font-size:clamp(42px,16vw,64px)}
+    .show{grid-template-columns:48px 1fr;gap:12px}
+    .show .date .dy{font-size:23px}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="nav" id="nav">
+  <a class="brand" id="brand" href="#top"><span class="dot"></span></a>
+  <nav class="links" id="navlinks"></nav>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false">Menu</button>
+</header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-spot spot-warm" aria-hidden="true"></div>
+  <div class="hero-spot spot-cool" aria-hidden="true"></div>
+  <div class="hero-inner wrap">
+    <p class="eyebrow on-night" id="hero-eyebrow"></p>
+    <h1 id="hero-title"></h1>
+    <p class="sub" id="hero-sub"></p>
+    <a class="next-card" id="next-card" href="#shows">
+      <div class="when"><span class="nc-top"><span class="live-dot" aria-hidden="true"></span><span class="lbl" id="nc-lbl">Next show</span></span><span class="big" id="nc-when">—</span></div>
+      <div class="what"><span class="v" id="nc-venue">—</span><span class="m" id="nc-loc">—</span><span class="go">See the full schedule →</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- TOWNS TICKER -->
+<div class="ticker ticker--dark" aria-hidden="true"><div class="ticker-track" id="towns-track"></div></div>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap about-grid reveal">
+    <div><p class="eyebrow" id="about-eyebrow"></p><h2 id="about-head"></h2><img id="about-photo" class="about-photo" alt="The Local Jam"></div>
+    <div><p class="lead" id="about-lead"></p><p id="about-body"></p><div class="stat-row" id="stat-row"></div></div>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section class="section shows" id="shows">
+  <div class="wrap">
+    <div class="shows-bar reveal">
+      <div class="section-head" style="margin-bottom:0"><p class="eyebrow" id="shows-eyebrow"></p><h2 id="shows-head"></h2></div>
+      <div class="toggle" role="group" aria-label="Filter shows">
+        <button id="btn-upcoming" aria-pressed="true">Upcoming</button>
+        <button id="btn-all" aria-pressed="false">Full season</button>
+      </div>
+    </div>
+    <div class="reveal" id="show-list"></div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="section music" id="music">
+  <div class="wrap">
+    <div class="section-head reveal"><p class="eyebrow on-night" id="music-eyebrow"></p><h2 id="music-head"></h2><p id="music-sub"></p></div>
+    <div class="video-grid reveal" id="video-grid"></div>
+  </div>
+</section>
+
+<!-- AUDIO -->
+<section class="section audio" id="listen">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow-eq"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><p class="eyebrow" id="audio-eyebrow"></p></div><h2 id="audio-head"></h2><p id="audio-sub"></p></div>
+    <div class="tracks reveal" id="audio-list"></div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="section band" id="band">
+  <div class="wrap">
+    <div class="section-head reveal"><p class="eyebrow" id="band-eyebrow"></p><h2 id="band-head"></h2><p id="band-sub"></p></div>
+    <div class="members reveal" id="members"></div>
+  </div>
+</section>
+
+<!-- SETLIST -->
+<section class="section setlist" id="songs">
+  <div class="wrap">
+    <div class="section-head reveal"><p class="eyebrow" id="songs-eyebrow"></p><h2 id="setlist-head"></h2><p id="songs-sub"></p></div>
+    <div class="artists reveal" id="artists"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="photos">
+  <div class="wrap"><div class="section-head reveal"><p class="eyebrow" id="gallery-eyebrow"></p><h2 id="gallery-head"></h2></div></div>
+  <div class="prows" id="prows"></div>
+</section>
+
+<div class="ticker ticker--light" aria-hidden="true"><div class="ticker-track rev" id="events-track"></div></div>
+
+<!-- BOOK -->
+<section class="section book" id="book">
+  <div class="wrap book-grid reveal">
+    <div>
+      <p class="eyebrow on-night" id="book-eyebrow"></p>
+      <h2 id="book-head"></h2>
+      <p id="book-body"></p>
+      <div class="tipbox" id="tipbox">
+        <div style="flex:1 1 auto"><div class="t" id="tip-title">Enjoyed the set?</div><div class="s" id="tip-sub">Send the band a tip on Venmo.</div></div>
+        <a class="tip-btn" id="tip-btn-book" href="#" target="_blank" rel="noopener">♥ Tip the band</a>
+      </div>
+      <div class="open-line" id="open-line"></div>
+    </div>
+    <div class="contact-card">
+      <div class="row"><span class="k">Call or text</span><a class="v" id="c-phone" href="#">—</a></div>
+      <div class="row"><span class="k">Email</span><a class="v" id="c-email" href="#">—</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <span class="brand2" id="brand2"></span>
+    <div class="right">
+      <a class="tip-link" id="tip-link" href="#" target="_blank" rel="noopener" style="display:none">♥ Tip the band</a>
+      <div class="socials" id="socials"></div>
+    </div>
+    <small id="foot-note"></small>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous photo">‹</button>
+  <img id="lb-img" alt="The Local Jam">
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<div class="book-toast" id="bookToast">
+  <div class="bt-text"><strong id="bt-title">Like what you hear?</strong><span id="bt-sub">Bring The Local Jam to your event.</span></div>
+  <a class="bt-btn" id="bt-btn" href="#book">Book us →</a>
+  <button class="bt-close" id="bt-close" aria-label="Dismiss">✕</button>
+</div>
+
+<script type="application/json" id="local-jam-data">
+{
+  "brand": "THE LOCAL JAM",
+  "hero": {
+    "eyebrow": "A Hudson Valley band · since 2017",
+    "title": "THE\nLOCAL JAM",
+    "sub": "The Local Jam started in 2017 as a few Hudson Valley friends jamming on the songs they grew up loving — and somehow never stopped.",
+    "images": [
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20560%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2322322A%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23141F18%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22800%22%20height%3D%22560%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22238%22%20r%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22238%22%20r%3D%2215%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22356%22%20y%3D%22196%22%20width%3D%2288%22%20height%3D%2270%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22384%22%20y%3D%22188%22%20width%3D%2232%22%20height%3D%2212%22%20rx%3D%224%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22400%22%20y%3D%22356%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EThe%20Local%20Jam%3C/text%3E%3Ctext%20x%3D%22400%22%20y%3D%22392%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2215%22%20letter-spacing%3D%224%22%20text-anchor%3D%22middle%22%3ELIVE%20IN%20THE%20VALLEY%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20560%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232b3a2c%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2316211a%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22800%22%20height%3D%22560%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22238%22%20r%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22238%22%20r%3D%2215%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22356%22%20y%3D%22196%22%20width%3D%2288%22%20height%3D%2270%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22384%22%20y%3D%22188%22%20width%3D%2232%22%20height%3D%2212%22%20rx%3D%224%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22400%22%20y%3D%22356%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EOn%20the%20Lawn%3C/text%3E%3Ctext%20x%3D%22400%22%20y%3D%22392%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2215%22%20letter-spacing%3D%224%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E"
+    ]
+  },
+  "nav": {
+    "shows": "Shows",
+    "music": "Music",
+    "photos": "Photos",
+    "band": "The Band",
+    "songs": "Songs",
+    "book": "Book us",
+    "tip": "Tip the band"
+  },
+  "about": {
+    "eyebrow": "Local since day one",
+    "headline": "A homegrown band playing the towns we actually live in.",
+    "lead": "The Local Jam started in 2017 as a few Hudson Valley friends jamming on the songs they grew up loving — and somehow never stopped.",
+    "body": "These days you'll find us up and down the valley: pub corners and brewery patios, orchard festivals, library lawns and church picnics. We play the hits you know, a few you forgot, and we take requests. Wherever there's a crowd that wants to sing along, that's where we want to be.",
+    "stats": [
+      {
+        "n": "2017",
+        "l": "Playing since"
+      },
+      {
+        "n": "20+",
+        "l": "Shows in 2026"
+      },
+      {
+        "n": "60+",
+        "l": "Artists covered"
+      }
+    ],
+    "image": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%20560%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2328352a%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2317211b%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22800%22%20height%3D%22560%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22238%22%20r%3D%2252%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22238%22%20r%3D%2215%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22356%22%20y%3D%22196%22%20width%3D%2288%22%20height%3D%2270%22%20rx%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22384%22%20y%3D%22188%22%20width%3D%2232%22%20height%3D%2212%22%20rx%3D%224%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22400%22%20y%3D%22356%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EMeet%20the%20Band%3C/text%3E%3Ctext%20x%3D%22400%22%20y%3D%22392%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2215%22%20letter-spacing%3D%224%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E"
+  },
+  "shows": {
+    "eyebrow": "2026 season",
+    "heading": "Where to catch us",
+    "list": [
+      {
+        "date": "2026-04-24",
+        "time": "8–10:30 PM",
+        "venue": "Keegan Ales",
+        "loc": "20 St. James St, Kingston",
+        "town": "Kingston",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-05-09",
+        "time": "12–1:30 PM",
+        "venue": "Apple Blossom Day — Main Stage",
+        "loc": "Red Hook, NY",
+        "town": "Red Hook",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-05-16",
+        "time": "4:30–6:30 PM",
+        "venue": "Roger Phillips Summer Concert Series",
+        "loc": "Starr Library, Rhinebeck",
+        "town": "Rhinebeck",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-05-23",
+        "time": "1–2:30 PM",
+        "venue": "Private Party",
+        "loc": "Monterey, MA",
+        "town": "",
+        "tag": "private",
+        "note": ""
+      },
+      {
+        "date": "2026-06-06",
+        "time": "8–11 PM",
+        "venue": "Mahoney's Irish Pub & Steakhouse",
+        "loc": "35 Main St, Poughkeepsie",
+        "town": "Poughkeepsie",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-06-12",
+        "time": "6–8 PM",
+        "venue": "The Grove at Red Hook Golf Club",
+        "loc": "650 NY-199, Red Hook",
+        "town": "Red Hook",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-06-19",
+        "time": "7–10 PM",
+        "venue": "Aspire Brewing",
+        "loc": "600 N. Galleria Dr, Middletown",
+        "town": "Middletown",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-06-20",
+        "time": "11 AM–8 PM",
+        "venue": "Hudson Valley Food Truck Festival",
+        "loc": "Barton Orchards, Poughquag",
+        "town": "Poughquag",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-06-26",
+        "time": "6–8 PM",
+        "venue": "Twilight Music in the Parks — Walkway @ Night",
+        "loc": "Walkway Over the Hudson, 87 Haviland Rd, Highland",
+        "town": "Highland",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-07-02",
+        "time": "6–8 PM",
+        "venue": "Del's Roadside — Live Music Series",
+        "loc": "6790 Albany Post Rd, Rhinebeck",
+        "town": "Rhinebeck",
+        "tag": "rain",
+        "note": "Rain date Jul 9"
+      },
+      {
+        "date": "2026-07-17",
+        "time": "7–10 PM",
+        "venue": "Mahoney's Irish Pub & Steakhouse",
+        "loc": "35 Main St, Poughkeepsie",
+        "town": "Poughkeepsie",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-07-18",
+        "time": "12–6 PM",
+        "venue": "Private Party",
+        "loc": "Rifton, NY",
+        "town": "",
+        "tag": "private",
+        "note": ""
+      },
+      {
+        "date": "2026-07-30",
+        "time": "6–8 PM",
+        "venue": "Del's Roadside — Live Music Series",
+        "loc": "6790 Albany Post Rd, Rhinebeck",
+        "town": "Rhinebeck",
+        "tag": "rain",
+        "note": "Rain date Aug 8"
+      },
+      {
+        "date": "2026-08-12",
+        "time": "6–8 PM",
+        "venue": "Old Rhinebeck Aerodrome",
+        "loc": "9 Norton Rd, Red Hook",
+        "town": "Red Hook",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-08-14",
+        "time": "7–10 PM",
+        "venue": "Mahoney's Irish Pub & Steakhouse",
+        "loc": "35 Main St, Poughkeepsie",
+        "town": "Poughkeepsie",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-08-21",
+        "time": "6–8 PM",
+        "venue": "The Grove at Red Hook Golf Club",
+        "loc": "650 NY-199, Red Hook",
+        "town": "Red Hook",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-08-22",
+        "time": "3–6 PM",
+        "venue": "Zena Rec Center — Summer Music Series",
+        "loc": "714 Zena-Highwoods Rd, Kingston",
+        "town": "Kingston",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-09-13",
+        "time": "1–3 PM",
+        "venue": "St. Joseph's Church Picnic",
+        "loc": "15 North Ave, Millbrook",
+        "town": "Millbrook",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-09-19",
+        "time": "12–1 PM",
+        "venue": "Rhinebeck Porchfest",
+        "loc": "Village of Rhinebeck (street TBD)",
+        "town": "Rhinebeck",
+        "tag": "",
+        "note": ""
+      },
+      {
+        "date": "2026-09-25",
+        "time": "6–8 PM",
+        "venue": "Eat-N-Go — Summer Lawn Series Finale",
+        "loc": "7508 N Broadway, Red Hook",
+        "town": "Red Hook",
+        "tag": "",
+        "note": ""
+      }
+    ]
+  },
+  "music": {
+    "eyebrow": "Watch & listen",
+    "heading": "From the stage",
+    "sub": "Live cuts and the latest promo — straight from Hudson Valley lawns and pubs.",
+    "videos": [
+      {
+        "title": "The Local Jam 2026 Promo",
+        "sub": "Official video",
+        "youtube": ""
+      },
+      {
+        "title": "“Magic” by Pilot — live",
+        "sub": "Red Hook Lawn Concert Series, 2025",
+        "youtube": ""
+      }
+    ]
+  },
+  "audio": {
+    "eyebrow": "Have a listen",
+    "heading": "The jam sampler",
+    "sub": "A few favorites, recorded live and in the room.",
+    "tracks": [
+      {
+        "title": "California Dreamin'",
+        "artist": "The Mamas & the Papas",
+        "src": ""
+      },
+      {
+        "title": "It's Too Late",
+        "artist": "Carole King",
+        "src": ""
+      }
+    ]
+  },
+  "band": {
+    "eyebrow": "The people",
+    "heading": "The band & guests",
+    "sub": "Neighbors who happen to play in a band. Plus the special guests who sit in with us.",
+    "members": [
+      {
+        "name": "",
+        "role": "Lead Vocals",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Vocals",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Vocals",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Guitar",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Guitar & Vocals",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Bass",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Keys",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Drums",
+        "photo": "",
+        "guest": false
+      },
+      {
+        "name": "",
+        "role": "Special Guest",
+        "photo": "",
+        "guest": true
+      }
+    ]
+  },
+  "songs": {
+    "eyebrow": "The songbook",
+    "sub": "Hits and hidden gems from the '60s through today. Requests welcome.",
+    "artists": [
+      "The Beatles",
+      "Fleetwood Mac",
+      "Tom Petty",
+      "The Eagles",
+      "Queen",
+      "Journey",
+      "Steely Dan",
+      "Stevie Wonder",
+      "Earth, Wind & Fire",
+      "The Beach Boys",
+      "Eric Clapton",
+      "Talking Heads",
+      "R.E.M.",
+      "The Kinks",
+      "ELO",
+      "Dire Straits",
+      "The Doobie Brothers",
+      "Cat Stevens",
+      "Carly Simon",
+      "John Denver",
+      "Linda Ronstadt",
+      "Roy Orbison",
+      "Adele",
+      "Tears for Fears",
+      "a-ha",
+      "Blur",
+      "The Pretenders",
+      "The Ramones",
+      "The Band",
+      "The Monkees",
+      "The Turtles",
+      "Tommy James",
+      "Dionne Warwick",
+      "Jackson 5",
+      "The Rascals",
+      "ZZ Top",
+      "Mamas & the Papas",
+      "Nick Lowe",
+      "The Carpenters",
+      "Mott the Hoople",
+      "Badfinger",
+      "The Cowsills",
+      "Traveling Wilburys",
+      "Looking Glass",
+      "Hank Williams",
+      "Loggins & Messina",
+      "Toto"
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Out in the wild",
+    "heading": "Live & in the valley",
+    "images": [
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232b3a2c%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2317211b%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3ERed%20Hook%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2326362e%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23151f18%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3ERhinebeck%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2338302a%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%231a1712%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EOn%20Stage%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23223528%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23131d16%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EThe%20Crowd%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233d3324%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23191410%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EGolden%20Hour%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232a3a34%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23141f1b%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EEncore%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23243528%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23141d16%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EKingston%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%232e3a2b%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23171f16%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3EThe%20Lawn%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23333029%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23181510%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3ESound%20Check%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%2325352f%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23131d18%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22url%28%23g%29%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22168%22%20r%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22266%22%20y%3D%22136%22%20width%3D%2268%22%20height%3D%2254%22%20rx%3D%228%22%20fill%3D%22none%22%20stroke%3D%22%23E39A2E%22%20stroke-width%3D%223%22/%3E%3Crect%20x%3D%22288%22%20y%3D%22130%22%20width%3D%2224%22%20height%3D%2210%22%20rx%3D%223%22%20fill%3D%22%23E39A2E%22/%3E%3Ctext%20x%3D%22300%22%20y%3D%22258%22%20fill%3D%22%23F7F1E4%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2226%22%20font-weight%3D%22700%22%20text-anchor%3D%22middle%22%3ELast%20Call%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%22286%22%20fill%3D%22%23E39A2E%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20text-anchor%3D%22middle%22%3EREPLACE%20THIS%20PHOTO%3C/text%3E%3C/svg%3E"
+    ]
+  },
+  "book": {
+    "eyebrow": "Your party could be here",
+    "heading": "Book the Local Jam",
+    "body": "Weddings, backyard parties, fundraisers, breweries, corporate nights — we tailor the set to the room. Tell us the date and we'll do the rest.",
+    "toastTitle": "Like what you hear?",
+    "toastSub": "Bring The Local Jam to your event.",
+    "eventTypes": [
+      "Weddings",
+      "Breweries",
+      "Festivals",
+      "Backyard Parties",
+      "Fundraisers",
+      "Corporate Nights",
+      "Private Events",
+      "Lawn Concerts"
+    ]
+  },
+  "contact": {
+    "phone": "845-614-3098",
+    "email": "thelocaljamband@gmail.com",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
+    "youtube": "https://youtube.com/",
+    "venmo": "",
+    "tipTitle": "Enjoyed the set?",
+    "tipSub": "Send the band a tip on Venmo — every bit helps keep the music going."
+  },
+  "footer": {
+    "tagline": "Hudson Valley, NY"
+  }
+}
+</script>
+
+<script>
+(async function(){
+let DATA;
+try{ const r=await fetch('content/site.json',{cache:'no-store'}); if(r.ok) DATA=await r.json(); }catch(e){}
+if(!DATA){ try{ DATA=JSON.parse(document.getElementById('local-jam-data').textContent); }catch(e){ DATA={}; } }
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const WEEKDAYS=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (id)=>document.getElementById(id);
+const esc = (s)=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+function parseDate(iso){ const [y,m,d]=iso.split("-").map(Number); return new Date(y,m-1,d); }
+function startOfToday(){ const t=new Date(); return new Date(t.getFullYear(),t.getMonth(),t.getDate()); }
+function venmoURL(v){ if(!v) return ""; v=String(v).trim(); if(/^https?:\/\//i.test(v)) return v; return "https://venmo.com/u/"+v.replace(/^@/,""); }
+
+const today = startOfToday();
+const shows = [...DATA.shows.list].sort((a,b)=>parseDate(a.date)-parseDate(b.date));
+const nextIndex = shows.findIndex(s=>parseDate(s.date)>=today);
+
+function whenLabel(iso){
+  const d=parseDate(iso), diff=Math.round((d-today)/86400000);
+  if(diff===0) return "Tonight"; if(diff===1) return "Tomorrow";
+  if(diff>1&&diff<7) return "This "+WEEKDAYS[d.getDay()];
+  return MONTHS[d.getMonth()]+" "+d.getDate();
+}
+
+/* ---- NAV + brand ---- */
+$("brand").insertAdjacentText("beforeend", DATA.brand);
+$("brand2").textContent = DATA.brand;
+const tipHref = venmoURL(DATA.contact.venmo);
+const galleryImgs = (DATA.gallery && DATA.gallery.images ? DATA.gallery.images.filter(Boolean) : []);
+const hasGallery = galleryImgs.length > 0;
+function navHTML(){
+  let h = `<a href="#shows">${esc(DATA.nav.shows)}</a><a href="#music">${esc(DATA.nav.music)}</a>`;
+  if(hasGallery) h += `<a href="#photos">${esc(DATA.nav.photos||"Photos")}</a>`;
+  h += `<a href="#band">${esc(DATA.nav.band)}</a><a href="#songs">${esc(DATA.nav.songs)}</a>`;
+  if(tipHref) h += `<a class="pill tip" href="${esc(tipHref)}" target="_blank" rel="noopener">${esc(DATA.nav.tip)}</a>`;
+  h += `<a class="pill book" href="#book">${esc(DATA.nav.book)}</a>`;
+  return h;
+}
+$("navlinks").innerHTML = navHTML();
+$("mobileMenu").innerHTML =
+  `<a href="#shows">${esc(DATA.nav.shows)}</a><a href="#music">${esc(DATA.nav.music)}</a>`
++ `<a href="#listen">Listen</a>` + (hasGallery?`<a href="#photos">${esc(DATA.nav.photos||"Photos")}</a>`:``)
++ `<a href="#band">${esc(DATA.nav.band)}</a><a href="#songs">${esc(DATA.nav.songs)}</a>`
++ `<a class="cta" href="#book">${esc(DATA.nav.book)}</a>`
++ (tipHref?`<a class="cta" href="${esc(tipHref)}" target="_blank" rel="noopener">${esc(DATA.nav.tip)}</a>`:``);
+
+/* ---- HERO ---- */
+$("hero-eyebrow").textContent = DATA.hero.eyebrow;
+$("hero-title").innerHTML = esc(DATA.hero.title).replace(/\n/g,"<br>");
+$("hero-sub").textContent = DATA.hero.sub;
+(function heroBg(){
+  const imgs=(DATA.hero.images||[]).filter(Boolean);
+  if(!imgs.length) return;               // no photos: keep the twilight gradient hero
+  const hero=document.getElementById("hero"), bg=$("hero-bg");
+  hero.classList.add("has-bg");
+  imgs.forEach((src,i)=>{ const s=document.createElement("div"); s.className="slide"+(i===0?" active":"");
+    s.style.backgroundImage=`url("${src}")`; bg.appendChild(s); });
+  const slides=bg.children;
+  if(!REDUCE && slides[0]) slides[0].classList.add("kb");
+  if(imgs.length>1 && !REDUCE){
+    let cur=0;
+    setInterval(()=>{ const prev=slides[cur]; cur=(cur+1)%slides.length; const next=slides[cur];
+      prev.classList.remove("active","kb"); next.classList.add("active");
+      next.classList.remove("kb"); void next.offsetWidth; next.classList.add("kb");
+    },6500);
+  }
+})();
+(function nextShow(){
+  if(nextIndex>-1){
+    const s=shows[nextIndex], lbl=whenLabel(s.date);
+    $("nc-lbl").textContent = (lbl==="Tonight"||lbl==="Tomorrow")?"Up next":"Next show";
+    $("nc-when").textContent = lbl; $("nc-venue").textContent = s.venue; $("nc-loc").textContent = s.loc+" \u00b7 "+s.time;
+  } else { $("nc-lbl").textContent="Season"; $("nc-when").textContent="2026"; $("nc-venue").textContent="See where we're playing"; $("nc-loc").textContent="Full schedule below"; }
+})();
+
+/* ---- ABOUT ---- */
+$("about-eyebrow").textContent=DATA.about.eyebrow;
+$("about-head").textContent=DATA.about.headline;
+$("about-lead").textContent=DATA.about.lead;
+$("about-body").textContent=DATA.about.body;
+if(DATA.about.image){ $("about-photo").src=DATA.about.image; } else { $("about-photo").style.display="none"; }
+$("stat-row").innerHTML=DATA.about.stats.map(s=>`<div class="stat"><div class="n" data-final="${esc(s.n)}">${esc(s.n)}</div><div class="l">${esc(s.l)}</div></div>`).join("");
+
+/* ---- SHOWS ---- */
+$("shows-eyebrow").textContent=DATA.shows.eyebrow;
+$("shows-head").textContent=DATA.shows.heading;
+function showRow(s,i){
+  const d=parseDate(s.date), isPast=d<today, isNext=i===nextIndex;
+  const cls=["show",isPast?"is-past":"",isNext?"is-next":""].join(" ").trim();
+  const tagHtml = s.tag==="private"?`<span class="tag private">Private event</span>`:s.tag==="rain"?`<span class="tag rain">${esc(s.note||"Rain date")}</span>`:"";
+  const badge = isNext?`<span class="badge">${whenLabel(s.date)}</span>`:"";
+  return `<div class="${cls}" data-past="${isPast}">
+    <div class="date"><div class="mo">${MONTHS[d.getMonth()]}</div><div class="dy">${d.getDate()}</div></div>
+    <div class="info">${badge}<div class="v">${esc(s.venue)}${tagHtml}</div><div class="loc">${esc(s.loc)}</div></div>
+    <div class="meta">${esc(s.time)}</div></div>`;
+}
+$("show-list").innerHTML=shows.map(showRow).join("");
+let filter="upcoming";
+function setFilter(f){ filter=f; $("btn-upcoming").setAttribute("aria-pressed",f==="upcoming"); $("btn-all").setAttribute("aria-pressed",f==="all");
+  document.querySelectorAll("#show-list .show").forEach(el=>{ const past=el.getAttribute("data-past")==="true"; el.classList.toggle("hidden", f==="upcoming"&&past); }); }
+setFilter("upcoming");
+$("btn-upcoming").addEventListener("click",()=>setFilter("upcoming"));
+$("btn-all").addEventListener("click",()=>setFilter("all"));
+
+/* ---- MUSIC ---- */
+$("music-eyebrow").textContent=DATA.music.eyebrow; $("music-head").textContent=DATA.music.heading; $("music-sub").textContent=DATA.music.sub;
+$("video-grid").innerHTML=DATA.music.videos.map(v=>{
+  const ok=v.youtube && v.youtube.trim();
+  const frame = ok?`<iframe src="https://www.youtube-nocookie.com/embed/${esc(v.youtube.trim())}" title="${esc(v.title)}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>`
+                  :`<div class="ph">Add a YouTube ID<br>in the editor</div>`;
+  return `<div class="video"><div class="frame">${frame}</div><div class="cap">${esc(v.title)}<small>${esc(v.sub)}</small></div></div>`;
+}).join("");
+
+/* ---- AUDIO ---- */
+$("audio-eyebrow").textContent=DATA.audio.eyebrow; $("audio-head").textContent=DATA.audio.heading; $("audio-sub").textContent=DATA.audio.sub;
+$("audio-list").innerHTML=DATA.audio.tracks.map((t,i)=>{
+  const player = t.src ? `<audio controls preload="none" src="${t.src}"></audio>` : `<div class="ph">Add an audio file or link in the editor</div>`;
+  const n=String(i+1).padStart(2,"0");
+  return `<div class="track-row"><div class="no">${n}</div><div><div class="ti">${esc(t.title)}</div>${t.artist?`<div class="ar">${esc(t.artist)}</div>`:""}${player}</div></div>`;
+}).join("");
+
+/* ---- BAND ---- */
+$("band-eyebrow").textContent=DATA.band.eyebrow; $("band-head").textContent=DATA.band.heading; $("band-sub").textContent=DATA.band.sub;
+$("members").innerHTML=DATA.band.members.map(m=>{
+  const initial=(m.name||m.role||"?").trim().charAt(0).toUpperCase();
+  const pic=m.photo?`<img src="${m.photo}" alt="${esc(m.name||m.role)}">`:`<span class="mono">${esc(initial)}</span>`;
+  const guest=m.guest?`<span class="guest">Guest</span>`:"";
+  const name=m.name?esc(m.name):`<span style="color:var(--ink-soft)">Add name</span>`;
+  return `<div class="member"><div class="pic">${guest}${pic}</div><div class="nm">${name}</div><div class="rl">${esc(m.role)}</div></div>`;
+}).join("");
+
+/* ---- SONGS ---- */
+$("songs-eyebrow").textContent=DATA.songs.eyebrow;
+$("setlist-head").textContent=`${DATA.songs.artists.length} artists in the songbook`;
+$("songs-sub").textContent=DATA.songs.sub;
+$("artists").innerHTML=DATA.songs.artists.map(a=>`<div class="a">${esc(a)}</div>`).join("");
+
+/* ---- BOOK + TIP + CONTACT ---- */
+$("book-eyebrow").textContent=DATA.book.eyebrow; $("book-head").textContent=DATA.book.heading; $("book-body").textContent=DATA.book.body;
+const c=DATA.contact;
+$("c-phone").textContent=c.phone; $("c-phone").href="tel:"+c.phone.replace(/[^0-9]/g,"");
+$("c-email").textContent=c.email; $("c-email").href="mailto:"+c.email;
+$("open-line").textContent=`Open dates this season \u2014 call ${c.phone} or email ${c.email} to lock one in.`;
+if(tipHref){
+  $("tip-title").textContent=c.tipTitle||"Enjoyed the set?";
+  $("tip-sub").textContent=c.tipSub||"Send the band a tip on Venmo.";
+  $("tip-btn-book").href=tipHref; $("tip-btn-book").innerHTML=`<span class="beat-heart">\u2665</span> `+esc(DATA.nav.tip);
+  $("tip-link").href=tipHref; $("tip-link").style.display="inline"; $("tip-link").innerHTML=`<span class="beat-heart">\u2665</span> `+esc(DATA.nav.tip);
+} else { $("tipbox").style.display="none"; }
+
+/* ---- FOOTER ---- */
+const socials=[];
+if(c.facebook) socials.push(`<a href="${esc(c.facebook)}" aria-label="Facebook" target="_blank" rel="noopener">f</a>`);
+if(c.instagram) socials.push(`<a href="${esc(c.instagram)}" aria-label="Instagram" target="_blank" rel="noopener">\u25CE</a>`);
+if(c.youtube) socials.push(`<a href="${esc(c.youtube)}" aria-label="YouTube" target="_blank" rel="noopener">\u25B6</a>`);
+$("socials").innerHTML=socials.join("");
+$("foot-note").textContent=`\u00A9 ${new Date().getFullYear()} ${DATA.brand} \u00b7 ${DATA.footer.tagline}`;
+
+/* ---- GALLERY: parallax rows + lightbox ---- */
+(function galleryInit(){
+  const sec=document.getElementById("photos");
+  if(!hasGallery){ sec.style.display="none"; return; }
+  $("gallery-eyebrow").textContent=DATA.gallery.eyebrow||"";
+  $("gallery-head").textContent=DATA.gallery.heading||"Photos";
+  const imgs=galleryImgs, n=imgs.length;
+  const rowsCount = n<=6 ? 1 : n<=14 ? 2 : 3;   // ~5 per row by default; grows with more photos
+  const per=Math.ceil(n/rowsCount);
+  const prows=$("prows"), rowEls=[];
+  for(let r=0;r<rowsCount;r++){
+    const rowImgs=imgs.slice(r*per,(r+1)*per);
+    if(!rowImgs.length) continue;
+    let tiles=rowImgs.slice();
+    while(tiles.length<8) tiles=tiles.concat(rowImgs);   // widen so the row overflows for parallax
+    const row=document.createElement("div"); row.className="prow";
+    row.innerHTML=tiles.map(src=>`<img src="${src}" alt="The Local Jam" loading="lazy" data-full="${src}">`).join("");
+    prows.appendChild(row);
+    rowEls.push({el:row, dir: (r%2? 1 : -1)});
+  }
+  if(REDUCE){ rowEls.forEach(r=>r.el.classList.add("static")); }
+  else {
+    let ticking=false;
+    function update(){
+      const vh=window.innerHeight, rect=sec.getBoundingClientRect();
+      const centerY=rect.top+rect.height/2;
+      const prog=Math.max(-1,Math.min(1,(vh/2-centerY)/(vh/2+rect.height/2)));
+      rowEls.forEach(r=>{
+        const overflow=Math.max(0, r.el.scrollWidth - r.el.parentElement.clientWidth);
+        r.el.style.transform=`translateX(${(-overflow/2 + r.dir*prog*overflow*0.42).toFixed(1)}px)`;
+      });
+      ticking=false;
+    }
+    window.addEventListener("scroll",()=>{ if(!ticking){ ticking=true; requestAnimationFrame(update);} },{passive:true});
+    window.addEventListener("resize",update);
+    window.addEventListener("load",update); update();
+  }
+  const lb=$("lightbox"), lbImg=$("lb-img"); let idx=0;
+  const show=()=>{ lbImg.src=imgs[idx]; };
+  const open=(src)=>{ idx=Math.max(0,imgs.indexOf(src)); show(); lb.classList.add("open"); lb.setAttribute("aria-hidden","false"); };
+  const close=()=>{ lb.classList.remove("open"); lb.setAttribute("aria-hidden","true"); lbImg.src=""; };
+  const go=(d)=>{ idx=(idx+d+imgs.length)%imgs.length; show(); };
+  prows.addEventListener("click",e=>{ const im=e.target.closest("img"); if(im) open(im.dataset.full); });
+  $("lb-close").addEventListener("click",close);
+  $("lb-prev").addEventListener("click",e=>{ e.stopPropagation(); go(-1); });
+  $("lb-next").addEventListener("click",e=>{ e.stopPropagation(); go(1); });
+  lb.addEventListener("click",e=>{ if(e.target===lb) close(); });
+  document.addEventListener("keydown",e=>{ if(!lb.classList.contains("open"))return;
+    if(e.key==="Escape")close(); else if(e.key==="ArrowLeft")go(-1); else if(e.key==="ArrowRight")go(1); });
+})();
+
+/* ---- nav scroll + mobile menu ---- */
+const nav=$("nav");
+const onScroll=()=>nav.classList.toggle("scrolled",window.scrollY>40);
+window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+const mm=$("mobileMenu"), mb=$("menuBtn");
+mb.addEventListener("click",()=>{ const open=mm.classList.toggle("open"); mb.setAttribute("aria-expanded",open); mb.textContent=open?"Close":"Menu"; });
+mm.addEventListener("click",e=>{ if(e.target.tagName==="A"){ mm.classList.remove("open"); mb.setAttribute("aria-expanded","false"); mb.textContent="Menu"; } });
+
+/* ---- reveal + count-up ---- */
+function countUp(el){
+  const txt=el.dataset.final||el.textContent, m=txt.match(/^(\d[\d,]*)(.*)$/);
+  if(!m||REDUCE){ el.textContent=txt; return; }
+  const target=parseInt(m[1].replace(/,/g,"")), suffix=m[2]; let start=null;
+  function step(ts){ if(!start)start=ts; const p=Math.min(1,(ts-start)/900); const val=Math.round(target*(1-Math.pow(1-p,3)));
+    el.textContent=val.toLocaleString()+suffix; if(p<1)requestAnimationFrame(step); }
+  requestAnimationFrame(step);
+}
+const io=new IntersectionObserver((ents)=>{ ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in");
+  e.target.querySelectorAll(".n[data-final]").forEach(countUp); io.unobserve(e.target); } }); },{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* ---- headings grow as they scroll into view ---- */
+if(!REDUCE){
+  const hio=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); hio.unobserve(e.target); } }); },{threshold:0.4});
+  document.querySelectorAll(".section-head h2, .about h2, .book h2").forEach(h=>{ h.classList.add("head-grow"); hio.observe(h); });
+}
+
+/* ---- bold CTAs: label from the editable Book label ---- */
+$("bt-btn").textContent = (DATA.nav.book || "Book us") + " \u2192";
+$("bt-title").textContent = (DATA.book && DATA.book.toastTitle) || "Like what you hear?";
+$("bt-sub").textContent = (DATA.book && DATA.book.toastSub) || "Bring The Local Jam to your event.";
+
+/* ---- "Like what you hear?" booking toast ---- */
+(function bookToast(){
+  const toast=$("bookToast"), book=document.getElementById("book"); if(!toast||!book) return;
+  let dismissed=false;
+  function onScroll(){
+    if(dismissed){ return; }
+    const past = window.scrollY > window.innerHeight*0.75;
+    const bookNear = book.getBoundingClientRect().top < window.innerHeight*0.85;
+    toast.classList.toggle("show", past && !bookNear);
+  }
+  $("bt-close").addEventListener("click",()=>{ dismissed=true; toast.classList.remove("show"); });
+  toast.querySelector(".bt-btn").addEventListener("click",()=>{ dismissed=true; toast.classList.remove("show"); });
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+})();
+
+/* ---- scrolling tickers (towns + event types) ---- */
+(function tickers(){
+  function build(id, items){
+    const track=document.getElementById(id); if(!track||!items.length) return;
+    let list=items.slice(); while(list.length<14) list=list.concat(items);
+    const unit=list.map(t=>`<span class="ticker-item">${esc(t)}</span><span class="ticker-sep">\u2726</span>`).join("");
+    track.innerHTML=unit+unit;
+  }
+  const towns=[...new Set(shows.map(s=>s.town).filter(Boolean))];
+  build("towns-track", towns.length?towns:["Hudson Valley"]);
+  const evDefault=["Weddings","Breweries","Festivals","Backyard Parties","Fundraisers","Corporate Nights","Private Events","Lawn Concerts"];
+  const events=(DATA.book && DATA.book.eventTypes && DATA.book.eventTypes.length)?DATA.book.eventTypes:evDefault;
+  build("events-track", events);
+})();
+
+/* ---- hero entrance ---- */
+requestAnimationFrame(()=>document.body.classList.add("ready"));
+})();
+</script>
+</body>
+</html>
