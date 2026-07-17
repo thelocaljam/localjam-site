@@ -120,50 +120,50 @@
     "members": [
       {
         "name": "Alyssa",
-        "role": "Lead Vocals",
+        "role": "Vocals",
         "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px-9.png",
         "guest": false
       },
       {
-        "name": "",
+        "name": "Annemarie",
         "role": "Vocals",
-        "photo": "",
+        "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px-7.png",
         "guest": false
       },
       {
-        "name": "",
+        "name": "Katie",
         "role": "Vocals",
-        "photo": "",
+        "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px-10.png",
         "guest": false
       },
       {
-        "name": "",
-        "role": "Guitar",
-        "photo": "",
-        "guest": false
-      },
-      {
-        "name": "",
+        "name": "Rick",
         "role": "Guitar & Vocals",
-        "photo": "",
+        "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px-8.png",
         "guest": false
       },
       {
-        "name": "",
-        "role": "Bass",
-        "photo": "",
+        "name": "Brendan",
+        "role": "Guitar & Vocals",
+        "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px-11.png",
         "guest": false
       },
       {
-        "name": "",
-        "role": "Keys",
-        "photo": "",
-        "guest": false
-      },
-      {
-        "name": "",
+        "name": "Matt",
         "role": "Drums",
-        "photo": "",
+        "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px.png",
+        "guest": false
+      },
+      {
+        "name": "Joe",
+        "role": "Keyboard & Vocals",
+        "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px-6.png",
+        "guest": false
+      },
+      {
+        "name": "Bill",
+        "role": "Bass, Vocals & Sound",
+        "photo": "/images/uploads/bill-bass-3-blackwhite.jpg",
         "guest": false
       },
       {
@@ -171,6 +171,12 @@
         "role": "Special Guest",
         "photo": "",
         "guest": true
+      },
+      {
+        "guest": true,
+        "photo": "/images/uploads/lee_kirsten-3-2.jpg",
+        "name": "Kirsten",
+        "role": "Bass & Vocals"
       }
     ]
   },
