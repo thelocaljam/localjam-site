@@ -37,7 +37,7 @@ auth:
   avatar_url_claim: avatar_url
 
 # Better Decap + Bridge logo (optional)
-logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
 
 # Add site links in Decap CMS (optional)
 site_url: https://localjam-site.nameless-band-7e82.workers.dev
