@@ -134,6 +134,7 @@
   .next-card .what .v{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.1}
   .next-card .what .m{font-size:13.5px;color:rgba(255,255,255,.72);margin-top:5px}
   .next-card .what .go{font-size:12px;color:var(--amber);margin-top:9px;font-weight:600}
+  @media (max-width:700px){ .next-card{display:none!important} }
 
   /* ---------- PHOTO GALLERY ---------- */
   .gallery{background:var(--paper-2)}
@@ -674,7 +675,7 @@
     <div class="right">
       <a class="tip-link" id="tip-link" href="#" target="_blank" rel="noopener" style="display:none">♥ Tip the band</a>
       <div class="socials" id="socials"></div>
-      <a class="admin-link" href="/admin/" rel="nofollow" title="Band members: log in to edit the site">Band login &rarr;</a>
+      <a class="admin-link" href="https://add.thelocaljam.com" rel="nofollow" title="Band members: log in to edit the site">Band login &rarr;</a>
     </div>
     <div class="foot-meta">
       <small id="foot-note"></small>
@@ -1244,11 +1245,19 @@ if(DATA.hero.sub){ $("hero-sub").textContent = DATA.hero.sub; } else { $("hero-s
 })();
 document.getElementById("hero").classList.toggle("fx-on", DATA.hero.filmEffect!==false);
 (function nextShow(){
+  const card=$("next-card");
+  let visible=false;
   if(nextIndex>-1){
-    const s=shows[nextIndex], lbl=whenLabel(s.date);
-    $("nc-lbl").textContent = (lbl==="Tonight"||lbl==="Tomorrow")?"Up next":"Next show";
-    $("nc-when").textContent = lbl; $("nc-venue").textContent = s.venue; $("nc-loc").textContent = s.loc+" \u00b7 "+s.time;
-  } else { $("nc-lbl").textContent="Season"; $("nc-when").textContent="2026"; $("nc-venue").textContent="See where we're playing"; $("nc-loc").textContent="Full schedule below"; }
+    const s=shows[nextIndex], d=parseDate(s.date);
+    const days=Math.round((d - today)/86400000);
+    if(days<=14){                                   // only when the next gig is within two weeks
+      const lbl=whenLabel(s.date);
+      $("nc-lbl").textContent = (lbl==="Tonight"||lbl==="Tomorrow")?"Up next":"Next show";
+      $("nc-when").textContent = lbl; $("nc-venue").textContent = s.venue; $("nc-loc").textContent = s.loc+" \u00b7 "+s.time;
+      visible=true;
+    }
+  }
+  if(card) card.style.display = visible ? "" : "none";   // (mobile also hides it via CSS)
 })();
 
 /* ---- ABOUT ---- */
