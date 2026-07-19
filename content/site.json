@@ -155,6 +155,12 @@
         "guest": false
       },
       {
+        "name": "Katie",
+        "role": "Vocals",
+        "photo": "/images/uploads/qe-1784484529946-ojw8wx.jpg",
+        "guest": false
+      },
+      {
         "name": "Rick",
         "role": "Guitar & Vocals",
         "photo": "/images/uploads/untitled-500-x-500-px-300-x-300-px-200-x-200-px-450-x-450-px-8.png",
@@ -195,12 +201,6 @@
         "role": "Bass & Vocals",
         "photo": "/images/uploads/macdougall_bobby.jpg",
         "guest": true
-      },
-      {
-        "name": "Katie",
-        "role": "Vocals",
-        "photo": "/images/uploads/qe-1784484529946-ojw8wx.jpg",
-        "guest": false
       }
     ],
     "membersHidden": []
