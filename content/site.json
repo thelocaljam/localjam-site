@@ -67,7 +67,6 @@
     "heading": "Live & in the valley",
     "images": [
       "/images/uploads/attachment-1.jpg",
-      "/images/uploads/img_1942-1-.jpg",
       "/images/uploads/red-hook-eat-go-live-action-shots-2024-2000x1333.jpg",
       "/images/uploads/i-ghcfsgs-x4-1-2000x1126.jpg",
       "/images/uploads/apple_blossom_day-2025-1.jpg",
@@ -76,6 +75,9 @@
       "/images/uploads/img_1730-2-2000x924.jpg",
       "/images/uploads/the_tin_barn-1-rotated.jpg",
       "/images/uploads/porchfest-2025-group_house-1.jpg"
+    ],
+    "imagesHidden": [
+      "/images/uploads/img_1942-1-.jpg"
     ]
   },
   "testimonials": {
