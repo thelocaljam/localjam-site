@@ -195,16 +195,15 @@
         "role": "Bass & Vocals",
         "photo": "/images/uploads/macdougall_bobby.jpg",
         "guest": true
-      }
-    ],
-    "membersHidden": [
+      },
       {
         "name": "Katie",
         "role": "Vocals",
         "photo": "/images/uploads/qe-1784484529946-ojw8wx.jpg",
         "guest": false
       }
-    ]
+    ],
+    "membersHidden": []
   },
   "shows": {
     "eyebrow": "2026 season",
