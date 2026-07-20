@@ -1,17 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: structured data + legal popups + day-of email -->
+  <!-- build refresh: socials wired + schema sameAs -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Local Jam — A Hudson Valley Band</title>
-<meta name="description" content="The Local Jam is a Hudson Valley cover band playing pubs, breweries, orchards and lawn concerts across the region. See the schedule and book us." />
+<title>The Local Jam | Hudson Valley Cover &amp; Party Band for Hire</title>
+<link rel="canonical" href="https://thelocaljam.com/" />
+<meta name="geo.region" content="US-NY" />
+<meta name="geo.placename" content="Hudson Valley, New York" />
+<meta name="geo.position" content="41.9270;-73.9974" />
+<meta name="ICBM" content="41.9270, -73.9974" />
+<meta name="description" content="The Local Jam — a high-energy Hudson Valley cover band playing classic rock &amp; party hits at breweries, festivals, orchards &amp; private events across the Hudson Valley. See upcoming shows &amp; book your date." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Local Jam" />
-<meta property="og:title" content="The Local Jam — A Hudson Valley Band" />
-<meta property="og:description" content="A Hudson Valley cover band playing pubs, breweries, orchards and lawn concerts. See where we're playing next and book us for your event." />
+<meta property="og:title" content="The Local Jam | Hudson Valley Cover &amp; Party Band" />
+<meta property="og:description" content="High-energy Hudson Valley cover band — classic rock &amp; party hits for breweries, festivals &amp; private events. See where we're playing next &amp; book your date." />
 <!-- For nice Facebook/text-message previews, drop a 1200x630 image at images/uploads/share.jpg and set the full URL below once your domain is live: -->
-<!-- <meta property="og:image" content="https://YOUR-SITE.pages.dev/images/uploads/share.jpg" /> -->
+<meta property="og:image" content="https://thelocaljam.com/images/uploads/porchfest-2025-group_house-1.jpg" />
+<meta property="og:url" content="https://thelocaljam.com/" />
+<meta name="twitter:title" content="The Local Jam | Hudson Valley Cover &amp; Party Band" />
+<meta name="twitter:description" content="Classic rock &amp; party covers across the Hudson Valley. See shows &amp; book." />
+<meta name="twitter:image" content="https://thelocaljam.com/images/uploads/porchfest-2025-group_house-1.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#17211B" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%2317211B'/%3E%3Ccircle%20cx='16'%20cy='20'%20r='4'%20fill='%23E39A2E'/%3E%3Ctext%20x='32'%20y='46'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20fill='%23F7F1E4'%20text-anchor='middle'%3ELJ%3C/text%3E%3C/svg%3E" />
@@ -417,12 +426,22 @@
   .foot .socials{display:flex;gap:14px}
   .foot .socials a{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-dk);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:background .25s,border-color .25s}
   .foot .socials a:hover{background:var(--amber);border-color:var(--amber);color:var(--night)}
+  .foot .socials a svg{width:18px;height:18px;fill:currentColor;display:block}
   .foot .tip-link{color:var(--amber);text-decoration:none;font-weight:600;font-size:14px}
   .foot .admin-link{color:rgba(255,255,255,.42);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;white-space:nowrap}
   .foot .admin-link:hover{color:var(--amber)}
   .foot-meta{display:flex;flex-direction:column;gap:3px}
   .foot-credit{color:rgba(255,255,255,.4);font-size:12px}
   .foot-legal{display:block;margin-top:6px;font-size:12px}
+  .foot-areas{display:block;margin-top:8px;font-size:11.5px;color:rgba(255,255,255,.42);max-width:560px;line-height:1.5}
+  .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .faq-item summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:700;font-size:16px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-size:24px;line-height:1;color:var(--amber);font-weight:400;transition:transform .2s;flex:none}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-a{padding:0 22px 18px;color:var(--ink-soft);font-size:15px;line-height:1.6}
+  .faq-a a{color:var(--river);font-weight:600}
   .foot-legal a{color:rgba(255,255,255,.5);text-decoration:underline;font-weight:600}
   .foot-legal a:hover{color:rgba(255,255,255,.85)}
   #doc-title{margin:0 0 12px;font-size:20px}
@@ -682,6 +701,14 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal"><p class="eyebrow">Good to know</p><h2>Frequently asked questions</h2></div>
+    <div class="faq-list reveal" id="faq-list"></div>
+  </div>
+</section>
+
 <!-- ARTISTS MODAL -->
 <div class="modal" id="artists-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Artists we've covered">
   <div class="modal-card">
@@ -747,6 +774,7 @@
       <small id="foot-note"></small>
       <small class="foot-credit" id="foot-credit"></small>
       <small class="foot-legal"><a href="#" data-doc="privacy">Privacy</a> &middot; <a href="#" data-doc="terms">Terms</a></small>
+      <small class="foot-areas">Live music across the Hudson Valley — Kingston, Rhinebeck, Red Hook, Woodstock, Poughkeepsie, New Paltz, Beacon, Saugerties, Hyde Park, Millbrook &amp; beyond.</small>
     </div>
   </div>
 </footer>
@@ -1270,9 +1298,11 @@ document.addEventListener('error',function(e){ const im=e.target; if(!im||im.tag
     const todayET=new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
     const brand=(DATA.brand||'The Local Jam');
     const ogImg=(document.querySelector('meta[property="og:image"]')||{}).content||'';
-    const socials=(DATA.contact&&DATA.contact.socials)||{};
-    const sameAs=Object.keys(socials).map(function(k){return socials[k];}).filter(function(v){return typeof v==='string'&&/^https?:/i.test(v);});
-    const band={"@context":"https://schema.org","@type":"MusicGroup","name":brand,"url":"https://thelocaljam.com/","genre":["Classic rock","Party band","Cover band"]};
+    const cc=(DATA.contact||{});
+    const sameAs=[cc.facebook,cc.instagram,cc.youtube,cc.spotify].concat(cc.socials?Object.keys(cc.socials).map(function(k){return cc.socials[k];}):[]).filter(function(v){return typeof v==='string'&&/^https?:/i.test(v);});
+    const band={"@context":"https://schema.org","@type":"MusicGroup","name":brand,"url":"https://thelocaljam.com/","genre":["Classic rock","Party band","Cover band"],"description":"High-energy Hudson Valley cover band playing classic rock and party hits for breweries, festivals, and private events.","foundingDate":"2017","areaServed":["Hudson Valley, NY","Ulster County, NY","Dutchess County, NY","Columbia County, NY","Greene County, NY","Orange County, NY","Kingston, NY","Rhinebeck, NY","Red Hook, NY","Woodstock, NY","Poughkeepsie, NY","New Paltz, NY","Beacon, NY","Saugerties, NY","Hyde Park, NY","Millbrook, NY"],"address":{"@type":"PostalAddress","addressRegion":"NY","addressCountry":"US"}};
+    var _ph=(DATA.contact&&DATA.contact.phone)||""; if(_ph) band.telephone=_ph;
+    var _em=(DATA.contact&&DATA.contact.email)||""; if(_em) band.email=_em;
     if(ogImg) band.image=ogImg;
     if(sameAs.length) band.sameAs=sameAs;
     function startISO(d,t){ if(!t) return d; var m=String(t).split(/[–—-]/)[0].trim(); var mer=/pm/i.test(t)?'pm':(/am/i.test(t)?'am':''); var hm=m.match(/(\d{1,2})(?::(\d{2}))?/); if(!hm) return d; var h=parseInt(hm[1],10),mn=hm[2]?parseInt(hm[2],10):0; if(mer==='pm'&&h<12)h+=12; if(mer==='am'&&h===12)h=0; return d+'T'+String(h).padStart(2,'0')+':'+String(mn).padStart(2,'0'); }
@@ -1628,6 +1658,33 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
   const tl=document.getElementById('sms-terms-link'); if(tl) tl.addEventListener('click',function(e){ e.preventDefault(); openDoc('sms'); });
 })();
 
+/* ---- FAQ (accordion + Google FAQ structured data) ---- */
+(function faqInit(){
+  const box=document.getElementById('faq-list'); if(!box) return;
+  const c=(DATA.contact||{});
+  const phone=c.phone||'845-514-3056', email=c.email||'thelocaljamband@gmail.com';
+  const tel='tel:'+String(phone).replace(/[^0-9]/g,'');
+  const nArtists=(DATA.songs&&DATA.songs.artists&&DATA.songs.artists.length)||45;
+  const faqDefault=[
+    {q:`What kind of music do you play?`, a:`Classic rock and party favorites spanning the &rsquo;60s through today &mdash; harmony-driven, crowd-pleasing hits from our list of ${nArtists} artists that cut across every generation. Check the <a href="#songs">Artists covered</a> section to see who&rsquo;s on the setlist.`},
+    {q:`Do you play weddings?`, a:`No &mdash; The Local Jam is a bar, brewery, and party band at heart, so we don&rsquo;t book weddings. We&rsquo;re all about breweries, festivals, backyard parties, fundraisers, and private events.`},
+    {q:`What kinds of events do you play?`, a:`Breweries, festivals, orchards, lawn &amp; concert series, backyard parties, fundraisers, corporate nights, and private events across the Hudson Valley.`},
+    {q:`What areas do you cover?`, a:`We&rsquo;re based in the Hudson Valley and regularly play Kingston, Rhinebeck, Red Hook, Poughkeepsie, and towns across Ulster, Dutchess, and Columbia counties. Farther out? Just ask.`},
+    {q:`How do we book you?`, a:`Use the <a href="#book">Book the Local Jam</a> button to send your date and event details, or call/text <a href="${tel}">${phone}</a> or email <a href="mailto:${email}">${email}</a>. Rates depend on the event, date, and location &mdash; reach out and we&rsquo;ll put together a quote.`},
+    {q:`Can we request songs?`, a:`Absolutely. We cover a big range of artists, so send us your must-hears when you book and we&rsquo;ll do our best to work them in.`},
+    {q:`Do you bring your own sound/PA?`, a:`Yes &mdash; we can provide our own PA and run sound for most spaces. If your venue has its own system or special requirements, let us know and we&rsquo;ll coordinate.`},
+    {q:`How long do you play?`, a:`We tailor set length to your event &mdash; most gigs run a couple of hours, and we&rsquo;re happy to sort out timing and breaks with you.`},
+    {q:`How do we keep up with your shows?`, a:`Check the <a href="#shows">schedule</a>, join our email list for updates (text alerts coming soon), and follow us on Facebook, Instagram, and YouTube.`}
+  ];
+  const faqs=(DATA.faq&&Array.isArray(DATA.faq.list)&&DATA.faq.list.length)?DATA.faq.list:faqDefault;
+  box.innerHTML=faqs.map(function(x){ return '<details class="faq-item"><summary>'+x.q+'</summary><div class="faq-a">'+x.a+'</div></details>'; }).join('');
+  try{
+    const strip=function(h){ var d=document.createElement('div'); d.innerHTML=String(h); return (d.textContent||'').replace(/\s+/g,' ').trim(); };
+    const ld={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(function(x){ return {"@type":"Question","name":strip(x.q),"acceptedAnswer":{"@type":"Answer","text":strip(x.a)}}; })};
+    const el=document.createElement('script'); el.type='application/ld+json'; el.textContent=JSON.stringify(ld); document.head.appendChild(el);
+  }catch(e){}
+})();
+
 /* ---- BOOKING MODAL + FORM ---- */
 (function booking(){
   const modal=$("book-modal"), bf=$("book-form"), status=$("book-status"), btn=$("book-submit");
@@ -1680,9 +1737,12 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
 
 /* ---- FOOTER ---- */
 const socials=[];
-if(c.facebook) socials.push(`<a href="${esc(c.facebook)}" aria-label="Facebook" target="_blank" rel="noopener">f</a>`);
-if(c.instagram) socials.push(`<a href="${esc(c.instagram)}" aria-label="Instagram" target="_blank" rel="noopener">\u25CE</a>`);
-if(c.youtube) socials.push(`<a href="${esc(c.youtube)}" aria-label="YouTube" target="_blank" rel="noopener">\u25B6</a>`);
+const svgFB=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 22v-8h2.7l.4-3H13V9.1c0-.9.3-1.5 1.5-1.5H16V5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.4-3.7 3.9V11H7.5v3H10v8h3z"/></svg>`;
+const svgIG=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.9A5.1 5.1 0 1 0 12 17.1 5.1 5.1 0 0 0 12 6.9zm0 8.4A3.3 3.3 0 1 1 12 8.7a3.3 3.3 0 0 1 0 6.6zM18.5 6.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zM12 4.6c2.7 0 3 0 4 .1.9 0 1.5.2 1.8.3.5.2.8.4 1.1.7.3.3.6.6.7 1.1.1.3.3.9.3 1.8.1 1 .1 1.3.1 4s0 3-.1 4c0 .9-.2 1.5-.3 1.8-.2.5-.4.8-.7 1.1-.3.3-.6.6-1.1.7-.3.1-.9.3-1.8.3-1 .1-1.3.1-4 .1s-3 0-4-.1c-.9 0-1.5-.2-1.8-.3a2.9 2.9 0 0 1-1.1-.7 2.9 2.9 0 0 1-.7-1.1c-.1-.3-.3-.9-.3-1.8-.1-1-.1-1.3-.1-4s0-3 .1-4c0-.9.2-1.5.3-1.8.2-.5.4-.8.7-1.1a2.9 2.9 0 0 1 1.1-.7c.3-.1.9-.3 1.8-.3 1-.1 1.3-.1 4-.1M12 2.8c-2.7 0-3.1 0-4.2.1-1 0-1.8.2-2.4.5a4.7 4.7 0 0 0-1.7 1.1A4.7 4.7 0 0 0 2.6 6.2c-.3.6-.5 1.4-.5 2.4C2 9.7 2 10.1 2 12.8s0 3.1.1 4.2c0 1 .2 1.8.5 2.4.3.7.6 1.2 1.1 1.7.5.5 1 .8 1.7 1.1.6.3 1.4.5 2.4.5 1.1.1 1.5.1 4.2.1s3.1 0 4.2-.1c1 0 1.8-.2 2.4-.5a5 5 0 0 0 2.8-2.8c.3-.6.5-1.4.5-2.4.1-1.1.1-1.5.1-4.2s0-3.1-.1-4.2c0-1-.2-1.8-.5-2.4a4.7 4.7 0 0 0-1.1-1.7 4.7 4.7 0 0 0-1.7-1.1c-.6-.3-1.4-.5-2.4-.5-1.1-.1-1.5-.1-4.2-.1z"/></svg>`;
+const svgYT=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 8.2c-.3-1-1-1.8-2-2C19.2 5.7 12 5.7 12 5.7s-7.2 0-9 .5c-1 .3-1.8 1-2 2C.5 10 .5 12 .5 12s0 2 .5 3.8c.3 1 1 1.8 2 2 1.8.5 9 .5 9 .5s7.2 0 9-.5c1-.3 1.8-1 2-2 .5-1.8.5-3.8.5-3.8s0-2-.5-3.8zM9.8 15.4V8.6l6 3.4-6 3.4z"/></svg>`;
+if(c.facebook) socials.push(`<a href="${esc(c.facebook)}" aria-label="Facebook" target="_blank" rel="noopener">${svgFB}</a>`);
+if(c.instagram) socials.push(`<a href="${esc(c.instagram)}" aria-label="Instagram" target="_blank" rel="noopener">${svgIG}</a>`);
+if(c.youtube) socials.push(`<a href="${esc(c.youtube)}" aria-label="YouTube" target="_blank" rel="noopener">${svgYT}</a>`);
 $("socials").innerHTML=socials.join("");
 $("foot-note").textContent=`\u00A9 ${new Date().getFullYear()} ${DATA.brand} \u00b7 ${DATA.footer.tagline}`;
 if(DATA.footer.credit){ var _cr=String(DATA.footer.credit).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); $("foot-credit").innerHTML='Site designed by <span class="egg" tabindex="0">'+_cr+'<span class="egg-pop" role="img" aria-label="Don’t hassle me, I’m local"></span></span>'; } else { $("foot-credit").style.display="none"; }
