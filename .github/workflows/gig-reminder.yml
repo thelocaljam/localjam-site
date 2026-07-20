@@ -1,4 +1,4 @@
-name: Gig reminder emails
+name: Gig reminder emails (2 days before)
 
 on:
   schedule:
@@ -12,11 +12,11 @@ jobs:
       TZ: America/New_York
 
       # ─────────────  EDIT THESE  ─────────────
-      REMIND_DAYS_BEFORE: "2"                              # send this many days before a gig (1 or 2)
+      REMIND_DAYS_BEFORE: "2"                              # 2 = two days before the gig
       BREVO_LIST_ID: "2"           # Brevo → Contacts → your list → the ID number
       SENDER_EMAIL: "admin@thelocaljam.com"    # must be a VERIFIED sender in Brevo
       SENDER_NAME: "The Local Jam"
-      SITE_URL: "https://localjam-site.nameless-band-7e82.workers.dev"
+      SITE_URL: "https://thelocaljam.com"
       HEADER_IMAGE_URL: "https://img.mailinblue.com/11690044/images/content_library/original/6a5a5bb8775fa460f34df161.png"
       # ────────────────────────────────────────
 
