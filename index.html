@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: help contact + credit easter egg -->
+  <!-- build refresh: structured data + legal popups + day-of email -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam — A Hudson Valley Band</title>
@@ -422,6 +422,10 @@
   .foot .admin-link:hover{color:var(--amber)}
   .foot-meta{display:flex;flex-direction:column;gap:3px}
   .foot-credit{color:rgba(255,255,255,.4);font-size:12px}
+  .foot-legal{display:block;margin-top:6px;font-size:12px}
+  .foot-legal a{color:rgba(255,255,255,.5);text-decoration:underline;font-weight:600}
+  .foot-legal a:hover{color:rgba(255,255,255,.85)}
+  #doc-title{margin:0 0 12px;font-size:20px}
   .egg{position:relative;cursor:help;border-bottom:1px dotted rgba(255,255,255,.35);white-space:nowrap}
   .egg-pop{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translateX(-50%) translateY(4px) scale(.85);transform-origin:bottom center;width:170px;height:176px;border-radius:10px;background:url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACwAKoDASIAAhEBAxEB/8QAGwAAAwADAQEAAAAAAAAAAAAABAUGAgMHAQD/xABGEAACAQMDAQQHBAUJBwUAAAABAgMABBEFEiExBhNBURQiYXGBkaEyscHRFSNCUnIHJDM0YmOSsuEWJURzgqLCJkNTVPH/xAAbAQACAwEBAQAAAAAAAAAAAAADBQIEBgEAB//EADMRAAEEAQMCAwcEAgIDAAAAAAEAAgMRBBIhMQVBBlFxEyJhgZGhsTLB0eEUI4LwUmLx/9oADAMBAAIRAxEAPwDmPak93PfHH2dvT3CpVZ45WHqNkHPWqvtYu6a+HXIHI9wqSsLfvJ1VmIyfCqI7pjJynOmSSfo/Ve6jBi7jEpY4KDIwR50EtxGbfYPnTXR4BDpWupuLZtx1/iFKHt07jG3nHWpEFRugE1065i/R9zCd3eMFxhcjg+dDW4Bnuj/dH7xTDSYVj0G/wME930/ioK1H628H9034Vwog4CCnjV3QMoYDJxTfVNOt4be1ljtVjk3jDJkbhjxqdvJpI5zgjGBXsF5NNLFG7kgsAMknFFY8BtEKs5vvWnd6RFrhLEBVc5P/AEmk5jkvpxFbRlyBn2e80b2gzFqDwtIXcvje3U8VV9nNPhhs4wgG9xuY46mvMHdHawyO0qFudMuocJJExY9NoyBQ3czwOGcNtXk+Fdk9Fj7scA5pNqllGwYbRnFTciHE7grn+oypNAHQgg4+6sezS4vZD5Rtn5V7qVsbWYxj+jbkDyNbOzyfzyXcCMQv91BqlX31UUosE/n8PlvH31QzDbeTDHGD94pJpuPTof4xT2Y7r25P9liP8QrxXmcIY70PB60TPmGZlUZUeda5kY7NoJ9UVvu8NNkdDj7qkQFwEgJ72WRk16z3gAkFh8Vrp68KD51zTQCP0/p/I/o//GulKcxr76LjjYqUnKzbI4rILxWDn1uK2BuKsIa5N2rO2W9GMYA+4VM6UGkmUoCzDnABNVXayNTqF5FnK8dP4RU7DCIDmJmGfAEil7XNaTqR5GuJtqf6bCBpGuMSDm2UjPBzuFT5ljaPYG9YKcjFNYNVeOzu4DGD38Xd53dDkHP0pQtt+sDOxK+OOOKk5zCfdUdLqCoNNH/p++4BH6r/ADUusxma9/5LfhRNneKmnzWixt+t2ncT02nNaNPVu+1AjjEDZ+Yod2ieSR36Azk+wVqtlxcwn+2PhRFwhLnHOBWqMFWUtlfM+VEbwqzrtea0zm+ZpZN8yt1z1ro+kZttMhc5dyoOB51LdktKtr221KGcI7NtaOQnlW5x+JNWmnRA2KRNg4UKeOporR3VyBhHvea1R6nJJcJbutrlvBZMt/pQ+v3O2QQwmNWUbmLZOB8KMmtIbecNIFDqv/tjAQeHvpbq/o/pVr3cpaRx3bKByFPmPKuutHOoNq91I9onLxRuShYMBuQ8HigdDeWPUFkyG2EMoYZXqByPHrVNr1jHHbtCQoPLZA6nBqWhZoggB5K4JxQwqEwLXbrdJbXA1SQybFj+3uVRjB8qaNJewOirZNKzLuSMMFLIf2s4onUb22TRNMTSroLePGTchCSQfbnp8KS3Xp05R1eUEDaGB25Htrzm0VAO2X2sag8CtIVaKWUALF3m8Jjqc+Joazma67udGIZfVlTz4ODj5V9Gw1CJract3w9dHx4+VUOiDRm0mNdZ1F7XUBuPdCMY2+HIHjXBuvIHSNWu4b1Z3ijDxjAHOBxiqq47Q391FHbJPChbkvECCuORzURDIkVwWhQPbsCwkYngD2VlFquYmuLdAyxt66Hrt8CK4CRsFK+5XV9N7RpdRQK6lZuFkHkR1qjDjA5rj+j63G+pow57wbHQDrx199V8WuTiNB3bHAHOKOyTbdcIUnquoJd3txKsThXPAOPLFKyx8A1ZtcW5571PnXnfxHpKh+NLrJ5Vsgeaw3kdQflWQdTwSR8K9LqRww+de5GOo+detcpZwyxrISWwMY5o3SmydUIOVa2YZ8xkUBkYprYbRbX2f/qH7xRGHdcIU7ekrKcHqBWu0BnmijJ4YjOfGtmoD9aCMDivNJIN5AMjqPvqy0bKof1JxDrUPZ3W7xUtVaFjsa3B4B8CCfjVVo90t3ZxTp6veKGxnpUd2r09pteuu5z3jStwPHjNUGgK6aJayRD1lUqV8+TXWlW4nOB0nhNdUeZVUQIHPDMfEDP30p1KcPcQ+hxSBc5bewZgfgBTSG9jIxLvUr0YDpWme5te83Ruzt5BetS5CPbSLKV6lvlmECASSvmJQWAGceZ4oTtf2f1DTbl47uyWCWVRIkayo4wQOhUkVovY7i51lbZUaRioKqi7iSeTgDrRXaOwurHUEhureeFiY3VZY2Ukcc4PhXWNBaSluQ8l1LTqXZe/7NWdtcXdrIjzphg5XGWyOCGPHHs8aw7SavFIbeC2gO2K1hMj7cMWWPa3HTz56+Nda/lXkgg0nR5byHdAik9M7id4GR78VzXtYJtOvpbe7gUzz6VZuhG31cRqT08T86HO4xuLWjyXI22LJU7LdW1tpa3Hd3KTkkBZGGDxxjFK3mM8aXkCK7jCyxkZ586zmnGoCQINkq+sg8GHlVJo2kR3GjRXXp9jBOylngI2sAD0PtqPO6l8Oym1u4rlDbvEIVYY9XgA+6vtMSO3c7o9r5KHng/Ct1pYxzXbDfD3W3eryH29M+db77MAKq8croN2EbOV/OuFcvdONPSJ2QhQuOMhRkVXppqFFIncDFQ2hSSXn6+2VmRDtbw+FUAu5QMbmFTbsN1IqQ9DU9VrJdO3OoC8k8CjwPupzp1lG+j3moypcE2roqiMDac56k+X40IWeEYtA5SL9FFSAyhaIi0yFWy2fhTCSRiiuwAJ565rYq5XzJoTnFFEYWuO1gjUBI0z5kZNYWYwl95C3bP+IUWEPdqW8eKGteY9Q5/4dvvFcbyuuGymNUhaY4Rgp8c1hpFqtrcJJIQzBgfV5o+XS5dTvWjiOyMbdznoox99VulaBaWkaiBM4Gdz8k03xMGTIGobBZ3qHVYMN2l27vJCyWUmoapLeRHEW9nG4YJypHSnVjYmytkhb9wMfjW6OPu+FHSi4BgkS/ZIwD5Ven6WI2Axbnv8VT6X4jEmQRk7NPHw9fXzS+eySVsjcCB1XxrZaabCiFsMWPi1Nu7j7jeGwR5c1khjSINIc55CryTSvQbqlsC+OtdivO1P2+jyw67bata6i1lKgJR1iEhVhkZx5YPtp92j0jV+1s8d3qPaRbh44DbxvHbKAqEYIwD/AK1rtYnw7SAK7n7I6KPAV4EkgnL2zNG4HVfH305i6YPZAn9SwmT4ja3Le0C2XsVqvOwl1f2dpb3uvM8NtH3Uai2A4yTkndyeaZah2XTVNR9M1i59KdbSOzVY4+6ARFCg8E8kCirTWiIit3E24ftx+Pw8KL1G/itLdZjvlEjBI1iG4uT0AqrLitjNvCdYebHlj/S6/h3UtP2I0i3u4Y7eziWN1ZnkZ3Z1PhjmpLW+ytqur3BhlKIGwE2ZHT2nNdSu3PpMXX7B/GorXCfT7wqcNzt9+Biq0kba2CuhxUnP2dR7Zou/wp8kwPvoSLQ4LYttuEyhCsxjI5PQeOfCqdl2xY5IAxk8k0muT/XD5SxfhQHMAUwbWcemyW21Vlt03thRkjJpmtnPtHrL086FvILi8a3BEfdiUOecFQD99HtdurFdx44qIaF5SpLZ5NNIL3VotCnsYHuBY3BLGMJ6r+fh7KV6HJFqGq2lvIrIkjgNk+HU1d6h2e9MR9QguV2JMY+5VsOqgAgqPKhwxE72rJkaOeFKWp3WcWTk4xTG2GaEuoEtdUWOCUyRyRlycYO4HB4oyAjGfDHHPWqz2lriCjxm22s5PVjUe2l+lq88lyg47yHZn2k/6Uwl5QN7aM0CxESKXUbz9o48MkgfWrvTsX/Jl0ngcpV1rqAwMfWP1Hj/AL8EVpthHBGqrzj6012BAKztIsu3dozEcgKMmjk0nUJYjJ6JJt+GflWsfkY+NTHuDfIEgL5mY8nMcZGtLvMgEpb3IJya9EXJGTRAVl9V1IZeCCMEGizpl6y7haTEfw1OTIhjAL3gXxZCBHDNIS1jSa5oFLxEPj7qzSFs9QKz2FXKuCrDggjBFbEHIxwR1ogc07oLtYsUsxGFX1c5rWF3SEeOK3jPln3CjrjTGtYbecyCQTEDCqeMjNCkyoontjeaLth+VKLHmlY6RgsNFn8f9pJoUxO6HjJzRdgxgd1J9TeQR5HwNY3CBSH4DIcEGs4gJDIw6MxHy/8AyiSMEjS0r2PlPxpBMzkLK7fFwnh6p/Go3WG/3lcfxfhVLfylLiMOfW24P1qS1STN9Mf7X4VmpgWktPZfUseZs8bZWcEWkms601u5gtUDuPtM32V/M0BbXEslhdTT47wSxkjGOmKPvbVHnjljiUPnJb8x40FKFWK8RQMd9GMfKqbrtWQsrfXrt7yRTDGsSxNIuASTjgfWtK3d9IA535bngCiLeyMd3Eky7kO7IXkAHzNUKMqoqqigAYAxXA3VypcKK0JpbWeK4aNt8bhsEdcGunXWuabIgeG9KE8lO7OQcEH39a5j38hngj9JkO8IcCMDOaHlmYrMUuZ8qPIDxxXma23S4XRnlUl5dNea5LchWEKKEQsOWGeTR+CMHnDYK+6pvTdTS1iiM1pHdE5GZXI8fHFEavrVzfTDuIoLJIQVCQZ556knrQnQF3vEorMlrdqVLbIZ5I0xwDk+6qSJP3eDipjsRHPJbSXNzIz7ztTPs6mqgeqN1aXpON7GLUeSsD4lz/8AKydDeGbfPv8AwjtCcx6pDnhWco3tBH51X3t29rd6dbR7THcEhzjkdMY+dQthcBdUhVQeJVP/AHCq3V23XdjIMYinRfmTWd6/BC/qcIkbetrh+a+5TPoM0sfT5dBotc0/i/sEVqFtGNU0+XaMlmU8dcKSK9v7yS0uLRVVWWZ9rbuvh0+dEawuyTTm44uQvzUil/aUFIbOT92cc/D/AErPY8AyZ8WOcam04Uf+VfkLQZjjixZMkOxtp/F/go/ULZPTNOuAo7xZxGx81IPX4ijzH3itE4HrAqePPitF9lViP7txGw/xY/GiVbfflPEw7x8GwfvFUGufNjx+8dTNVfIg/a0wayNk0nuinVfzFfslHZUMtvLGeGSUKffjH4UtjvxZ3tqe7Igt2cFVPJck+t+Hup9pMPc6tqiHp3iSD3MCanL6MenXcbD1TI4x8TW06VGzL6hle0Fte1h+raP5WG6u+TAwMf2exY5w+jrH4VzaNb3+nSTmHMc2eJEBII61GajLaS3Pe2O3unUEhV24bGCMfD61S9n5j/sLdq/9LAZgrY/aAyPvqKiZGSFvBzn445q30TAGPlTaSdLTQF9jv/CB4izzPg47XAW8aia7jy+6C7QQn0cTKPWj5PuqDv3zLMWbb1O7y461066jEtu4YZB4Purl+pxNFd3ELHlTtzjwq71SLS4PHdF8J5muJ2O47t3Hof7/AChzMiwhi5I4GfE56UrkPFy3g08ZHzFE3VsZIlWNghUgg46YoJ1kAuQQTiSNvgOp+hpObtbDalQkgZ5xWo3Ck5Dj51ovstaTKviD40vUEKBnwqJNLrUEothfWX9MSFi54x4VpjEQjvCUkI2/vAftj2Uanoou7Md3OzFYsEyADw8hWpZbcW95ttz9kdZTz64o9KshxJAIbcejlsk4y549b2UQrKZ7sLbpuXOAST+0B51QdhLOz1W8SC7tI2iETOo3NwQ+POrOfs7o1s0skVoBMMMvrn7RIx9eaLHEXkUhyyCNjnnsLQ+l2wtbG2hChdi4IHn4/WjDjnyPWtY4kAz0zWNxMIo2cAnyA8a07QGtpfNXudK/V3KxtZXbV8AAJGYwCOpYnJ+QA+dXXacLb20CR8bbhSx8yMmoDs0TOveyEbmuDwDnHIGM10PtpEI9NGeCs459nNZjqzdWfiOPmf2Wr6VbcHLaOwH72mPaH+r28oBwt3Ec/wDVj8aC7YoF0sED7Mq/caZdo4wmiqxI9WWJ85/tig+2iH9BPJ/eJ+NIsJlT458nH9v5Wk6lvBk/FgP5/hEaiwXT2fyaJx/jWts0ndaxY5GN/exH5Aj7q0agR+g3c9BEjf5TWHaKfunsLg8FLjJ+X5UtwoNcrIhyTIB82hHzZvYxOmPYRn6ON/ZMI12azO46S26H4qxH41Kak3+9b5fESsfxqyZB6QjjwVlJ9mQfwqK1w91rtxIPsvIQ3vxxT3wrKX5TiedA+xpZ7xjEG4ba/wDMn6glWPYuAXeg38BxtklYe4lBiubSMYGhVuNlzsPsyD+VdN/k1bda6nbn9l0ce4gj8K5j2oBhk1EgYKTCQe8OVP31o8O2ZuQ3zo/ZIc1rZenYj++7funMfrxH21D9srLY0d2o6+o/4H8Ks7aTMakA4IzS7XrVZ7cxuMK4Kn2Z6H50xyYRNEWpH0rLOFltk7d/Rc0JoSW5jRyDFu2o6t632s7sH2Y3fSipAY3ZHGGUkEe0UruEBulyOHyp++sobC+stIIsJqo763XnhlHPwrT6E/8A8o/w1lprbrKLPUDafhxRm72VygeV26SOOW1N7ZAW0mcRAEy9OnkK0rPELe8K2kQwo+0zNn1x7a+iuIPT7PbajP6rBaRj5e6vFu9sNyY4LdOBn1M/tDzzRggKo/k3uBJq0IEcSZt5D6i4/bq/1MMX9UEjgnA6YFc8/k8upZdatw5G0wSHCoAM7x5Cn3aDX9SsO0U1ra9wYmRAA6Ekbhzgg1YimEQDz2QcjH/yY3Q3Vpk4GcnilmpMWicbzyOCD0okgW9ogJOQvWkWpmaaW3t4pnRp3CHbgceP0zTFnU437UbKzsvhrIxbeXAtG9/0nXZVDb6dGSMZk7zHiOc/hXU9Q7Q6JdLhpRJ6wPMJIHOfKucWqLFAEUYUAAD6V0E2Ni1/qCeiwbUsQ6jYOGy3Pv4qn1mOB2gTXwaogeS70ObJJmMGmiReoE+f8JT2k7RJqEBtrYNsZw7uwxnHQAU0t+0unX2lC11NRHIAAwZCyMR40Loem2tx2bRpIImnljlYOVyRjOOflWWg29pHpOlyPZQzvey93I8i7iuQ3T5UvlGEInQNY73HEWDuTvZv5fZMYD1AztyHPbUjbIINAbUK/wCX5WHaDX7a6tWtrLLB8B3xtUAY4HyrLtFqFne2kcdvOHcSBsAEYGDzRPoFnpoVUtY5BNd9yTINxUEnA58qF1SzgttJuu6iRStx6pxyASDjPxqvjvwmzQiNrhTtjY3JoEn02Us2LqDoZzK5ptu4AOwFkAeu6eabrNibCD0m5jSbuwHBByDjHlUxrZjuNRvGiYPE7hkI8eBTXTLi3sdBt7p7OC4cyFG3gc8nxoTQrWG81Tup1LR7GfaDir/TsfHwn5GYwOAbqB3HY2aH8pP1XIyc+PGwXubb9JGxFWKFnj6Jr/JvfpDcXizSKhaNVbcQOQf9ale2sKtc6wqMHVu8ZSpyCDzx8QKqIdEso9YuxJE5gJXuxvPGUyfrQPbPTLK1t7RbVZFlmjZWBbKlSuPHx3UfE6hjT5jjGTqcBtW3F+ajmdNy8fp7GyBobG4m7N81xXmpXQLkNYwlm/YA5PWlPbLtBNaztZwQhSVBMj88f2RSzshclVmAP2SDRHbqL0m1hvEHMR2N7j0+v31LI6nI73WbJtheFcdl5Ep1nmu39qRmmeaRpJGLOxyWPiaW3Ln0mH+PH0ootQN0f1kB/vBSsm90/DQBQTDR5P5qR5Ow+tMN/spRpLYik9krUyzXgdl4rC601bHtRZLHGtxbOy4jOSUXoPfjGaonhtLNwIbO2QHr+rHPzqT7XSO2qxG2kP2EG9T9kjPj8aHgnv1mXfM8y5Hq5JovtAHaVHTta6hpdxH6Xbx4VXcMQAMcDr99TvaUs/buSPHqLBG+fga16bHejULS7hEpZCAY9p27SeRmmurtHddomkSIxssao2Rgkjz+dTmsMpTxm63hC3c7kKC2KF0k+k6/uPK28JI97cfnX2pNsDE9AK2djU7xL25P7cmwe5R+ZNT6czXO34bqn4jyPZYjwO+31VLGPWA8MgV0S5nVLq/gCDettkv4kHcAD7Bj61z2I4ZWPTIzj31UTa1ZPe38qyuUmtxGh7s9fW/MUbrmNJO5hY0mgePVv9rN+HcuOBsmtwFkc+jv6TjQoXSx0kDHd+jkNk45YDHHzpZoCSCxbT7+NktZ3b0aYMAQ4zwMcg8Ej4+dCjWrVNX0+WN39GghMb+qfLHT5URDrGnSrAJZniFrcvKmUPrglsf5qVnHyY2uc5hOrfg2Dbq+d18inTcvEkcwNkA0bciiKbfy5+YWWlpcwJNY6mHa3klKRT7ud/s5yM4yPbWM8ckHZ6+hnkMjpP8AbJyWGVwflQ36bs7sHvzJF3dwZ0wudwB4zivV1exuobmK6EypLJuwo5wAMc/ChmPM9vrMJoOaTQ8iNx6jmvJDdLhexMbZh+lwaSexB2PoeLTLTrmO17MwSSW6XKd6VKP05J5rDss5bWCQoBCSAgeANa4LrSXsBZSy3CQ94WBCnI5yOaw7O3NvZ6+kryYtsPGWfy52k0yhhc6DKBY4OdqO4O4PFfFJ55mtycM+0aWM0jYjYjm/h6qyIDxqpH9IBLG/nheRU92qlhk02y7xW9JVQ8bDptGNwP0o2x1a0EdnFLcICqNyf2TtwM0FqIs7+K3C38CPFCxCk/a4GR7+KT4GPJjZjJJGuDb5o9tQHHbhP+q5UWZgyRwuaXEcWP8A1J788rj2mxeh9odUs+gDEr7RnI+hqi9GF9YXFu/7SEfTj60q1iLuO2UL+FxbjPvXI/AU30+YRSqzeJ2mmuWzRI5vxTDoc/t8Njj3C5iw2sQeo4NLrpmMkhGP1RG3+I+PwpzqiCPUrpB0EjY+dJZsk3XlvT8KrIhFGk1tolt4ljTnHJJ6k+JooGhweTWzd7akorocOmWKR92IFKFt5VjkbsYzjzxRcUNvFxHFGnuUCgprOJv6mdQQeBlZUH15rfp+mEvm71iJF/dRd7VdHohplbEd4uMVKXD95repOx5EpUfCuiadpWlqFI/SF43mSI1rnF8oh7QauipsRbhhgndtGc4z40HI4CtYn6yk+ttiNlz05NOuy8Po+h2w/add5/6jmpvX2aQJEvLzMEHxOKtYYxFCka9EAUe4DFXukM95z1l/Fs2zIvM39P8A6t8IDPGpzhmAOPaaob8x6Ff3FvYsSlzbhCJBu6sR18MCkFou69tx5yoPqKa9q3Da6gHTYn+Y0fLcX5TISfdLXEj0qkjwAI8SScD3g5oB8ru0Vrui2ltDE1kJgDMkR3PnINCdodNtbGFHtTJlpNvrNkYwTT69Y3UjQoP1MU0bs3tpJ2lkDWVuQeDMT9DWW6f1TIlyIInPJ3N/GxYWp6n0vFix55WMA2FbcUaKDFpD+gfSiG7/AHYB3cfax0rdpNtb+gXF5dq0ixnAQHHTH51jux2WUf3n/nX1u+Oy8+D1c/5lFXZsqZ0EjdZFz6edw2xsD2SuHFhE8btA2h1cbE0dz5pyukQNqACB+47su0YbnOccHyry5tLNobC6sjIkNzIsTIx5wT19h4NbnmZbiVgeVh/E1O6Xqck8mn2kmwRxuGXjkkA/nS/pebmzsM/tCRGBdnkU4/M8Jh1HBwYXCExgGQmiBwbaPkOVQavYW1pNZLA0mJJtjszZODjp9aU6+iWl68cBYqm113HJ6c0VqszSW0Tg/wBHdgf92KWdonJ1Vj4bFpp0TqE8z445XXs+/UFtfYpZ1zpuNCyR8TAN2VXkQbH1CmO1dwFvdLuuP1c2wn+yw/MVtu5Cke5feaB7XRk6VJIvJiIf5HP50fEguLVW6h0DKffVvqbP9t+ab+FZB/ilnkf7ULqDF72ZsnliaVSn+s/xp+FONVjMV86kYPjSWXrc4/fT8KXDhOH2HFOPGtla18ayrqgrq6u7O3Ja4mhVv7x8mhou01hA3qNJKfKNMD5nFc/AAOQADWZcePWhnLd2CMIR3XRv9vpYUK2togPnLIT9BSVL6bVLm9uZQnfTybiEXC5wOfpUn3lU/ZUF7eQeG7OfhUGyPkNOKPG1rTsENOq3HaXT4hyiuGPw5qzFSuj2xPaJ5CpxHkZPQGqo8DyrS9JbURPxXz/xQ/VlNb5D9yt9j/Xrb/mr99F9pX3a0McgLHSsORgqSGzwQcYrGaVnfdI7O2MbmOTRpcQvymz3sGkV61/CVw5jWYroK3LgforFZT+k7mPkIEjfH+KkerOX0Wwc9GbPzBpT30m4t3sm4jGdx5FYmR2RUZmKLyFJ4HwpJh+HDjTsm13p09vJpb597tOsvxAMmF0Oirvv5kH7UnttBJddm0ihALmQnk4HDVna2sj6TLYBlFwkw3LnoMhs/Kp9WbHqswA8AayUNnqd3ic80V/RJXawJQAX6x7vDr777j6IMfWoWaCYySG6DvyPhtsVWtIk13eQxuDKIQMZ8Tu/MV7aW3drp9tMq95FGWYKc+GM/MmpNI9rZB+RxW+Perbg7gnrycn41SPhUtbojloV5d9Jb58USaVseKWl2t8Vm/Ptd+XOwT+3lfUNMnYqD3c4C7R4BlIrV2j0659MkuVhcwKi7n8vf86UozR5WOR1UnJCkijP0nOYWhuruVo2GCGYkH31dxuhvwsgTY7gG2diDsDpuvoqWT12LMxjDO06qG4rkXXy3Su+s/SbKWJ+VdSv0pV/J5dFJbM6nELiwhLQyQ9GbAI6+wkGnEmoR7GWNN2D1PFIuzyGPWLyDHq973w8gGH5ir/U2bNeEfwpIfavifte/wBEg7UnGplFQLtHh7zUxL/xf8afhVZ2xBXVnyOvjUnJ/wAX/En4UhO5WykFPITdeprOtanmtnNSQyv/2Q==") center/cover no-repeat;box-shadow:0 14px 34px -8px rgba(0,0,0,.65);border:3px solid #fff;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:60}
   .egg-pop::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#fff}
@@ -742,6 +746,7 @@
     <div class="foot-meta">
       <small id="foot-note"></small>
       <small class="foot-credit" id="foot-credit"></small>
+      <small class="foot-legal"><a href="#" data-doc="privacy">Privacy</a> &middot; <a href="#" data-doc="terms">Terms</a></small>
     </div>
   </div>
 </footer>
@@ -753,16 +758,12 @@
   <button class="lb-nav lb-next" id="lb-next" aria-label="Next photo">›</button>
 </div>
 
-<!-- SMS TERMS MODAL -->
-<div class="sms-modal" id="sms-terms-modal" aria-hidden="true" role="dialog" aria-label="SMS Terms">
+<!-- STANDARDIZED LEGAL / INFO MODAL (privacy · terms · SMS) -->
+<div class="sms-modal" id="doc-modal" aria-hidden="true" role="dialog" aria-labelledby="doc-title">
   <div class="sms-modal-card">
-    <button class="sms-modal-x" id="sms-terms-close" type="button" aria-label="Close">✕</button>
-    <h3>The Local Jam — Text Alerts Terms</h3>
-    <p><b>What you get:</b> a short reminder text the day before each public show. Frequency varies with our schedule (typically a few messages per month).</p>
-    <p><b>Cost:</b> Message &amp; data rates may apply, depending on your carrier and plan. The Local Jam does not charge for texts.</p>
-    <p><b>Opt out anytime:</b> reply <b>STOP</b> to any message to unsubscribe. Reply <b>HELP</b> for help, or email thelocaljamband@gmail.com.</p>
-    <p><b>Carriers:</b> supported U.S. carriers. Carriers are not liable for delayed or undelivered messages.</p>
-    <p><b>Privacy:</b> we use your number only to send show reminders. We never sell or share it.</p>
+    <button class="sms-modal-x" id="doc-close" type="button" aria-label="Close">✕</button>
+    <h3 id="doc-title"></h3>
+    <div id="doc-body"></div>
   </div>
 </div>
 
@@ -1262,6 +1263,24 @@ if(!DATA){ try{ DATA=JSON.parse(document.getElementById('local-jam-data').textCo
 /* Load photos + hero backgrounds from the CDN so freshly-uploaded images appear within seconds (fallback to the site copy on error). */
 (function cdnify(o){ if(!o||typeof o!=='object') return; for(const k in o){ const v=o[k]; if(typeof v==='string'){ if(/^\/?images\//i.test(v)) o[k]=CDN+'/'+v.replace(/^\//,''); } else if(v&&typeof v==='object') cdnify(v); } })(DATA);
 document.addEventListener('error',function(e){ const im=e.target; if(!im||im.tagName!=='IMG') return; const src=im.getAttribute('src')||''; if(src.indexOf(CDN)===0) im.src=src.slice(CDN.length); },true);
+/* SEO: expose the band + upcoming public shows to Google as structured data (event rich results) */
+(function structuredData(){
+  try{
+    const TZ='America/New_York';
+    const todayET=new Intl.DateTimeFormat('en-CA',{timeZone:TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+    const brand=(DATA.brand||'The Local Jam');
+    const ogImg=(document.querySelector('meta[property="og:image"]')||{}).content||'';
+    const socials=(DATA.contact&&DATA.contact.socials)||{};
+    const sameAs=Object.keys(socials).map(function(k){return socials[k];}).filter(function(v){return typeof v==='string'&&/^https?:/i.test(v);});
+    const band={"@context":"https://schema.org","@type":"MusicGroup","name":brand,"url":"https://thelocaljam.com/","genre":["Classic rock","Party band","Cover band"]};
+    if(ogImg) band.image=ogImg;
+    if(sameAs.length) band.sameAs=sameAs;
+    function startISO(d,t){ if(!t) return d; var m=String(t).split(/[–—-]/)[0].trim(); var mer=/pm/i.test(t)?'pm':(/am/i.test(t)?'am':''); var hm=m.match(/(\d{1,2})(?::(\d{2}))?/); if(!hm) return d; var h=parseInt(hm[1],10),mn=hm[2]?parseInt(hm[2],10):0; if(mer==='pm'&&h<12)h+=12; if(mer==='am'&&h===12)h=0; return d+'T'+String(h).padStart(2,'0')+':'+String(mn).padStart(2,'0'); }
+    const upcoming=((DATA.shows&&DATA.shows.list)||[]).filter(function(x){ return x&&x.date&&x.date>=todayET && String(x.tag||'').toLowerCase()!=='private' && !/^\s*private/i.test(x.venue||''); });
+    const events=upcoming.map(function(x){ var e={"@context":"https://schema.org","@type":"MusicEvent","name":brand+' at '+(x.venue||x.town||'a show'),"startDate":startISO(x.date,x.time),"eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":(x.venue||x.town||''),"address":(x.loc||x.town||'')},"performer":{"@type":"MusicGroup","name":brand},"organizer":{"@type":"MusicGroup","name":brand,"url":"https://thelocaljam.com/"},"url":"https://thelocaljam.com/#shows"}; if(ogImg) e.image=[ogImg]; return e; });
+    const el=document.createElement('script'); el.type='application/ld+json'; el.textContent=JSON.stringify([band].concat(events)); document.head.appendChild(el);
+  }catch(e){}
+})();
 const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const WEEKDAYS=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1566,11 +1585,28 @@ if(tipHref){
   });
 })();
 
+/* ---- STANDARDIZED LEGAL / INFO POPUPS ---- */
+const DOCS={
+  privacy:{ title:"Privacy", html:`<p><b>What we collect.</b> If you sign up for email or text updates, we store the email address or mobile number you give us. If you send a booking request, we receive the details you enter (name, email, phone, event info).</p><p><b>How we use it.</b> Only to send the show updates you asked for and to reply to booking inquiries. We never sell, rent, or share your information.</p><p><b>Your choices.</b> Unsubscribe from emails anytime via the link in any email. For texts, reply STOP to cancel or HELP for help.</p><p><b>Contact.</b> Questions? Email <a href="mailto:admin@thelocaljam.com">admin@thelocaljam.com</a>.</p>` },
+  terms:{ title:"Terms of Use", html:`<p>By using this website you agree to these simple terms.</p><p><b>Content.</b> Photos, videos, and text here belong to The Local Jam or are used with permission &mdash; please don&rsquo;t reuse them without asking.</p><p><b>Bookings.</b> Submitting a booking request is an inquiry, not a confirmed booking &mdash; a date is only held once we confirm it with you directly.</p><p><b>Links.</b> We may link to other sites (social media, venues); we aren&rsquo;t responsible for their content.</p><p><b>Contact.</b> <a href="mailto:admin@thelocaljam.com">admin@thelocaljam.com</a>.</p>` },
+  sms:{ title:"Text Alerts Terms", html:`<p><b>What you get:</b> a short reminder text the day before each public show. Frequency varies with our schedule (typically a few messages per month).</p><p><b>Cost:</b> Message &amp; data rates may apply, depending on your carrier and plan. The Local Jam does not charge for texts.</p><p><b>Opt out anytime:</b> reply <b>STOP</b> to any message to unsubscribe. Reply <b>HELP</b> for help, or email <a href="mailto:admin@thelocaljam.com">admin@thelocaljam.com</a>.</p><p><b>Carriers:</b> supported U.S. carriers. Carriers are not liable for delayed or undelivered messages.</p><p><b>Privacy:</b> we use your number only to send show reminders. We never sell or share it.</p>` }
+};
+function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]; if(!m||!d) return; document.getElementById('doc-title').textContent=d.title; document.getElementById('doc-body').innerHTML=d.html; m.classList.add('open'); m.setAttribute('aria-hidden','false'); }
+(function docModalInit(){
+  const m=document.getElementById('doc-modal'); if(!m) return;
+  const close=function(){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); };
+  const x=document.getElementById('doc-close'); if(x) x.addEventListener('click',close);
+  m.addEventListener('click',function(e){ if(e.target===m) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&m.classList.contains('open')) close(); });
+  const links=document.querySelectorAll('[data-doc]');
+  for(let i=0;i<links.length;i++){ (function(a){ a.addEventListener('click',function(e){ e.preventDefault(); openDoc(a.getAttribute('data-doc')); }); })(links[i]); }
+})();
+
 /* ---- SMS OPT-IN (text alerts) ---- */
 (function smsOptin(){
   const wrap=document.getElementById('sms-optin'); if(!wrap) return;
   const on=!!(DATA.contact && (DATA.contact.smsEnabled===true || DATA.contact.smsEnabled==='true'));
-  if(!on){ wrap.remove(); const tm0=document.getElementById('sms-terms-modal'); if(tm0) tm0.remove(); return; }
+  if(!on){ wrap.remove(); return; }
   wrap.hidden=false;
   const form=document.getElementById('sms-form'), status=document.getElementById('sms-status'), btn=document.getElementById('sms-btn');
   const ENDPOINT='https://add.thelocaljam.com/sms-signup';
@@ -1589,14 +1625,7 @@ if(tipHref){
       else { status.textContent=(d&&d.error)||'Could not sign you up. Please try again.'; btn.disabled=false; btn.textContent=lbl; }
     }catch(err){ status.textContent='Network error — please try again.'; btn.disabled=false; btn.textContent=lbl; }
   });
-  const tl=document.getElementById('sms-terms-link'), tm=document.getElementById('sms-terms-modal'), tc=document.getElementById('sms-terms-close');
-  if(tl&&tm&&tc){
-    const openM=function(e){ if(e) e.preventDefault(); tm.classList.add('open'); tm.setAttribute('aria-hidden','false'); };
-    const closeM=function(){ tm.classList.remove('open'); tm.setAttribute('aria-hidden','true'); };
-    tl.addEventListener('click',openM); tc.addEventListener('click',closeM);
-    tm.addEventListener('click',function(e){ if(e.target===tm) closeM(); });
-    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&tm.classList.contains('open')) closeM(); });
-  }
+  const tl=document.getElementById('sms-terms-link'); if(tl) tl.addEventListener('click',function(e){ e.preventDefault(); openDoc('sms'); });
 })();
 
 /* ---- BOOKING MODAL + FORM ---- */
