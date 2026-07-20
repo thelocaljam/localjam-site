@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: socials wired + schema sameAs -->
+  <!-- build refresh: FAQ editable via dashboard -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam | Hudson Valley Cover &amp; Party Band for Hire</title>
@@ -1677,10 +1677,10 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
     {q:`How do we keep up with your shows?`, a:`Check the <a href="#shows">schedule</a>, join our email list for updates (text alerts coming soon), and follow us on Facebook, Instagram, and YouTube.`}
   ];
   const faqs=(DATA.faq&&Array.isArray(DATA.faq.list)&&DATA.faq.list.length)?DATA.faq.list:faqDefault;
-  box.innerHTML=faqs.map(function(x){ return '<details class="faq-item"><summary>'+x.q+'</summary><div class="faq-a">'+x.a+'</div></details>'; }).join('');
+  box.innerHTML=faqs.map(function(x){ var q=x.question||x.q||''; var a=x.answer||x.a||''; return '<details class="faq-item"><summary>'+q+'</summary><div class="faq-a">'+a+'</div></details>'; }).join('');
   try{
     const strip=function(h){ var d=document.createElement('div'); d.innerHTML=String(h); return (d.textContent||'').replace(/\s+/g,' ').trim(); };
-    const ld={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(function(x){ return {"@type":"Question","name":strip(x.q),"acceptedAnswer":{"@type":"Answer","text":strip(x.a)}}; })};
+    const ld={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(function(x){ return {"@type":"Question","name":strip(x.question||x.q),"acceptedAnswer":{"@type":"Answer","text":strip(x.answer||x.a)}}; })};
     const el=document.createElement('script'); el.type='application/ld+json'; el.textContent=JSON.stringify(ld); document.head.appendChild(el);
   }catch(e){}
 })();
