@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: FAQ editable via dashboard -->
+  <!-- build refresh: gallery section optimized + fan CTA card -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam | Hudson Valley Cover &amp; Party Band for Hire</title>
@@ -442,6 +442,23 @@
   .faq-item[open] summary::after{transform:rotate(45deg)}
   .faq-a{padding:0 22px 18px;color:var(--ink-soft);font-size:15px;line-height:1.6}
   .faq-a a{color:var(--river);font-weight:600}
+  .fan-cta{margin-top:30px}
+  .fan-cta-inner{max-width:600px;margin:0 auto;text-align:center;background:rgba(227,154,46,.07);border:1px solid var(--line);border-radius:18px;padding:30px 26px}
+  .fan-cta-ico{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--card);border:1px solid var(--line);font-size:24px;margin-bottom:12px}
+  .fan-cta-h{font-size:22px;font-weight:800;color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
+  .fan-cta-txt{color:var(--ink-soft);font-size:14.5px;line-height:1.55;margin:0 auto 20px;max-width:440px}
+  .fan-btn{background:var(--amber);border:0;color:var(--night);font:inherit;font-weight:800;font-size:15.5px;padding:14px 28px;border-radius:100px;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s}
+  .fan-btn:hover{background:#d98f26;transform:translateY(-1px);box-shadow:0 8px 22px rgba(227,154,46,.32)}
+  .fan-btn:active{transform:translateY(0)}
+  .fan-sub{color:var(--ink-soft);font-size:14px;line-height:1.55;margin:0 0 16px}
+  .fan-file{display:flex;align-items:center;justify-content:center;border:2px dashed var(--line);border-radius:12px;padding:22px;cursor:pointer;color:var(--ink-soft);font-weight:600;font-size:14px;transition:border-color .2s,background .2s;text-align:center}
+  .fan-file:hover{border-color:var(--amber);background:rgba(227,154,46,.05)}
+  #fan-preview{width:100%;max-height:240px;object-fit:contain;border-radius:12px;margin:14px 0 0;background:rgba(0,0,0,.03)}
+  .fan-row{display:flex;gap:10px;margin-top:14px}
+  .fan-row input{flex:1;min-width:0;font:inherit;font-size:15px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+  .fan-row input:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(227,154,46,.18)}
+  .mf-status.err{color:var(--apple)}
+  @media (max-width:520px){.fan-row{flex-direction:column}}
   .foot-legal a{color:rgba(255,255,255,.5);text-decoration:underline;font-weight:600}
   .foot-legal a:hover{color:rgba(255,255,255,.85)}
   #doc-title{margin:0 0 12px;font-size:20px}
@@ -680,8 +697,42 @@
     <div class="section-head reveal"><p class="eyebrow" id="gallery-eyebrow"></p><h2 id="gallery-head"></h2></div>
     <div class="collage reveal" id="gallery-grid"></div>
     <div class="gallery-more" id="gallery-more"></div>
+    <div class="fan-cta reveal">
+      <div class="fan-cta-inner">
+        <span class="fan-cta-ico" aria-hidden="true">&#128247;</span>
+        <h3 class="fan-cta-h">Were you at a show?</h3>
+        <p class="fan-cta-txt">Share your best shots &mdash; the band reviews every photo and may feature it right here in the gallery.</p>
+        <button class="fan-btn" id="fan-open" type="button">&#128247;&nbsp; Add Your Fan Photos!</button>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- FAN PHOTO SUBMISSION -->
+<div class="sms-modal" id="fan-modal" aria-hidden="true" role="dialog" aria-labelledby="fan-title">
+  <div class="sms-modal-card">
+    <button class="sms-modal-x" id="fan-close" type="button" aria-label="Close">&#10005;</button>
+    <div id="fan-formview">
+      <h3 id="fan-title">Add your fan photos</h3>
+      <p class="fan-sub">Snapped a good one at a show? Send it our way. The band reviews every photo before it goes on the site.</p>
+      <label class="fan-file"><input type="file" id="fan-input" accept="image/png,image/jpeg" hidden><span id="fan-file-label">&#128247;&nbsp; Choose a photo&hellip;</span></label>
+      <img id="fan-preview" alt="" style="display:none">
+      <div class="fan-row">
+        <input type="text" id="fan-name" placeholder="Your name" maxlength="60" required>
+        <input type="email" id="fan-email" placeholder="Email" maxlength="120" required>
+      </div>
+      <label class="sms-consent"><input type="checkbox" id="fan-mailing"><span>Add me to your mailing list to get show updates.</span></label>
+      <label class="sms-consent"><input type="checkbox" id="fan-consent"><span>I took this photo (or have the right to share it) and I give The Local Jam permission to use, edit, and display it &mdash; including on their website, social media, and promotional or advertising materials &mdash; free of charge and without expiration. I confirm any people identifiable in the photo consent to this use.</span></label>
+      <button class="mf-submit" id="fan-submit" type="button">Send photo</button>
+      <p class="mf-status" id="fan-status" role="status"></p>
+    </div>
+    <div id="fan-done" hidden>
+      <h3>Thank you! &#127928;</h3>
+      <p class="fan-sub">Your photo was sent to the band for review. If they feature it, you&rsquo;ll see it in the gallery soon.</p>
+      <button class="mf-submit" id="fan-done-close" type="button">Done</button>
+    </div>
+  </div>
+</div>
 
 <div class="ticker ticker--light" aria-hidden="true"><div class="ticker-track rev" id="events-track"></div></div>
 
@@ -1685,6 +1736,41 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
   }catch(e){}
 })();
 
+/* ---- FAN PHOTO SUBMISSION ---- */
+(function fanInit(){
+  const modal=document.getElementById('fan-modal'), openBtn=document.getElementById('fan-open');
+  if(!modal||!openBtn) return;
+  const input=document.getElementById('fan-input'), fileLabel=document.getElementById('fan-file-label'), preview=document.getElementById('fan-preview');
+  const consent=document.getElementById('fan-consent'), submit=document.getElementById('fan-submit'), status=document.getElementById('fan-status');
+  const formview=document.getElementById('fan-formview'), done=document.getElementById('fan-done');
+  let dataUrl='';
+  function open(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
+  function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+  function reset(){ dataUrl=''; input.value=''; fileLabel.innerHTML='\uD83D\uDCF7&nbsp; Choose a photo\u2026'; preview.style.display='none'; preview.src=''; consent.checked=false; status.textContent=''; status.className='mf-status'; submit.disabled=false; submit.textContent='Send photo'; formview.hidden=false; done.hidden=true; }
+  openBtn.addEventListener('click',function(){ reset(); open(); });
+  document.getElementById('fan-close').addEventListener('click',close);
+  document.getElementById('fan-done-close').addEventListener('click',close);
+  modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&modal.classList.contains('open')) close(); });
+  function compress(file){ return new Promise(function(res,rej){ const img=new Image(); const url=URL.createObjectURL(file); img.onload=function(){ URL.revokeObjectURL(url); const md=1600; var w=img.naturalWidth,h=img.naturalHeight; var sc=Math.min(1,md/Math.max(w,h)); var cw=Math.max(1,Math.round(w*sc)),ch=Math.max(1,Math.round(h*sc)); var c=document.createElement('canvas'); c.width=cw; c.height=ch; c.getContext('2d').drawImage(img,0,0,cw,ch); res(c.toDataURL('image/jpeg',0.82)); }; img.onerror=function(){ URL.revokeObjectURL(url); rej(new Error('bad')); }; img.src=url; }); }
+  input.addEventListener('change',async function(){ const file=input.files&&input.files[0]; if(!file) return; if(!/^image\/(png|jpe?g)$/i.test(file.type)){ status.textContent='Please choose a JPG or PNG photo.'; status.className='mf-status err'; return; } fileLabel.textContent='Compressing\u2026'; try{ dataUrl=await compress(file); preview.src=dataUrl; preview.style.display='block'; fileLabel.textContent=file.name.length>28?file.name.slice(0,28)+'\u2026':file.name; status.textContent=''; status.className='mf-status'; }catch(e){ status.textContent='Could not read that image \u2014 try another.'; status.className='mf-status err'; fileLabel.innerHTML='\uD83D\uDCF7&nbsp; Choose a photo\u2026'; } });
+  submit.addEventListener('click',async function(){
+    const nm=(document.getElementById('fan-name').value||'').trim();
+    const em=(document.getElementById('fan-email').value||'').trim();
+    if(!dataUrl){ status.textContent='Please choose a photo first.'; status.className='mf-status err'; return; }
+    if(!nm){ status.textContent='Please add your name.'; status.className='mf-status err'; return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ status.textContent='Please add a valid email address.'; status.className='mf-status err'; return; }
+    if(!consent.checked){ status.textContent='Please check the box to grant permission.'; status.className='mf-status err'; return; }
+    submit.disabled=true; submit.textContent='Sending\u2026'; status.textContent=''; status.className='mf-status';
+    try{
+      const r=await fetch('https://add.thelocaljam.com/fan-photo',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({image:dataUrl,consent:true,name:nm,email:em,mailingOptIn:document.getElementById('fan-mailing').checked})});
+      const d=await r.json();
+      if(d&&d.ok){ formview.hidden=true; done.hidden=false; }
+      else { status.textContent=(d&&d.error)||'Something went wrong \u2014 please try again.'; status.className='mf-status err'; submit.disabled=false; submit.textContent='Send photo'; }
+    }catch(e){ status.textContent='Could not reach the server \u2014 please try again.'; status.className='mf-status err'; submit.disabled=false; submit.textContent='Send photo'; }
+  });
+})();
+
 /* ---- BOOKING MODAL + FORM ---- */
 (function booking(){
   const modal=$("book-modal"), bf=$("book-form"), status=$("book-status"), btn=$("book-submit");
@@ -1755,13 +1841,13 @@ if(DATA.footer.credit){ var _cr=String(DATA.footer.credit).replace(/&/g,"&amp;")
   $("gallery-head").textContent=DATA.gallery.heading||"Photos";
   const imgs=galleryImgs, grid=$("gallery-grid");
   const CAP=18;
-  grid.innerHTML=imgs.map((src,i)=>`<img src="${src}" alt="The Local Jam" loading="lazy" data-i="${i}"${i>=CAP?' class="g-extra"':''}>`).join("");
+  grid.innerHTML=imgs.map((src,i)=>`<img src="${src}" alt="The Local Jam performing live" loading="lazy" decoding="async" data-i="${i}"${i>=CAP?' class="g-extra"':''}>`).join("");
   const moreWrap=$("gallery-more");
   if(moreWrap && imgs.length>CAP){
     const moreLbl=`View all ${imgs.length} photos`;
-    moreWrap.innerHTML=`<button type="button" class="view-all" id="view-all-photos">${moreLbl}</button>`;
+    moreWrap.innerHTML=`<button type="button" class="view-all" id="view-all-photos" aria-expanded="false" aria-controls="gallery-grid">${moreLbl}</button>`;
     const gbtn=$("view-all-photos");
-    gbtn.addEventListener("click",()=>{ const on=grid.classList.toggle("show-all"); gbtn.textContent=on?"Show fewer":moreLbl; if(!on) document.getElementById("photos").scrollIntoView({behavior:"smooth",block:"start"}); });
+    gbtn.addEventListener("click",()=>{ const on=grid.classList.toggle("show-all"); gbtn.textContent=on?"Show fewer":moreLbl; gbtn.setAttribute("aria-expanded",on?"true":"false"); if(!on) document.getElementById("photos").scrollIntoView({behavior:"smooth",block:"start"}); });
   }
   const lb=$("lightbox"), lbImg=$("lb-img"); let idx=0;
   const show=()=>{ lbImg.src=imgs[idx]; };
