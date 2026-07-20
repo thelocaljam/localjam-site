@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: band grid 5-across -->
+  <!-- build refresh: section show/hide toggles -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam | Hudson Valley Cover &amp; Party Band for Hire</title>
@@ -1709,9 +1709,19 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
   const tl=document.getElementById('sms-terms-link'); if(tl) tl.addEventListener('click',function(e){ e.preventDefault(); openDoc('sms'); });
 })();
 
+/* ---- HIDE WHOLE SECTIONS (band toggles these off in Quick Edit) ---- */
+(function hideSections(){
+  try{
+    var hid=(DATA&&DATA.hiddenSections)||{};
+    var keys=["about","mailing","music","listen","band","songs","reviews","photos","faq"];
+    for(var i=0;i<keys.length;i++){ if(hid[keys[i]]){ var el=document.getElementById(keys[i]); if(el) el.style.display="none"; } }
+  }catch(e){}
+})();
+
 /* ---- FAQ (accordion + Google FAQ structured data) ---- */
 (function faqInit(){
   const box=document.getElementById('faq-list'); if(!box) return;
+  if(DATA && DATA.hiddenSections && DATA.hiddenSections.faq){ return; }
   const c=(DATA.contact||{});
   const phone=c.phone||'845-514-3056', email=c.email||'thelocaljamband@gmail.com';
   const tel='tel:'+String(phone).replace(/[^0-9]/g,'');
