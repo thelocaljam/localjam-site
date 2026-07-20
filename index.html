@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: live content route + instant photos -->
+  <!-- build refresh: phone update + shuffled gallery -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam — A Hudson Valley Band</title>
@@ -347,6 +347,27 @@
   .mailing-form input{flex:1;min-width:0;font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:100px;background:var(--card);color:var(--ink)}
   .mailing-form input:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(227,154,46,.18)}
   .mailing-form button{flex:none;background:var(--amber);color:var(--night);border:0;border-radius:100px;padding:14px 22px;font-weight:700;cursor:pointer;transition:background .2s,transform .2s}
+  .sms-optin{margin-top:26px}
+  .sms-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;max-width:720px}
+  .sms-h{font-family:var(--poster);font-weight:400;text-transform:uppercase;font-size:clamp(22px,3vw,30px);line-height:1;margin:6px 0 14px}
+  .sms-row{display:flex;gap:10px;flex-wrap:wrap}
+  .sms-row input{flex:1 1 180px;min-width:0;font:inherit;font-size:16px;padding:13px 15px;border:1px solid var(--line);border-radius:100px;background:var(--card);color:var(--ink)}
+  .sms-row input:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(227,154,46,.18)}
+  .sms-row button{flex:none;background:var(--amber);color:var(--night);border:0;border-radius:100px;padding:13px 22px;font-weight:700;cursor:pointer;transition:background .2s,transform .2s}
+  .sms-row button:hover{background:var(--night);color:#fff;transform:translateY(-2px)}
+  .sms-row button:disabled{opacity:.6;cursor:default;transform:none}
+  .sms-consent{display:flex;gap:9px;align-items:flex-start;margin-top:12px;font-size:12.5px;line-height:1.5;color:var(--ink-soft)}
+  .sms-consent input{margin-top:2px;flex:none}
+  .sms-consent a{color:var(--river);font-weight:600}
+  .sms-status{margin:8px 0 0;font-size:13px;font-weight:600;color:var(--apple);min-height:1px}
+  .sms-thanks{margin:0;font-weight:600;color:var(--ink)}
+  .sms-modal{position:fixed;inset:0;z-index:95;background:rgba(14,20,14,.6);display:none;align-items:center;justify-content:center;padding:20px}
+  .sms-modal.open{display:flex}
+  .sms-modal-card{background:var(--card);color:var(--ink);border-radius:16px;max-width:440px;width:100%;padding:26px 24px 22px;position:relative;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);max-height:86vh;overflow:auto}
+  .sms-modal-card h3{margin:0 0 12px;font-size:20px}
+  .sms-modal-card p{font-size:13.5px;line-height:1.55;color:var(--ink-soft);margin:0 0 10px}
+  .sms-modal-x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:24px;line-height:1;color:var(--ink-soft);cursor:pointer}
+  @media(max-width:560px){.sms-row button{width:100%}}
   .mailing-form button:hover{background:var(--night);color:#fff;transform:translateY(-2px)}
 
   /* ---------- BOOKING BUTTON + MODAL ---------- */
@@ -559,6 +580,22 @@
       <button type="submit">Join the list</button>
     </form>
   </div>
+
+  <div class="wrap sms-optin" id="sms-optin" hidden>
+    <div class="sms-card">
+      <p class="eyebrow">Prefer texts?</p>
+      <h3 class="sms-h">Get a reminder the day before each show</h3>
+      <form class="sms-form" id="sms-form" novalidate>
+        <div class="sms-row">
+          <input type="tel" id="sms-phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(845) 555-0123" aria-label="Mobile number" required>
+          <input type="email" id="sms-email" name="email" autocomplete="email" placeholder="Email (optional)" aria-label="Email (optional)">
+          <button type="submit" id="sms-btn">Text me reminders</button>
+        </div>
+        <label class="sms-consent"><input type="checkbox" id="sms-consent"> <span>I agree to receive recurring automated marketing text messages (gig reminders) from The Local Jam at the number provided. Consent is not a condition of any purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply <b>STOP</b> to cancel, <b>HELP</b> for help. See <a href="#" id="sms-terms-link">SMS Terms &amp; Privacy</a>.</span></label>
+        <p class="sms-status" id="sms-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
 </section>
 
 <!-- MUSIC -->
@@ -710,6 +747,19 @@
   <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous photo">‹</button>
   <img id="lb-img" alt="The Local Jam">
   <button class="lb-nav lb-next" id="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<!-- SMS TERMS MODAL -->
+<div class="sms-modal" id="sms-terms-modal" aria-hidden="true" role="dialog" aria-label="SMS Terms">
+  <div class="sms-modal-card">
+    <button class="sms-modal-x" id="sms-terms-close" type="button" aria-label="Close">✕</button>
+    <h3>The Local Jam — Text Alerts Terms</h3>
+    <p><b>What you get:</b> a short reminder text the day before each public show. Frequency varies with our schedule (typically a few messages per month).</p>
+    <p><b>Cost:</b> Message &amp; data rates may apply, depending on your carrier and plan. The Local Jam does not charge for texts.</p>
+    <p><b>Opt out anytime:</b> reply <b>STOP</b> to any message to unsubscribe. Reply <b>HELP</b> for help, or email thelocaljamband@gmail.com.</p>
+    <p><b>Carriers:</b> supported U.S. carriers. Carriers are not liable for delayed or undelivered messages.</p>
+    <p><b>Privacy:</b> we use your number only to send show reminders. We never sell or share it.</p>
+  </div>
 </div>
 
 <!-- MAILING LIST POPUP -->
@@ -1146,7 +1196,7 @@
     ]
   },
   "contact": {
-    "phone": "845-614-3098",
+    "phone": "845-514-3056",
     "email": "thelocaljamband@gmail.com",
     "facebook": "https://facebook.com/",
     "instagram": "https://instagram.com/",
@@ -1235,6 +1285,8 @@ $("brand2").textContent = DATA.brand;
 const tipHref = venmoURL(DATA.contact.venmo);
 const galleryImgs = (DATA.gallery && DATA.gallery.images ? DATA.gallery.images.filter(Boolean) : []);
 const hasGallery = galleryImgs.length > 0;
+// keep the first photo pinned, shuffle the rest on each load so the gallery stays fresh
+if(galleryImgs.length > 2){ for(let i=galleryImgs.length-1;i>1;i--){ const j=1+Math.floor(Math.random()*i); const t=galleryImgs[i]; galleryImgs[i]=galleryImgs[j]; galleryImgs[j]=t; } }
 function navHTML(){
   let h = `<a href="#shows">${esc(DATA.nav.shows)}</a><a href="#music">${esc(DATA.nav.music)}</a>`;
   h += `<a href="#band">${esc(DATA.nav.band)}</a><a href="#songs">${esc(DATA.nav.songs)}</a>`;
@@ -1508,6 +1560,39 @@ if(tipHref){
       setTimeout(()=>{ f.innerHTML=thanks; }, 60);
     });
   });
+})();
+
+/* ---- SMS OPT-IN (text alerts) ---- */
+(function smsOptin(){
+  const wrap=document.getElementById('sms-optin'); if(!wrap) return;
+  const on=!!(DATA.contact && (DATA.contact.smsEnabled===true || DATA.contact.smsEnabled==='true'));
+  if(!on){ wrap.remove(); const tm0=document.getElementById('sms-terms-modal'); if(tm0) tm0.remove(); return; }
+  wrap.hidden=false;
+  const form=document.getElementById('sms-form'), status=document.getElementById('sms-status'), btn=document.getElementById('sms-btn');
+  const ENDPOINT='https://add.thelocaljam.com/sms-signup';
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const phone=(document.getElementById('sms-phone').value||'').trim();
+    const email=(document.getElementById('sms-email').value||'').trim();
+    const consent=document.getElementById('sms-consent').checked;
+    if(!phone){ status.textContent='Enter your mobile number.'; return; }
+    if(!consent){ status.textContent='Please check the box to agree to receive texts.'; return; }
+    btn.disabled=true; const lbl=btn.textContent; btn.textContent='Sending…'; status.textContent='';
+    try{
+      const r=await fetch(ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({phone:phone,email:email,consent:true})});
+      const d=await r.json().catch(function(){return {};});
+      if(r.ok && d.ok){ form.innerHTML='<p class="sms-thanks">📲 You’re in! We’ll text you the day before each show. Reply STOP anytime to cancel.</p>'; }
+      else { status.textContent=(d&&d.error)||'Could not sign you up. Please try again.'; btn.disabled=false; btn.textContent=lbl; }
+    }catch(err){ status.textContent='Network error — please try again.'; btn.disabled=false; btn.textContent=lbl; }
+  });
+  const tl=document.getElementById('sms-terms-link'), tm=document.getElementById('sms-terms-modal'), tc=document.getElementById('sms-terms-close');
+  if(tl&&tm&&tc){
+    const openM=function(e){ if(e) e.preventDefault(); tm.classList.add('open'); tm.setAttribute('aria-hidden','false'); };
+    const closeM=function(){ tm.classList.remove('open'); tm.setAttribute('aria-hidden','true'); };
+    tl.addEventListener('click',openM); tc.addEventListener('click',closeM);
+    tm.addEventListener('click',function(e){ if(e.target===tm) closeM(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&tm.classList.contains('open')) closeM(); });
+  }
 })();
 
 /* ---- BOOKING MODAL + FORM ---- */
