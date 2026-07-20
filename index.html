@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: instant CDN content + gallery + layout -->
+  <!-- build refresh: live content route + instant photos -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam — A Hudson Valley Band</title>
@@ -1201,7 +1201,9 @@
 (async function(){
 let DATA;
 const CDN="https://cdn.jsdelivr.net/gh/thelocaljam/localjam-site@main";
-for(const u of [CDN+"/content/site.json","content/site.json"]){ try{ const r=await fetch(u,{cache:'no-store'}); if(r.ok){ DATA=await r.json(); break; } }catch(e){} }
+const DATA_URL="https://add.thelocaljam.com/site.json";
+async function fetchJSON(u,ms){ const c=new AbortController(); const t=setTimeout(function(){c.abort();},ms||4000); try{ const r=await fetch(u,{cache:'no-store',signal:c.signal}); clearTimeout(t); if(r.ok) return await r.json(); }catch(e){ clearTimeout(t); } return null; }
+DATA = await fetchJSON(DATA_URL,4000) || await fetchJSON("content/site.json",4000);
 if(!DATA){ try{ DATA=JSON.parse(document.getElementById('local-jam-data').textContent); }catch(e){ DATA={}; } }
 /* Load photos + hero backgrounds from the CDN so freshly-uploaded images appear within seconds (fallback to the site copy on error). */
 (function cdnify(o){ if(!o||typeof o!=='object') return; for(const k in o){ const v=o[k]; if(typeof v==='string'){ if(/^\/?images\//i.test(v)) o[k]=CDN+'/'+v.replace(/^\//,''); } else if(v&&typeof v==='object') cdnify(v); } })(DATA);
