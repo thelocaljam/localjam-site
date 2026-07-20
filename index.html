@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: gallery section optimized + fan CTA card -->
+  <!-- build refresh: band grid 5-across -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam | Hudson Valley Cover &amp; Party Band for Hire</title>
@@ -311,15 +311,15 @@
 
   /* ---------- BAND ---------- */
   .band{background:radial-gradient(50% 60% at 4% 8%,rgba(62,110,114,.09),transparent 62%),var(--paper-2)}
-  .members{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .members{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
   .member .pic{aspect-ratio:4/5;border-radius:14px;overflow:hidden;position:relative;
     background:linear-gradient(160deg,var(--night-2),var(--night));display:flex;align-items:center;justify-content:center;transition:transform .3s,box-shadow .3s}
   .member:hover .pic{transform:translateY(-4px);box-shadow:var(--shadow)}
   .member .pic img{width:100%;height:100%;object-fit:cover}
   .member .pic .mono{font-family:var(--display);font-weight:800;font-size:46px;color:rgba(255,255,255,.85)}
   .member .guest{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--amber);color:var(--night);padding:3px 9px;border-radius:100px}
-  .member .nm{font-family:var(--display);font-weight:700;font-size:18px;margin-top:14px}
-  .member .rl{font-family:var(--mono);font-size:12.5px;color:var(--river);letter-spacing:.03em;margin-top:3px}
+  .member .nm{font-family:var(--display);font-weight:700;font-size:16px;margin-top:10px}
+  .member .rl{font-family:var(--mono);font-size:11.5px;color:var(--river);letter-spacing:.03em;margin-top:3px}
 
   /* ---------- SETLIST ---------- */
   .setlist{background:var(--paper)}
@@ -489,7 +489,7 @@
   @media (max-width:900px){
     .about-grid{grid-template-columns:1fr;gap:36px}
     .video-grid{grid-template-columns:1fr}
-    .members{grid-template-columns:repeat(2,1fr)}
+    .members{grid-template-columns:repeat(3,1fr)}
     .artists{columns:2}
     .jam-list{grid-template-columns:1fr 1fr}
     .collage{columns:3}
