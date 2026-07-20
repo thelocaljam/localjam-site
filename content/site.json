@@ -582,5 +582,8 @@
         "answer": "Check the schedule on our site, join our email list for updates (text alerts coming soon), and follow us on Facebook, Instagram, and YouTube."
       }
     ]
+  },
+  "hiddenSections": {
+    "faq": true
   }
 }
