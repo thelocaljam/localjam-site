@@ -563,10 +563,6 @@
       {
         "question": "How long do you play?",
         "answer": "We tailor set length to your event — most gigs run a couple of hours, and we're happy to sort out timing and breaks with you."
-      },
-      {
-        "question": "How do we keep up with your shows?",
-        "answer": "Check the schedule on our site, join our email list for updates (text alerts coming soon), and follow us on Facebook, Instagram, and YouTube."
       }
     ],
     "listHidden": [
@@ -577,6 +573,10 @@
       {
         "question": "Can we request songs?",
         "answer": "Absolutely. We cover a big range of artists, so send us your must-hears when you book and we'll do our best to work them in."
+      },
+      {
+        "question": "How do we keep up with your shows?",
+        "answer": "Check the schedule on our site, join our email list for updates (text alerts coming soon), and follow us on Facebook, Instagram, and YouTube."
       }
     ]
   }
