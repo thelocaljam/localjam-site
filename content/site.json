@@ -545,10 +545,6 @@
         "answer": "Classic rock and party favorites spanning the '60s through today — harmony-driven, crowd-pleasing hits from dozens of artists that cut across every generation. Check the Artists Covered section to see who's on the setlist."
       },
       {
-        "question": "Do you play weddings?",
-        "answer": "No — The Local Jam is a bar, brewery, and party band at heart, so we don't book weddings. We're all about breweries, festivals, backyard parties, fundraisers, and private events."
-      },
-      {
         "question": "What kinds of events do you play?",
         "answer": "Breweries, festivals, orchards, lawn and concert series, backyard parties, fundraisers, corporate nights, and private events across the Hudson Valley."
       },
@@ -575,6 +571,12 @@
       {
         "question": "How do we keep up with your shows?",
         "answer": "Check the schedule on our site, join our email list for updates (text alerts coming soon), and follow us on Facebook, Instagram, and YouTube."
+      }
+    ],
+    "listHidden": [
+      {
+        "question": "Do you play weddings?",
+        "answer": "No — The Local Jam is a bar, brewery, and party band at heart, so we don't book weddings. We're all about breweries, festivals, backyard parties, fundraisers, and private events."
       }
     ]
   }
