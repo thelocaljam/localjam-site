@@ -39,9 +39,8 @@
   "book": {
     "eyebrow": "Your party could be here",
     "heading": "Book the Local Jam",
-    "body": "Weddings, backyard parties, fundraisers, breweries, corporate nights — we tailor the set to the room. Tell us the date and we'll do the rest.",
+    "body": "Backyard parties, fundraisers, breweries, corporate nights — we tailor the set to the room. Tell us the date and we'll do the rest.",
     "eventTypes": [
-      "Weddings",
       "Breweries",
       "Festivals",
       "Backyard Parties",
