@@ -200,6 +200,12 @@
         "role": "Bass & Vocals",
         "photo": "/images/uploads/macdougall_bobby.jpg",
         "guest": true
+      },
+      {
+        "name": "Tom",
+        "role": "Babe",
+        "guest": true,
+        "photo": "/images/uploads/qe-1784511832886-ks3msc.jpg"
       }
     ],
     "membersHidden": []
