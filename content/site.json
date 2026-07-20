@@ -557,10 +557,6 @@
         "answer": "Use the “Book the Local Jam” button to send your date and event details, or reach us by phone or email. Rates depend on the event, date, and location — reach out and we'll put together a quote."
       },
       {
-        "question": "Can we request songs?",
-        "answer": "Absolutely. We cover a big range of artists, so send us your must-hears when you book and we'll do our best to work them in."
-      },
-      {
         "question": "Do you bring your own sound/PA?",
         "answer": "Yes — we can provide our own PA and run sound for most spaces. If your venue has its own system or special requirements, let us know and we'll coordinate."
       },
@@ -577,6 +573,10 @@
       {
         "question": "Do you play weddings?",
         "answer": "No — The Local Jam is a bar, brewery, and party band at heart, so we don't book weddings. We're all about breweries, festivals, backyard parties, fundraisers, and private events."
+      },
+      {
+        "question": "Can we request songs?",
+        "answer": "Absolutely. We cover a big range of artists, so send us your must-hears when you book and we'll do our best to work them in."
       }
     ]
   }
