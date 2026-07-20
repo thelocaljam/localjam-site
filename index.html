@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: site content + layout update -->
+  <!-- build refresh: gallery expand + content update -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Local Jam — A Hudson Valley Band</title>
@@ -142,6 +142,8 @@
   .collage{columns:4;column-gap:14px;margin-top:8px}
   .collage img{width:100%;margin:0 0 14px;border-radius:12px;display:block;break-inside:avoid;cursor:zoom-in;border:1px solid var(--line);background:var(--night-2);transition:transform .3s,box-shadow .3s}
   .collage img:hover{transform:translateY(-3px) scale(1.01);box-shadow:var(--shadow)}
+  .collage img.g-extra{display:none}
+  .collage.show-all img.g-extra{display:block}
   .gallery-more{text-align:center;margin-top:22px}
   .view-all{background:transparent;border:2px solid var(--amber);color:var(--ink);font-weight:700;font-size:15px;padding:12px 28px;border-radius:100px;cursor:pointer;transition:background .2s,color .2s,transform .2s}
   .view-all:hover{background:var(--amber);color:var(--night);transform:translateY(-2px)}
@@ -1568,17 +1570,21 @@ if(DATA.footer.credit){ $("foot-credit").textContent="Site designed by "+DATA.fo
   $("gallery-eyebrow").textContent=DATA.gallery.eyebrow||"";
   $("gallery-head").textContent=DATA.gallery.heading||"Photos";
   const imgs=galleryImgs, grid=$("gallery-grid");
-  const CAP=8;
-  grid.innerHTML=imgs.slice(0,CAP).map((src,i)=>`<img src="${src}" alt="The Local Jam" loading="lazy" data-i="${i}">`).join("");
+  const CAP=18;
+  grid.innerHTML=imgs.map((src,i)=>`<img src="${src}" alt="The Local Jam" loading="lazy" data-i="${i}"${i>=CAP?' class="g-extra"':''}>`).join("");
   const moreWrap=$("gallery-more");
-  if(moreWrap && imgs.length>CAP){ moreWrap.innerHTML=`<button type="button" class="view-all" id="view-all-photos">View all ${imgs.length} photos</button>`; }
+  if(moreWrap && imgs.length>CAP){
+    const moreLbl=`View all ${imgs.length} photos`;
+    moreWrap.innerHTML=`<button type="button" class="view-all" id="view-all-photos">${moreLbl}</button>`;
+    const gbtn=$("view-all-photos");
+    gbtn.addEventListener("click",()=>{ const on=grid.classList.toggle("show-all"); gbtn.textContent=on?"Show fewer":moreLbl; if(!on) document.getElementById("photos").scrollIntoView({behavior:"smooth",block:"start"}); });
+  }
   const lb=$("lightbox"), lbImg=$("lb-img"); let idx=0;
   const show=()=>{ lbImg.src=imgs[idx]; };
   const open=(i)=>{ idx=i; show(); lb.classList.add("open"); lb.setAttribute("aria-hidden","false"); };
   const close=()=>{ lb.classList.remove("open"); lb.setAttribute("aria-hidden","true"); lbImg.src=""; };
   const go=(d)=>{ idx=(idx+d+imgs.length)%imgs.length; show(); };
   grid.addEventListener("click",e=>{ const im=e.target.closest("img"); if(im) open(+im.dataset.i); });
-  const va=$("view-all-photos"); if(va) va.addEventListener("click",()=>open(0));
   $("lb-close").addEventListener("click",close);
   $("lb-prev").addEventListener("click",e=>{ e.stopPropagation(); go(-1); });
   $("lb-next").addEventListener("click",e=>{ e.stopPropagation(); go(1); });
