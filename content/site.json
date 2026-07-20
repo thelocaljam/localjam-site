@@ -537,5 +537,45 @@
       "Loggins & Messina",
       "Toto"
     ]
+  },
+  "faq": {
+    "list": [
+      {
+        "question": "What kind of music do you play?",
+        "answer": "Classic rock and party favorites spanning the '60s through today — harmony-driven, crowd-pleasing hits from dozens of artists that cut across every generation. Check the Artists Covered section to see who's on the setlist."
+      },
+      {
+        "question": "Do you play weddings?",
+        "answer": "No — The Local Jam is a bar, brewery, and party band at heart, so we don't book weddings. We're all about breweries, festivals, backyard parties, fundraisers, and private events."
+      },
+      {
+        "question": "What kinds of events do you play?",
+        "answer": "Breweries, festivals, orchards, lawn and concert series, backyard parties, fundraisers, corporate nights, and private events across the Hudson Valley."
+      },
+      {
+        "question": "What areas do you cover?",
+        "answer": "We're based in the Hudson Valley and regularly play Kingston, Rhinebeck, Red Hook, Poughkeepsie, and towns across Ulster, Dutchess, and Columbia counties. Farther out? Just ask."
+      },
+      {
+        "question": "How do we book you?",
+        "answer": "Use the “Book the Local Jam” button to send your date and event details, or reach us by phone or email. Rates depend on the event, date, and location — reach out and we'll put together a quote."
+      },
+      {
+        "question": "Can we request songs?",
+        "answer": "Absolutely. We cover a big range of artists, so send us your must-hears when you book and we'll do our best to work them in."
+      },
+      {
+        "question": "Do you bring your own sound/PA?",
+        "answer": "Yes — we can provide our own PA and run sound for most spaces. If your venue has its own system or special requirements, let us know and we'll coordinate."
+      },
+      {
+        "question": "How long do you play?",
+        "answer": "We tailor set length to your event — most gigs run a couple of hours, and we're happy to sort out timing and breaks with you."
+      },
+      {
+        "question": "How do we keep up with your shows?",
+        "answer": "Check the schedule on our site, join our email list for updates (text alerts coming soon), and follow us on Facebook, Instagram, and YouTube."
+      }
+    ]
   }
 }
