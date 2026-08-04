@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: google review CTA after reviews -->
+  <!-- build refresh: simple optional date + booking fields -->
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -399,8 +399,10 @@
   .modal-sub{color:var(--ink-soft);font-size:15px;margin:10px 0 22px}
   #book-form label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:14px}
   #book-form .mf-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-  #book-form input,#book-form textarea{width:100%;font:inherit;font-size:15px;padding:11px 13px;margin-top:5px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
-  #book-form input:focus,#book-form textarea:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(227,154,46,.18)}
+  #book-form input,#book-form textarea,#book-form select{width:100%;font:inherit;font-size:15px;padding:11px 13px;margin-top:5px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+  #book-form select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%236b6256' stroke-width='1.6' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;cursor:pointer}
+  #book-form input:focus,#book-form textarea:focus,#book-form select:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(227,154,46,.18)}
+  #book-form .cal-opt{font-weight:500;color:var(--ink-soft);font-size:12px}
   #book-form .mf-full{grid-column:1/-1}
   .mf-submit{width:100%;background:var(--amber);color:var(--night);border:0;border-radius:100px;padding:15px;font-weight:700;font-size:16px;cursor:pointer;margin-top:8px;transition:background .2s}
   .mf-submit:hover{background:var(--night);color:#fff}
@@ -799,13 +801,59 @@
           <label>Your name<input name="name" required></label>
           <label>Email<input type="email" name="email" required></label>
           <label>Phone<input name="phone" type="tel"></label>
-          <label>Event date<input name="date" type="date"></label>
-          <label>Location / venue<input name="location"></label>
-          <label>Start time<input name="start" type="time"></label>
-          <label>Hours requested<input name="hours" type="number" min="1" max="12" step="0.5" placeholder="e.g. 3"></label>
-          <label>Type of event<input name="event_type" placeholder="Brewery, festival, party…"></label>
+          <label>Preferred date <span class="cal-opt">(optional)</span><input name="date" type="date"></label>
+          <label>Type of event
+            <select name="event_type">
+              <option value="">Choose one&#8230;</option>
+              <option>Corporate / holiday party</option>
+              <option>Brewery / bar</option>
+              <option>Festival / fair</option>
+              <option>Private party / backyard</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Music vibe
+            <select name="music">
+              <option value="">Choose one&#8230;</option>
+              <option>Classic rock</option>
+              <option>Party &amp; dance hits</option>
+              <option>Funk &amp; soul</option>
+              <option>A mix &#8212; your call</option>
+            </select>
+          </label>
+          <label>How long?
+            <select name="hours">
+              <option value="">Choose one&#8230;</option>
+              <option>1 hour</option>
+              <option>2 hours</option>
+              <option>3 hours</option>
+              <option>4+ hours</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>Budget
+            <select name="budget">
+              <option value="">Choose a range&#8230;</option>
+              <option>$500 &#8211; $1,000</option>
+              <option>$1,000 &#8211; $1,500</option>
+              <option>$1,500 &#8211; $2,000</option>
+              <option>$2,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>How soon are you looking to book?
+            <select name="timeline">
+              <option value="">Choose one&#8230;</option>
+              <option>As soon as possible</option>
+              <option>Within the next month</option>
+              <option>1&#8211;3 months out</option>
+              <option>3&#8211;6 months out</option>
+              <option>Just exploring for now</option>
+            </select>
+          </label>
+          <label>Location / venue<input name="location" placeholder="City or venue name"></label>
         </div>
-        <label class="mf-full">Details<textarea name="details" rows="4" placeholder="Song requests, questions, anything else…"></textarea></label>
+        <label class="mf-full">Anything else?<textarea name="details" rows="4" placeholder="Song requests, timeline, questions&#8230;"></textarea></label>
         <label class="mf-optin" id="book-optin-row"><input type="checkbox" name="joinlist" id="book-join"> <span>Also send me show announcements by email</span></label>
         <button type="submit" class="mf-submit" id="book-submit">Send request</button>
         <p class="mf-status" id="book-status" role="status"></p>
@@ -1804,7 +1852,7 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
   const modal=$("book-modal"), bf=$("book-form"), status=$("book-status"), btn=$("book-submit");
   function reset(){ $("book-formview").hidden=false; $("book-done").hidden=true; status.textContent=""; status.className="mf-status"; btn.disabled=false; }
   function open(){ reset(); modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden";
-    setTimeout(()=>{ const i=bf.querySelector("input"); if(i)i.focus(); },60); }
+    setTimeout(()=>{ const i=bf.querySelector('input[name="name"]'); if(i)i.focus(); },60); }
   function close(){ modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
   function showDone(msg){ $("book-done-sub").innerHTML=msg; $("book-formview").hidden=true; $("book-done").hidden=false; }
   $("book-close").addEventListener("click",close);
@@ -1841,7 +1889,8 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
     } else {
       const g=n=>fd.get(n)||"";
       const body=["Name: "+g("name"),"Email: "+g("email"),"Phone: "+g("phone"),"Event date: "+g("date"),
-        "Location: "+g("location"),"Start time: "+g("start"),"Hours requested: "+g("hours"),"Type: "+g("event_type"),
+        "Type of event: "+g("event_type"),"Music vibe: "+g("music"),"Length: "+g("hours"),"Budget: "+g("budget"),
+        "How soon: "+g("timeline"),"Location: "+g("location"),
         "","Details:",g("details")].join("\n");
       window.location.href="mailto:"+c.email+"?subject="+encodeURIComponent("Booking request \u2014 "+(g("name")||"Website"))+"&body="+encodeURIComponent(body);
       showDone("We\u2019ve opened your email app \u2014 just hit send and we\u2019ll be in touch shortly. Talk soon!<br>\u2014 The Local Jam");
