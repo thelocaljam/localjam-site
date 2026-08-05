@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: fan-photo deep link (#share-photos) -->
+  <!-- build refresh: booking form start time (replaces music vibe) -->
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -812,15 +812,7 @@
               <option>Other</option>
             </select>
           </label>
-          <label>Music vibe
-            <select name="music">
-              <option value="">Choose one&#8230;</option>
-              <option>Classic rock</option>
-              <option>Party &amp; dance hits</option>
-              <option>Funk &amp; soul</option>
-              <option>A mix &#8212; your call</option>
-            </select>
-          </label>
+          <label>Start time<input name="start" type="time"></label>
           <label>How long?
             <select name="hours">
               <option value="">Choose one&#8230;</option>
@@ -1885,7 +1877,7 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
     btn.disabled=true; status.className="mf-status"; status.textContent="Sending\u2026";
     const join=$("book-join"); const wantsList=!!(join && join.checked);
     const payload={ name:g("name"), email:g("email"), phone:g("phone"), date:g("date"),
-      event_type:g("event_type"), music:g("music"), hours:g("hours"), budget:g("budget"),
+      event_type:g("event_type"), start:g("start"), hours:g("hours"), budget:g("budget"),
       timeline:g("timeline"), location:g("location"), details:g("details"), joinlist:wantsList };
     // Primary: worker /booking — emails the band (reply-to = customer) + sends the customer an auto-reply
     try{
@@ -1903,7 +1895,7 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
     }
     // Backup 2: mailto
     const body=["Name: "+g("name"),"Email: "+g("email"),"Phone: "+g("phone"),"Event date: "+g("date"),
-      "Type of event: "+g("event_type"),"Music vibe: "+g("music"),"Length: "+g("hours"),"Budget: "+g("budget"),
+      "Type of event: "+g("event_type"),"Start time: "+g("start"),"Length: "+g("hours"),"Budget: "+g("budget"),
       "How soon: "+g("timeline"),"Location: "+g("location"),
       "","Details:",g("details")].join("\n");
     window.location.href="mailto:"+c.email+"?subject="+encodeURIComponent("Booking request \u2014 "+(g("name")||"Website"))+"&body="+encodeURIComponent(body);
