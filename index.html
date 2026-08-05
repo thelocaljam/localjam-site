@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: booking form start time (replaces music vibe) -->
+  <!-- build refresh: spam guard + analytics + mobile/a11y -->
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -399,9 +399,14 @@
   .modal-sub{color:var(--ink-soft);font-size:15px;margin:10px 0 22px}
   #book-form label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:14px}
   #book-form .mf-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-  #book-form input,#book-form textarea,#book-form select{width:100%;font:inherit;font-size:15px;padding:11px 13px;margin-top:5px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+  #book-form input,#book-form textarea,#book-form select{width:100%;font:inherit;font-size:16px;padding:12px 13px;margin-top:5px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
   #book-form select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%236b6256' stroke-width='1.6' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;cursor:pointer}
   #book-form input:focus,#book-form textarea:focus,#book-form select:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(227,154,46,.18)}
+  .hp{position:absolute!important;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip-link{position:absolute;left:12px;top:-48px;z-index:200;background:var(--night);color:#fff;padding:10px 16px;border-radius:0 0 10px 10px;font-weight:700;text-decoration:none;transition:top .18s}
+  .skip-link:focus{top:0}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:3px}
+  @media (prefers-reduced-motion:reduce){.skip-link{transition:none}}
   #book-form .cal-opt{font-weight:500;color:var(--ink-soft);font-size:12px}
   #book-form .mf-full{grid-column:1/-1}
   .mf-submit{width:100%;background:var(--amber);color:var(--night);border:0;border-radius:100px;padding:15px;font-weight:700;font-size:16px;cursor:pointer;margin-top:8px;transition:background .2s}
@@ -567,6 +572,7 @@
 </style>
 </head>
 <body id="top">
+<a class="skip-link" href="#hero">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
@@ -797,6 +803,7 @@
       <h3 class="modal-title">Book The Local Jam</h3>
       <p class="modal-sub">Tell us about your event and we'll get right back to you.</p>
       <form id="book-form" novalidate>
+        <div class="hp" aria-hidden="true"><label>Company (leave this blank)<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
         <div class="mf-grid">
           <label>Your name<input name="name" required></label>
           <label>Email<input type="email" name="email" required></label>
@@ -848,7 +855,7 @@
         <label class="mf-full">Anything else?<textarea name="details" rows="4" placeholder="Song requests, timeline, questions&#8230;"></textarea></label>
         <label class="mf-optin" id="book-optin-row"><input type="checkbox" name="joinlist" id="book-join"> <span>Also send me show announcements by email</span></label>
         <button type="submit" class="mf-submit" id="book-submit">Send request</button>
-        <p class="mf-status" id="book-status" role="status"></p>
+        <p class="mf-status" id="book-status" role="status" aria-live="polite"></p>
       </form>
     </div>
     <div class="mf-done" id="book-done" hidden>
@@ -1846,7 +1853,7 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
 (function booking(){
   const modal=$("book-modal"), bf=$("book-form"), status=$("book-status"), btn=$("book-submit");
   function reset(){ $("book-formview").hidden=false; $("book-done").hidden=true; status.textContent=""; status.className="mf-status"; btn.disabled=false; }
-  function open(){ reset(); modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden";
+  function open(){ reset(); bookOpenedAt=Date.now(); modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden";
     setTimeout(()=>{ const i=bf.querySelector('input[name="name"]'); if(i)i.focus(); },60); }
   function close(){ modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
   function showDone(msg){ $("book-done-sub").innerHTML=msg; $("book-formview").hidden=true; $("book-done").hidden=false; }
@@ -1878,7 +1885,8 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
     const join=$("book-join"); const wantsList=!!(join && join.checked);
     const payload={ name:g("name"), email:g("email"), phone:g("phone"), date:g("date"),
       event_type:g("event_type"), start:g("start"), hours:g("hours"), budget:g("budget"),
-      timeline:g("timeline"), location:g("location"), details:g("details"), joinlist:wantsList };
+      timeline:g("timeline"), location:g("location"), details:g("details"), joinlist:wantsList,
+      company:g("company"), elapsed:(bookOpenedAt?(Date.now()-bookOpenedAt):null) };
     // Primary: worker /booking — emails the band (reply-to = customer) + sends the customer an auto-reply
     try{
       const res=await fetch("https://add.thelocaljam.com/booking",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
@@ -2008,6 +2016,11 @@ if(!REDUCE){
 /* ---- hero entrance ---- */
 requestAnimationFrame(()=>document.body.classList.add("ready"));
 })();
+</script>
+<script>
+  /* Cloudflare Web Analytics: paste your token below to switch it on (Cloudflare \u2192 Analytics & Logs \u2192 Web Analytics \u2192 Add a site). */
+  var CF_ANALYTICS_TOKEN="";
+  if(CF_ANALYTICS_TOKEN){var s=document.createElement("script");s.defer=true;s.src="https://static.cloudflareinsights.com/beacon.min.js";s.setAttribute("data-cf-beacon",'{"token":"'+CF_ANALYTICS_TOKEN+'"}');document.head.appendChild(s);}
 </script>
 </body>
 </html>
