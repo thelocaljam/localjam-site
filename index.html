@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: booking auto-reply via worker -->
+  <!-- build refresh: fan-photo deep link (#share-photos) -->
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -1828,6 +1828,9 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
   document.getElementById('fan-done-close').addEventListener('click',close);
   modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&modal.classList.contains('open')) close(); });
+  function maybeOpenFromHash(){ if(/^#(share-photos|add-photo|fan)$/i.test(location.hash||'')){ reset(); open(); } }
+  window.addEventListener('hashchange',maybeOpenFromHash);
+  maybeOpenFromHash();
   function compress(file){ return new Promise(function(res,rej){ const img=new Image(); const url=URL.createObjectURL(file); img.onload=function(){ URL.revokeObjectURL(url); const md=1600; var w=img.naturalWidth,h=img.naturalHeight; var sc=Math.min(1,md/Math.max(w,h)); var cw=Math.max(1,Math.round(w*sc)),ch=Math.max(1,Math.round(h*sc)); var c=document.createElement('canvas'); c.width=cw; c.height=ch; c.getContext('2d').drawImage(img,0,0,cw,ch); res(c.toDataURL('image/jpeg',0.82)); }; img.onerror=function(){ URL.revokeObjectURL(url); rej(new Error('bad')); }; img.src=url; }); }
   input.addEventListener('change',async function(){ const file=input.files&&input.files[0]; if(!file) return; if(!/^image\/(png|jpe?g)$/i.test(file.type)){ status.textContent='Please choose a JPG or PNG photo.'; status.className='mf-status err'; return; } fileLabel.textContent='Compressing\u2026'; try{ dataUrl=await compress(file); preview.src=dataUrl; preview.style.display='block'; fileLabel.textContent=file.name.length>28?file.name.slice(0,28)+'\u2026':file.name; status.textContent=''; status.className='mf-status'; }catch(e){ status.textContent='Could not read that image \u2014 try another.'; status.className='mf-status err'; fileLabel.innerHTML='\uD83D\uDCF7&nbsp; Choose a photo\u2026'; } });
   submit.addEventListener('click',async function(){
