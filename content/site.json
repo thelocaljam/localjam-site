@@ -403,8 +403,8 @@
       {
         "date": "2026-08-15",
         "venue": "Interlake RV Resort - Rec Hall",
-        "loc": "428 Lake Dr. Rhinebeck, NY 12572",
-        "time": "7:00-10:00pm \"Open to public @ $5 per car load. Car tag at entrance Office\"",
+        "loc": "428 Lake Dr. Rhinebeck, NY 12572    \"Open to public @ $5 per car load. Car tag at entrance Office\"",
+        "time": "7:00-10:00pm",
         "tag": ""
       }
     ],
