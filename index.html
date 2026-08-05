@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- build refresh: simple optional date + booking fields -->
+  <!-- build refresh: booking auto-reply via worker -->
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -1878,23 +1878,35 @@ function openDoc(key){ const m=document.getElementById('doc-modal'), d=DOCS[key]
   bf.addEventListener("submit",async e=>{
     e.preventDefault();
     if(!bf.checkValidity()){ bf.reportValidity(); return; }
-    const fd=new FormData(bf); btn.disabled=true; status.className="mf-status"; status.textContent="Sending\u2026";
-    const join=$("book-join"); if(join && join.checked) brevoSubscribe(fd.get("email"));   // opt-in → Brevo (fires welcome email)
+    const fd=new FormData(bf); const g=n=>(fd.get(n)||"").toString();
+    btn.disabled=true; status.className="mf-status"; status.textContent="Sending\u2026";
+    const join=$("book-join"); const wantsList=!!(join && join.checked);
+    const payload={ name:g("name"), email:g("email"), phone:g("phone"), date:g("date"),
+      event_type:g("event_type"), music:g("music"), hours:g("hours"), budget:g("budget"),
+      timeline:g("timeline"), location:g("location"), details:g("details"), joinlist:wantsList };
+    // Primary: worker /booking — emails the band (reply-to = customer) + sends the customer an auto-reply
+    try{
+      const res=await fetch("https://add.thelocaljam.com/booking",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
+      const out=await res.json().catch(()=>({}));
+      if(res.ok && out.ok){ bf.reset(); showDone("Thanks \u2014 we got your request and just sent a confirmation to your inbox. A real person will be in touch soon.<br>\u2014 The Local Jam"); return; }
+      throw new Error((out&&out.error)||"send failed");
+    }catch(_){ /* fall through to backups below */ }
+    // Backup 1: Formspree, if configured
     if(endpoint){
       try{
         const res=await fetch(endpoint,{method:"POST",headers:{Accept:"application/json"},body:fd});
-        if(res.ok){ bf.reset(); showDone("We got your request \u2014 we\u2019ll reach out shortly to lock in the details. Talk soon!<br>\u2014 The Local Jam"); }
-        else throw new Error();
-      }catch(_){ status.className="mf-status err"; status.textContent="Couldn't send \u2014 please email "+c.email+"."; btn.disabled=false; }
-    } else {
-      const g=n=>fd.get(n)||"";
-      const body=["Name: "+g("name"),"Email: "+g("email"),"Phone: "+g("phone"),"Event date: "+g("date"),
-        "Type of event: "+g("event_type"),"Music vibe: "+g("music"),"Length: "+g("hours"),"Budget: "+g("budget"),
-        "How soon: "+g("timeline"),"Location: "+g("location"),
-        "","Details:",g("details")].join("\n");
-      window.location.href="mailto:"+c.email+"?subject="+encodeURIComponent("Booking request \u2014 "+(g("name")||"Website"))+"&body="+encodeURIComponent(body);
-      showDone("We\u2019ve opened your email app \u2014 just hit send and we\u2019ll be in touch shortly. Talk soon!<br>\u2014 The Local Jam");
+        if(res.ok){ if(wantsList) brevoSubscribe(g("email")); bf.reset(); showDone("We got your request \u2014 we\u2019ll reach out shortly to lock in the details. Talk soon!<br>\u2014 The Local Jam"); return; }
+      }catch(__){}
     }
+    // Backup 2: mailto
+    const body=["Name: "+g("name"),"Email: "+g("email"),"Phone: "+g("phone"),"Event date: "+g("date"),
+      "Type of event: "+g("event_type"),"Music vibe: "+g("music"),"Length: "+g("hours"),"Budget: "+g("budget"),
+      "How soon: "+g("timeline"),"Location: "+g("location"),
+      "","Details:",g("details")].join("\n");
+    window.location.href="mailto:"+c.email+"?subject="+encodeURIComponent("Booking request \u2014 "+(g("name")||"Website"))+"&body="+encodeURIComponent(body);
+    if(wantsList) brevoSubscribe(g("email"));
+    showDone("We\u2019ve opened your email app \u2014 just hit send and we\u2019ll be in touch shortly. Talk soon!<br>\u2014 The Local Jam");
+    btn.disabled=false;
   });
 })();
 
