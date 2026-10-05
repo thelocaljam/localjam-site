@@ -214,7 +214,7 @@
         "name": "Bobby",
         "role": "Bass & Vocals",
         "photo": "/images/uploads/macdougall_bobby.jpg",
-        "guest": true
+        "guest": false
       }
     ],
     "membersHidden": []
