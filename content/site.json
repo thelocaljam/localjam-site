@@ -24,14 +24,14 @@
     "sub": "Live cuts and the latest promo — straight from Hudson Valley lawns and pubs.",
     "videos": [
       {
-        "title": "The Local Jam perform \"One After 909\" by The Beatles",
-        "sub": "Rhinebeck Porchfest, 2026",
-        "youtube": "https://youtu.be/DX8sglG6SMg"
-      },
-      {
         "title": "THE LOCAL JAM PROMO_26_27",
         "sub": "Beatles, Tom Petty, The Band and more.....",
         "youtube": "https://youtu.be/pYXPk0fVoW4"
+      },
+      {
+        "title": "The Local Jam perform \"One After 909\" by The Beatles",
+        "sub": "Rhinebeck Porchfest, 2026",
+        "youtube": "https://youtu.be/DX8sglG6SMg"
       }
     ],
     "videosHidden": [
